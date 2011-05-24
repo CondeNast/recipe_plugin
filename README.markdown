@@ -1,16 +1,16 @@
 ZipList Recipe Plugin
 =====================
 
-Contributors: ZipList Inc., codeswan
-Donate: http://sushiday.com/recipe-seo-plugin/
-Tags: recipes, seo, hrecipe, Recipe View
-Requires at least: 3.1
-Tested up to: 3.1
-Stable tag: 0.9
+ * Contributors: ZipList Inc., codeswan
+ * Donate: http://sushiday.com/recipe-seo-plugin/
+ * Tags: recipes, seo, hrecipe, Recipe View
+ * Requires at least: 3.1
+ * Tested up to: 3.1
+ * Stable tag: 0.9
 
-ZipList recipe formatting for WordPress.
+[ZipList](http://www.ziplist.com) recipe formatting for WordPress.
 
-This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: http://sushiday.com/recipe-seo-plugin/
+This code is derived from the 1.3.1 build of [RecipeSEO](http://sushiday.com/recipe-seo-plugin/) released by codeswan.
 
 Recipe SEO made simple. Formats your recipes with the appropriate microformats, so they are more likely to appear in Google's Recipe View. Allows you to customize styling too, making posts visually attractive.
 
@@ -57,6 +57,8 @@ Screenshots
 -----------
 
 1. The RecipeSEO Plugin icon is located next to the other "Upload/Insert" media icons.
+![Screen Shot 1](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-1.png)
+
 2. It's easy to enter the basic information for your recipes: the title, the ingredients, and the instructions for preparing the recipe.
 3. There is no limit on the number of ingredients you can add.
 4. And if you want to add even more information about your recipe, such as your rating of the recipe, or the serving size, all you have to do is click the "More Options" link, and you can!
