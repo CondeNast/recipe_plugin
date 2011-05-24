@@ -17,19 +17,19 @@ License: GPLv2 or later, unless specified
    License: none (public domain)
 */
 
-#zlrecipe_container html, #zlrecipe_container body, #zlrecipe_container div, #zlrecipe_container span, #zlrecipe_container applet, #zlrecipe_container object, #zlrecipe_container iframe,
-#zlrecipe_container h1, #zlrecipe_container h2, #zlrecipe_container h3, #zlrecipe_container h4, #zlrecipe_container h5, #zlrecipe_container h6, #zlrecipe_container p, #zlrecipe_container blockquote, #zlrecipe_container pre,
-#zlrecipe_container a, #zlrecipe_container abbr, #zlrecipe_container acronym, #zlrecipe_container address, #zlrecipe_container big, #zlrecipe_container cite, #zlrecipe_container code,
-#zlrecipe_container del, #zlrecipe_container dfn, #zlrecipe_container em, #zlrecipe_container img, #zlrecipe_container ins, #zlrecipe_container kbd, #zlrecipe_container q, #zlrecipe_container s, #zlrecipe_container samp,
-#zlrecipe_container small, #zlrecipe_container strike, #zlrecipe_container strong, #zlrecipe_container sub, #zlrecipe_container sup, #zlrecipe_container tt, #zlrecipe_container var,
-#zlrecipe_container b, #zlrecipe_container u, #zlrecipe_container i, #zlrecipe_container center,
-#zlrecipe_container dl, #zlrecipe_container dt, #zlrecipe_container dd, #zlrecipe_container ol, #zlrecipe_container ul, #zlrecipe_container li,
-#zlrecipe_container fieldset, #zlrecipe_container form, #zlrecipe_container label, #zlrecipe_container legend,
-#zlrecipe_container table, #zlrecipe_container caption, #zlrecipe_container tbody, #zlrecipe_container tfoot, #zlrecipe_container thead, #zlrecipe_container tr, #zlrecipe_container th, #zlrecipe_container td,
-#zlrecipe_container article, #zlrecipe_container aside, #zlrecipe_container canvas, #zlrecipe_container details, #zlrecipe_container embed, #zlrecipe_container figure,
-#zlrecipe_container figcaption, #zlrecipe_container footer, #zlrecipe_container header, #zlrecipe_container hgroup, #zlrecipe_container menu,
-#zlrecipe_container nav, #zlrecipe_container output, #zlrecipe_container ruby, #zlrecipe_container section, #zlrecipe_container summary,
-#zlrecipe_container time, #zlrecipe_container mark, #zlrecipe_container audio, #zlrecipe_container video {
+#zlrecipe-container html, #zlrecipe-container body, #zlrecipe-container div, #zlrecipe-container span, #zlrecipe-container applet, #zlrecipe-container object, #zlrecipe-container iframe,
+#zlrecipe-container h1, #zlrecipe-container h2, #zlrecipe-container h3, #zlrecipe-container h4, #zlrecipe-container h5, #zlrecipe-container h6, #zlrecipe-container p, #zlrecipe-container blockquote, #zlrecipe-container pre,
+#zlrecipe-container a, #zlrecipe-container abbr, #zlrecipe-container acronym, #zlrecipe-container address, #zlrecipe-container big, #zlrecipe-container cite, #zlrecipe-container code,
+#zlrecipe-container del, #zlrecipe-container dfn, #zlrecipe-container em, #zlrecipe-container img, #zlrecipe-container ins, #zlrecipe-container kbd, #zlrecipe-container q, #zlrecipe-container s, #zlrecipe-container samp,
+#zlrecipe-container small, #zlrecipe-container strike, #zlrecipe-container strong, #zlrecipe-container sub, #zlrecipe-container sup, #zlrecipe-container tt, #zlrecipe-container var,
+#zlrecipe-container b, #zlrecipe-container u, #zlrecipe-container i, #zlrecipe-container center,
+#zlrecipe-container dl, #zlrecipe-container dt, #zlrecipe-container dd, #zlrecipe-container ol, #zlrecipe-container ul, #zlrecipe-container li,
+#zlrecipe-container fieldset, #zlrecipe-container form, #zlrecipe-container label, #zlrecipe-container legend,
+#zlrecipe-container table, #zlrecipe-container caption, #zlrecipe-container tbody, #zlrecipe-container tfoot, #zlrecipe-container thead, #zlrecipe-container tr, #zlrecipe-container th, #zlrecipe-container td,
+#zlrecipe-container article, #zlrecipe-container aside, #zlrecipe-container canvas, #zlrecipe-container details, #zlrecipe-container embed, #zlrecipe-container figure,
+#zlrecipe-container figcaption, #zlrecipe-container footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-container menu,
+#zlrecipe-container nav, #zlrecipe-container output, #zlrecipe-container ruby, #zlrecipe-container section, #zlrecipe-container summary,
+#zlrecipe-container time, #zlrecipe-container mark, #zlrecipe-container audio, #zlrecipe-container video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -38,37 +38,37 @@ License: GPLv2 or later, unless specified
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-#zlrecipe_container article, #zlrecipe_container aside, #zlrecipe_container details, #zlrecipe_container figcaption, #zlrecipe_container figure, #zlrecipe_container 
-footer, #zlrecipe_container header, #zlrecipe_container hgroup, #zlrecipe_container menu, #zlrecipe_container nav, #zlrecipe_container section {
+#zlrecipe-container article, #zlrecipe-container aside, #zlrecipe-container details, #zlrecipe-container figcaption, #zlrecipe-container figure, #zlrecipe-container 
+footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-container menu, #zlrecipe-container nav, #zlrecipe-container section {
 	display: block;
 }
-#zlrecipe_container ol, #zlrecipe_container ul {
+#zlrecipe-container ol, #zlrecipe-container ul {
 	list-style: none;
 }
-#zlrecipe_container blockquote, #zlrecipe_container q {
+#zlrecipe-container blockquote, #zlrecipe-container q {
 	quotes: none;
 }
-#zlrecipe_container blockquote:before, #zlrecipe_container blockquote:after,
-#zlrecipe_container q:before, #zlrecipe_container q:after {
+#zlrecipe-container blockquote:before, #zlrecipe-container blockquote:after,
+#zlrecipe-container q:before, #zlrecipe-container q:after {
 	content: '';
 	content: none;
 }
-#zlrecipe_container table {
+#zlrecipe-container table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 /* END RESETS */
 
 /* BASE */
-p {
+#zlrecipe-container p {
   line-height: 1.2em;
   margin: 1em 0;
 }
-ul {
+#zlrecipe-container ul {
   margin: 1em;
   padding: 0 0 0 2.4em;
 }
-ol {
+#zlrecipe-container ol {
   list-style-type: decimal;
   margin: 1em 0;
   padding: 0 0 0 3em;
@@ -76,47 +76,47 @@ ol {
 /* END BASE */
 
 /* TYPOGRAPHY */
-.heading-one, .h-1 { font-size: 2em; }
-.heading-two, .h-2 { font-size: 1.75em; }
-.heading-three, .h-3 { font-size: 1.5em }
-.heading-four, .h-4 { font-size: 1.25em }
+#zlrecipe-container .heading-one, #zlrecipe-container .h-1 { font-size: 2em; }
+#zlrecipe-container .heading-two, #zlrecipe-container .h-2 { font-size: 1.75em; }
+#zlrecipe-container .heading-three, #zlrecipe-container .h-3 { font-size: 1.5em }
+#zlrecipe-container .heading-four, #zlrecipe-container .h-4 { font-size: 1.25em }
 
-.bold, .strong { font-weight: bold; }
-.italic, .em { font-style: italic; }
+#zlrecipe-container .bold, #zlrecipe-container .strong { font-weight: bold; }
+#zlrecipe-container .italic, #zlrecipe-container .em { font-style: italic; }
 
-.serif { font-family: palatino, 'palatino linotype', Georgia, 'Times New Roman', Times, serif; }
-.sans-serif { font-family: 'helvetica neue', helvetica, arial, verdana, sans-serif; }
+#zlrecipe-container .serif { font-family: palatino, 'palatino linotype', Georgia, 'Times New Roman', Times, serif; }
+#zlrecipe-container .sans-serif { font-family: 'helvetica neue', helvetica, arial, verdana, sans-serif; }
 
 .text-align-center, .t-a-c { text-align: center; }
 /* END TYPOGRAPHY */
 
 /* FORMATTING */
-.padding-all, .p-a { padding: 1em; }
-.padding-top, .p-t { padding-top: 1em; }
-.padding-right, .p-r { padding-right: 1em; }
-.padding-bottom, .p-b { padding-bottom: 1em; }
-.padding-left, .p-l { padding-left: 1em; }
+#zlrecipe-container .padding-all, #zlrecipe-container .p-a { padding: 1em; }
+#zlrecipe-container .padding-top, #zlrecipe-container .p-t { padding-top: 1em; }
+#zlrecipe-container .padding-right, #zlrecipe-container .p-r { padding-right: 1em; }
+#zlrecipe-container .padding-bottom, #zlrecipe-container .p-b { padding-bottom: 1em; }
+#zlrecipe-container .padding-left, #zlrecipe-container .p-l { padding-left: 1em; }
 
-.float-left, .fl-l { float: left; }
-.float-right, .fl-r { float: right; }
+#zlrecipe-container .float-left, #zlrecipe-container .fl-l { float: left; }
+#zlrecipe-container .float-right, #zlrecipe-container .fl-r { float: right; }
 
-.width-50, .w-50 { width: 50%; }
+#zlrecipe-container .width-50, #zlrecipe-container .w-50 { width: 50%; }
 
-.clear { clear: both; }
+#zlrecipe-container .clear { clear: both; }
 
-.border-bottom, .b-b { border-bottom: 1px solid #000; }
-.border-top, .b-t { border-top: 1px solid #000; }
+#zlrecipe-container .border-bottom, #zlrecipe-container .b-b { border-bottom: 1px solid #000; }
+#zlrecipe-container .border-top, #zlrecipe-container .b-t { border-top: 1px solid #000; }
 /* END FORMATTING */
 
 /* SPECIFIC ELEMENT STYLES */
 #zlrecipe-container { padding: 10px; }
 #zlrecipe-title { padding-bottom: 0.5em; }
 
-.meta {
+#zlrecipe-container .meta {
   font-size: 0.85em;
   font-weight: bold;
 }
-.meta span { font-weight: normal; }
+#zlrecipe-container .meta span { font-weight: normal; }
 
 #zlrecipe-rating .rating {
   background: url('http://ab-assets.ziplist.com.s3.amazonaws.com/star-rating.gif') no-repeat scroll 0 0;
@@ -125,31 +125,31 @@ ol {
   text-indent: -9999px;
   width: 80px;
 }
-#zlrecipe-rating .rating-5 { background-position: 0 0; }
-#zlrecipe-rating .rating-45 { background-position: 0 -14px; }
-#zlrecipe-rating .rating-4 { background-position: 0 -28px; }
-#zlrecipe-rating .rating-35 { background-position: 0 -42px; }
-#zlrecipe-rating .rating-3 { background-position: 0 -56px; }
-#zlrecipe-rating .rating-25 { background-position: 0 -70px; }
-#zlrecipe-rating .rating-2 { background-position: 0 -84px; }
-#zlrecipe-rating .rating-15 { background-position: 0 -98px; }
-#zlrecipe-rating .rating-1 { background-position: 0 -112px; }
-#zlrecipe-rating .rating-05 { background-position: 0 -126px; }
-#zlrecipe-rating .rating-0 { background-position: 0 -140px; }
+#zlrecipe-container #zlrecipe-rating .rating-5 { background-position: 0 0; }
+#zlrecipe-container #zlrecipe-rating .rating-45 { background-position: 0 -14px; }
+#zlrecipe-container #zlrecipe-rating .rating-4 { background-position: 0 -28px; }
+#zlrecipe-container #zlrecipe-rating .rating-35 { background-position: 0 -42px; }
+#zlrecipe-container #zlrecipe-rating .rating-3 { background-position: 0 -56px; }
+#zlrecipe-container #zlrecipe-rating .rating-25 { background-position: 0 -70px; }
+#zlrecipe-container #zlrecipe-rating .rating-2 { background-position: 0 -84px; }
+#zlrecipe-container #zlrecipe-rating .rating-15 { background-position: 0 -98px; }
+#zlrecipe-container #zlrecipe-rating .rating-1 { background-position: 0 -112px; }
+#zlrecipe-container #zlrecipe-rating .rating-05 { background-position: 0 -126px; }
+#zlrecipe-container #zlrecipe-rating .rating-0 { background-position: 0 -140px; }
 
-#zlrecipe-ingredients-list, #zlrecipe-instructions-list { line-height: 1.5em; }
-#zlrecipe-ingredients-list li {
+#zlrecipe-container #zlrecipe-ingredients-list, #zlrecipe-container #zlrecipe-instructions-list { line-height: 1.5em; }
+#zlrecipe-container #zlrecipe-ingredients-list li {
   list-style-type: none;
 }
-#zlrecipe-instructions-list { margin: 0 0.5em; }
+#zlrecipe-container #zlrecipe-instructions-list { margin: 0 0.5em; }
 
-.img-desc-wrap {
+#zlrecipe-container .img-desc-wrap {
   background-color: #efefef;
   padding-top: 1px;
 }
-.img-desc-wrap img.photo { width:545px; }
-.img-desc-wrap .summary { padding:0 10px 10px; }
+#zlrecipe-container .img-desc-wrap img.photo { width:545px; }
+#zlrecipe-container .img-desc-wrap .summary { padding:0 10px 10px; }
 
-.zl-linkback { font-size: 0.9em; color: #aaa; margin-top: 4em; }
+#zlrecipe-container .zl-linkback { font-size: 0.9em; color: #aaa; margin-top: 4em; }
 /* END SPECIFIC ELEMENT STYLES */
 

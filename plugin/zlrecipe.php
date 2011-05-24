@@ -254,27 +254,11 @@ function amd_zlrecipe_settings() {
     $recipe_title_hide = (strcmp($recipe_title_hide, 'Hide') == 0 ? 'checked="checked"' : '');
 
     // Outer (hrecipe) border style
-    // Need to make this into associative array -- no time to lrn php now :)
-    $obs = array();
-    $i = 0;
-    switch ($outer_border_style) {
-		case "1px solid":
-			$i=1;
-			break;
-		case "1px dotted":
-			$i=2;
-			break;
-		case "1px dashed":
-			$i=3;
-			break;
-		case "2px solid":
-			$i=4;
-			break;
-		case "double":
-			$i=5;
-			break;
+	$obs = '';
+	$borders = array('None' => '', 'Solid' => '1px solid', 'Dotted' => '1px dotted', 'Dashed' => '1px dashed', 'Thick Solid' => '2px solid', 'Double' => 'double');
+	foreach ($borders as $label => $code) {
+		$obs .= '<option value="' . $code . '" ' . (strcmp($outer_border_style, $code) == 0 ? 'selected="true"' : '') . '>' . $label . '</option>';
 	}
-	$obs[$i] = 'selected="true"';
 
     $ingredient_label_hide = (strcmp($ingredient_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     
@@ -349,14 +333,7 @@ function amd_zlrecipe_settings() {
                 <tr valign="top">
                 	<th scope="row">Border Style</th>
                 	<td>
-						<select name="outer-border-style">
-							  <option value="">None</option>
-							  <option value="1px solid" ' . $obs[1] . '>Solid</option>
-							  <option value="1px dotted" ' . $obs[2] . '>Dotted</option>
-							  <option value="1px dashed" ' . $obs[3] . '>Dashed</option>
-							  <option value="2px solid" ' . $obs[4] . '>Thick Solid</option>
-							  <option value="double" ' . $obs[5] . '>Double</option>
-						</select>
+						<select name="outer-border-style">' . $obs . '</select>
 					</td>
 				</tr>
             </table>
