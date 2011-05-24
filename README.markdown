@@ -56,20 +56,50 @@ You can email mailto:support@ziplist.com with your requests.
 Screenshots
 -----------
 
-### The RecipeSEO Plugin icon is located next to the other "Upload/Insert" media icons.
+#### The RecipeSEO Plugin icon is located next to the other "Upload/Insert" media icons.
 
 ![Screen Shot 1](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-1.png)
 
-2. It's easy to enter the basic information for your recipes: the title, the ingredients, and the instructions for preparing the recipe.
-3. There is no limit on the number of ingredients you can add.
-4. And if you want to add even more information about your recipe, such as your rating of the recipe, or the serving size, all you have to do is click the "More Options" link, and you can!
-5. You can fill out as many or as few additional options as you would like.
-6. Once you click the "Add Recipe" button, a placeholder image will be inserted into your post where your recipe will go.
-7. Once you preview or publish the post, your recipe will be there with all your microformats... without any extra work from you!
-8. Voila! Your new recipe can easily be styled with CSS, to look however you would like.
-9. But what if you want to make changes to the recipe you just entered?  All you have to do is click on the placeholder image, and then click on the big fat edit image (the left-hand one).
-10. Make your changes and click the "Update Recipe" button...
-11. Edited!  Easy as can be.
+#### It's easy to enter the basic information for your recipes: the title, the ingredients, and the instructions for preparing the recipe.
+
+![Screen Shot 2](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-2.png)
+
+#### There is no limit on the number of ingredients you can add.
+
+![Screen Shot 3](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-3.png)
+
+#### And if you want to add even more information about your recipe, such as your rating of the recipe, or the serving size, all you have to do is click the "More Options" link, and you can!
+
+![Screen Shot 4](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-4.png)
+
+#### You can fill out as many or as few additional options as you would like.
+
+![Screen Shot 5](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-5.png)
+
+#### Once you click the "Add Recipe" button, a placeholder image will be inserted into your post where your recipe will go.
+
+![Screen Shot 6](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-6.png)
+
+#### Once you preview or publish the post, your recipe will be there with all your microformats... without any extra work from you!
+
+![Screen Shot 7](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-7.png)
+
+#### Voila! Your new recipe can easily be styled with CSS, to look however you would like.
+
+![Screen Shot 8](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-8.png)
+
+#### But what if you want to make changes to the recipe you just entered?  All you have to do is click on the placeholder image, and then click on the big fat edit image (the left-hand one).
+
+![Screen Shot 9](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-9.png)
+
+#### Make your changes and click the "Update Recipe" button...
+
+![Screen Shot 10](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-10.png)
+
+#### Edited!  Easy as can be.
+
+![Screen Shot 11](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-11.png)
+
 
 Changelog
 =========
