@@ -56,7 +56,8 @@ You can email mailto:support@ziplist.com with your requests.
 Screenshots
 -----------
 
-1. The RecipeSEO Plugin icon is located next to the other "Upload/Insert" media icons.
+### The RecipeSEO Plugin icon is located next to the other "Upload/Insert" media icons.
+
 ![Screen Shot 1](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-1.png)
 
 2. It's easy to enter the basic information for your recipes: the title, the ingredients, and the instructions for preparing the recipe.
