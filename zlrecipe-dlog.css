@@ -1,0 +1,44 @@
+/*
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.5.2
+*/
+body { font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small; }table { font-size:inherit;font:100%; }pre,code,kbd,samp,tt{ font-family:monospace;*font-size:108%;line-height:100%; }
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{ margin:0;padding:0; }table{ border-collapse:collapse;border-spacing:0; }fieldset,img{ border:0; }address,caption,cite,code,dfn,em,strong,th,var{ font-style:normal;font-weight:normal; }li{ list-style:none; }caption,th{ text-align:left; }h1,h2,h3,h4,h5,h6{ font-size:100%;font-weight:normal; }q:before,q:after{ content:''; }abbr,acronym { border:0;font-variant:normal; }sup { vertical-align:text-top; }sub { vertical-align:text-bottom; }input,textarea,select{ font-family:inherit;font-size:inherit;font-weight:inherit; }input,textarea,select{ *font-size:100%; }legend{ color:#000; }
+
+/* End Yahoo code */
+
+.cls { zoom:1; } .cls:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+
+
+body#amd-zlrecipe-uploader { }
+
+#amd-zlrecipe-uploader a { outline: 0; }
+#amd-zlrecipe-uploader form { margin: 13px; }
+#amd-zlrecipe-form-items { width: 623px; border: 1px solid #DFDFDF; }
+#amd-zlrecipe-uploader h3.amd-zlrecipe-title { font-family: Georgia,"Times New Roman",Times,serif; font-weight: normal; color: #5A5A5A; font-size: 161.6%; margin: 13px 0; }
+#amd-zlrecipe-uploader p { margin: 16px; display: block; width: 590px; }
+#amd-zlrecipe-uploader label { font-weight: bold; font-size: 116%; line-height: 25px; }
+#amd-zlrecipe-uploader span.required { color: red; }
+#amd-zlrecipe-uploader input[type="text"], #amd-zlrecipe-uploader textarea { width: 460px; border: 1px solid #DFDFDF; float: right; line-height: 15px; margin: 1px; padding: 3px; -moz-border-radius: 4px; -khtml-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+#amd-zlrecipe-uploader textarea { height: 100px; }
+#amd-zlrecipe-uploader select { padding: 3px; }
+#amd-zlrecipe-uploader .rating { float: right; width: 470px;}
+#amd-zlrecipe-uploader input[type='text']:focus, #amd-zlrecipe-uploader input.text:focus, #amd-zlrecipe-uploader input[type='password']:focus, #amd-zlrecipe-uploader textarea:focus { background-color: #eee; border-color: #ccc; color:#383f41; -webkit-box-shadow:0 0 5px rgba(160,160,112,0.6); }
+#amd-zlrecipe-uploader #amd_zlrecipe_ingredients small { font-weight: normal; display: block; }
+#amd-zlrecipe-uploader #amd_zlrecipe_ingredients textarea { width: 585px; }
+#amd-zlrecipe-uploader a { color: #21759B; margin-bottom: 32px; display: block; }
+#amd-zlrecipe-uploader #amd-zlrecipe-instructions small { font-weight: normal; display: block; }
+#amd-zlrecipe-uploader #amd-zlrecipe-instructions textarea { width: 585px; }
+#amd-zlrecipe-uploader .time { width: 470px; float: right; }
+#amd-zlrecipe-uploader .time span { width: 126px; display: block; float: left; }
+#amd-zlrecipe-uploader .time span.last { width: 90px; }
+#amd-zlrecipe-uploader .time input { width: 50px; border: 1px solid #dfdfdf; line-height: 15px; padding: 3px; -moz-border-radius: 4px; -khtml-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+#amd-zlrecipe-uploader .time label { font-weight: normal; }
+#amd-zlrecipe-uploader input[type="submit"] { -moz-border-radius: 11px; -khtml-border-radius: 11px; -webkit-border-radius: 11px; border-radius: 11px -moz-box-sizing: content-box; border-style: solid; cursor: pointer; line-height: 13px; padding: 10px 25px; text-decoration: none; margin: 16px; text-shadow: 0 1px 0 #fff; background-color: #fff; border: 1px solid #bbb; font-size: 123.1%; font-weight: bold; }
+#amd-zlrecipe-uploader input[type="submit"]:hover { border-color: #666; }
+#amd-zlrecipe-uploader .input-error { border: 2px solid red !important; }
+#amd-zlrecipe-uploader #amd_zlrecipe_ingredients textarea.input-error { width: 585px !important; }
+#amd-zlrecipe-uploader p.error-message { color: red; font-weight: bold; }
+#amd-zlrecipe-uploader #recipe-title p.error-message { margin-left: 120px; }
