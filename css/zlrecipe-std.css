@@ -1,0 +1,155 @@
+/* ZLRecipe.css
+A base stylesheet for the ZipList Recipe Plugin
+Plugin URI: http://www.ziplist.com/
+Plugin Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
+Author: ZipList.com
+Author URI: http://www.ziplist.com/
+License: GPLv2 or later, unless specified
+*/
+
+/* Imports */
+/* The following import is required to produce the ZipList button appearance */
+@import url('http://www.zlcdn.com/stylesheets/minibox/generic.css');
+
+/* RESETS */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+#zlrecipe_container html, #zlrecipe_container body, #zlrecipe_container div, #zlrecipe_container span, #zlrecipe_container applet, #zlrecipe_container object, #zlrecipe_container iframe,
+#zlrecipe_container h1, #zlrecipe_container h2, #zlrecipe_container h3, #zlrecipe_container h4, #zlrecipe_container h5, #zlrecipe_container h6, #zlrecipe_container p, #zlrecipe_container blockquote, #zlrecipe_container pre,
+#zlrecipe_container a, #zlrecipe_container abbr, #zlrecipe_container acronym, #zlrecipe_container address, #zlrecipe_container big, #zlrecipe_container cite, #zlrecipe_container code,
+#zlrecipe_container del, #zlrecipe_container dfn, #zlrecipe_container em, #zlrecipe_container img, #zlrecipe_container ins, #zlrecipe_container kbd, #zlrecipe_container q, #zlrecipe_container s, #zlrecipe_container samp,
+#zlrecipe_container small, #zlrecipe_container strike, #zlrecipe_container strong, #zlrecipe_container sub, #zlrecipe_container sup, #zlrecipe_container tt, #zlrecipe_container var,
+#zlrecipe_container b, #zlrecipe_container u, #zlrecipe_container i, #zlrecipe_container center,
+#zlrecipe_container dl, #zlrecipe_container dt, #zlrecipe_container dd, #zlrecipe_container ol, #zlrecipe_container ul, #zlrecipe_container li,
+#zlrecipe_container fieldset, #zlrecipe_container form, #zlrecipe_container label, #zlrecipe_container legend,
+#zlrecipe_container table, #zlrecipe_container caption, #zlrecipe_container tbody, #zlrecipe_container tfoot, #zlrecipe_container thead, #zlrecipe_container tr, #zlrecipe_container th, #zlrecipe_container td,
+#zlrecipe_container article, #zlrecipe_container aside, #zlrecipe_container canvas, #zlrecipe_container details, #zlrecipe_container embed, #zlrecipe_container figure,
+#zlrecipe_container figcaption, #zlrecipe_container footer, #zlrecipe_container header, #zlrecipe_container hgroup, #zlrecipe_container menu,
+#zlrecipe_container nav, #zlrecipe_container output, #zlrecipe_container ruby, #zlrecipe_container section, #zlrecipe_container summary,
+#zlrecipe_container time, #zlrecipe_container mark, #zlrecipe_container audio, #zlrecipe_container video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+#zlrecipe_container article, #zlrecipe_container aside, #zlrecipe_container details, #zlrecipe_container figcaption, #zlrecipe_container figure, #zlrecipe_container 
+footer, #zlrecipe_container header, #zlrecipe_container hgroup, #zlrecipe_container menu, #zlrecipe_container nav, #zlrecipe_container section {
+	display: block;
+}
+#zlrecipe_container ol, #zlrecipe_container ul {
+	list-style: none;
+}
+#zlrecipe_container blockquote, #zlrecipe_container q {
+	quotes: none;
+}
+#zlrecipe_container blockquote:before, #zlrecipe_container blockquote:after,
+#zlrecipe_container q:before, #zlrecipe_container q:after {
+	content: '';
+	content: none;
+}
+#zlrecipe_container table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* END RESETS */
+
+/* BASE */
+p {
+  line-height: 1.2em;
+  margin: 1em 0;
+}
+ul {
+  margin: 1em;
+  padding: 0 0 0 2.4em;
+}
+ol {
+  list-style-type: decimal;
+  margin: 1em 0;
+  padding: 0 0 0 3em;
+}
+/* END BASE */
+
+/* TYPOGRAPHY */
+.heading-one, .h-1 { font-size: 2em; }
+.heading-two, .h-2 { font-size: 1.75em; }
+.heading-three, .h-3 { font-size: 1.5em }
+.heading-four, .h-4 { font-size: 1.25em }
+
+.bold, .strong { font-weight: bold; }
+.italic, .em { font-style: italic; }
+
+.serif { font-family: palatino, 'palatino linotype', Georgia, 'Times New Roman', Times, serif; }
+.sans-serif { font-family: 'helvetica neue', helvetica, arial, verdana, sans-serif; }
+
+.text-align-center, .t-a-c { text-align: center; }
+/* END TYPOGRAPHY */
+
+/* FORMATTING */
+.padding-all, .p-a { padding: 1em; }
+.padding-top, .p-t { padding-top: 1em; }
+.padding-right, .p-r { padding-right: 1em; }
+.padding-bottom, .p-b { padding-bottom: 1em; }
+.padding-left, .p-l { padding-left: 1em; }
+
+.float-left, .fl-l { float: left; }
+.float-right, .fl-r { float: right; }
+
+.width-50, .w-50 { width: 50%; }
+
+.clear { clear: both; }
+
+.border-bottom, .b-b { border-bottom: 1px solid #000; }
+.border-top, .b-t { border-top: 1px solid #000; }
+/* END FORMATTING */
+
+/* SPECIFIC ELEMENT STYLES */
+#zlrecipe-container { padding: 10px; }
+#zlrecipe-title { padding-bottom: 0.5em; }
+
+.meta {
+  font-size: 0.85em;
+  font-weight: bold;
+}
+.meta span { font-weight: normal; }
+
+#zlrecipe-rating .rating {
+  background: url('http://ab-assets.ziplist.com.s3.amazonaws.com/star-rating.gif') no-repeat scroll 0 0;
+  display: inline-block;
+  height: 14px;
+  text-indent: -9999px;
+  width: 80px;
+}
+#zlrecipe-rating .rating-5 { background-position: 0 0; }
+#zlrecipe-rating .rating-45 { background-position: 0 -14px; }
+#zlrecipe-rating .rating-4 { background-position: 0 -28px; }
+#zlrecipe-rating .rating-35 { background-position: 0 -42px; }
+#zlrecipe-rating .rating-3 { background-position: 0 -56px; }
+#zlrecipe-rating .rating-25 { background-position: 0 -70px; }
+#zlrecipe-rating .rating-2 { background-position: 0 -84px; }
+#zlrecipe-rating .rating-15 { background-position: 0 -98px; }
+#zlrecipe-rating .rating-1 { background-position: 0 -112px; }
+#zlrecipe-rating .rating-05 { background-position: 0 -126px; }
+#zlrecipe-rating .rating-0 { background-position: 0 -140px; }
+
+#zlrecipe-ingredients-list, #zlrecipe-instructions-list { line-height: 1.5em; }
+#zlrecipe-ingredients-list li {
+  list-style-type: none;
+}
+#zlrecipe-instructions-list { margin: 0 0.5em; }
+
+.img-desc-wrap {
+  background-color: #efefef;
+  padding-top: 1px;
+}
+.img-desc-wrap img.photo { width:545px; }
+.img-desc-wrap .summary { padding:0 10px 10px; }
+
+.zl-linkback { font-size: 0.9em; color: #aaa; margin-top: 4em; }
+/* END SPECIFIC ELEMENT STYLES */
+
