@@ -110,7 +110,16 @@ footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-contai
 
 /* SPECIFIC ELEMENT STYLES */
 #zlrecipe-container { padding: 10px; }
-#zlrecipe-title { padding-bottom: 0.5em; }
+#zlrecipe-container #zlrecipe-title { padding-bottom: 0.5em; }
+#zlrecipe-container .zlrecipe-print-link { padding-left: 0.5em; }
+#zlrecipe-container .zlrecipe-print-link .butn-link {
+    background: url("http://ab-assets.ziplist.com.s3.amazonaws.com/print-icon.png") no-repeat scroll 0 1px transparent;
+    cursor: pointer;
+    padding: 0 0 0 20px;
+}
+#zlrecipe-container .zlrecipe-print-link .butn-link:hover {
+	background-position: 0 -24px;
+}
 
 #zlrecipe-container .meta {
   font-size: 0.85em;
