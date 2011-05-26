@@ -1015,11 +1015,53 @@ function amd_zlrecipe_select_ingredients_db($recipe_id) {
 }
 */
 
+// Format an ISO8601 duration for human readibility
+function amd_zlrecipe_format_duration($duration) {
+	$date_abbr = array('y' => 'year', 'm' => 'month', 'd' => 'day', 'h' => 'hour', 'i' => 'minute', 's' => 'second');
+	$result = '';
+
+	if (class_exists('DateInterval')) {
+		try {
+			$result_object = new DateInterval($duration);
+
+			foreach ($date_abbr as $abbr => $name) {
+				if ($result_object->$abbr > 0) {
+					$result .= $result_object->$abbr . ' ' . $name;
+					if ($result_object->$abbr > 1) {
+						$result .= 's';
+					}
+					$result .= ', ';
+				}
+			}
+
+			$result = trim($result, ' \t,');
+		} catch (Exception $e) {
+			$result = $duration;
+		}
+	} else { // else we have to do the work ourselves so the output is pretty
+		$arr = explode('T', $duration);
+		$arr[1] = str_replace('M', 'I', $arr[1]); // This mimics the DateInterval property name
+		$duration = implode('T', $arr);
+
+		foreach ($date_abbr as $abbr => $name) {
+		if (preg_match('/(\d+)' . $abbr . '/ims', $duration, $val)) {
+				$result .= $val[1] . ' ' . $name;
+				if ($val[1] > 1) {
+					$result .= 's';
+				}
+				$result .= ', ';
+			}
+		}
+
+		$result = trim($result, ' \t,');
+	}
+	return $result;
+}
+
 // Formats the recipe for output
 //!!mwp function amd_zlrecipe_format_recipe($recipe, $ingredients) {
 function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     $output = "";
-    $duration = array('y' => 'year', 'm' => 'month', 'd' => 'day', 'h' => 'hour', 'i' => 'minute', 's' => 'second');
 
 	// Output main recipe div with border style
 	$style_tag = '';
@@ -1063,41 +1105,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     
     //!! recipe timing
     if ($recipe->prep_time != null) {
-        if (class_exists('DateInterval')) {
-            try {
-                $prep_time_object = new DateInterval($recipe->prep_time);
-            
-                $prep_time = '';
-                foreach ($duration as $abbr => $name) {
-                    if ($prep_time_object->$abbr > 0) {
-                        $prep_time .= $prep_time_object->$abbr . ' ' . $name;
-                        if ($prep_time_object->$abbr > 1) {
-                            $prep_time .= 's';
-                        }
-                        $prep_time .= ', ';
-                    }
-                }
-
-                $prep_time = trim($prep_time, ' \t,');
-            } catch (Exception $e) {
-                $prep_time = $recipe->prep_time;
-            }
-        } else {
-            $arr = explode('T', $recipe->prep_time); 
-            $arr[0] = str_replace('M', 'X', $arr[0]); 
-            $prep_time = implode('T', $arr);
-
-            $prep_time = str_replace('P', '', $prep_time);
-            $prep_time = str_replace('Y', ' years, ', $prep_time);
-            $prep_time = str_replace('X', ' months, ', $prep_time);
-            $prep_time = str_replace('D', ' days, ', $prep_time);
-            $prep_time = str_replace('T', '', $prep_time);
-            $prep_time = str_replace('H', ' hours, ', $prep_time);
-            $prep_time = str_replace('M', ' minutes, ', $prep_time);
-            $prep_time = str_replace('S', ' seconds', $prep_time);
-            
-            $prep_time = trim($prep_time, ' \t,');
-        }
+    	$prep_time = amd_zlrecipe_format_duration($recipe->prep_time);
         
         $output .= '<p id="zlrecipe-prep-time">';
         if (strcmp(get_option('zlrecipe_prep_time_label_hide'), 'Hide') != 0) {
@@ -1106,41 +1114,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         $output .= '<span class="preptime">' . $prep_time . '<span class="value-title" title="' . $recipe->prep_time . '"><!-- --></span></span></p>';
     }
     if ($recipe->cook_time != null) {
-        if (class_exists('DateInterval')) {
-            try {
-                $cook_time_object = new DateInterval($recipe->cook_time);
-            
-                $cook_time = '';
-                foreach ($duration as $abbr => $name) {
-                    if ($cook_time_object->$abbr > 0) {
-                        $cook_time .= $cook_time_object->$abbr . ' ' . $name;
-                        if ($cook_time_object->$abbr > 1) {
-                            $cook_time .= 's';
-                        }
-                        $cook_time .= ', ';
-                    }
-                }
-
-                $cook_time = trim($cook_time, ' \t,');
-            } catch (Exception $e) {
-                $cook_time = $recipe->cook_time;
-            }
-        } else {
-            $arr = explode('T', $recipe->cook_time); 
-            $arr[0] = str_replace('M', 'X', $arr[0]); 
-            $cook_time = implode('T', $arr);
-
-            $cook_time = str_replace('P', '', $cook_time);
-            $cook_time = str_replace('Y', ' years, ', $cook_time);
-            $cook_time = str_replace('X', ' months, ', $cook_time);
-            $cook_time = str_replace('D', ' days, ', $cook_time);
-            $cook_time = str_replace('T', '', $cook_time);
-            $cook_time = str_replace('H', ' hours, ', $cook_time);
-            $cook_time = str_replace('M', ' minutes, ', $cook_time);
-            $cook_time = str_replace('S', ' seconds', $cook_time);
-            
-            $cook_time = trim($cook_time, ' \t,');
-        }
+        $cook_time = amd_zlrecipe_format_duration($recipe->cook_time);
         
         $output .= '<p id="zlrecipe-cook-time">';
         if (strcmp(get_option('zlrecipe_cook_time_label_hide'), 'Hide') != 0) {
@@ -1149,41 +1123,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         $output .= '<span class="cooktime">' . $cook_time . '<span class="value-title" title="' . $recipe->cook_time . '"><!-- --></span></span></p>';
     }
     if ($recipe->total_time != null) {
-        if (class_exists('DateInterval')) {
-            try {
-                $total_time_object = new DateInterval($recipe->total_time);
-            
-                $total_time = '';
-                foreach ($duration as $abbr => $name) {
-                    if ($total_time_object->$abbr > 0) {
-                        $total_time .= $total_time_object->$abbr . ' ' . $name;
-                        if ($total_time_object->$abbr > 1) {
-                            $total_time .= 's';
-                        }
-                        $total_time .= ', ';
-                    }
-                }
-
-                $total_time = trim($total_time, ' \t,');
-            } catch (Exception $e) {
-                $total_time = $recipe->total_time;
-            }
-        } else {
-            $arr = explode('T', $recipe->total_time); 
-            $arr[0] = str_replace('M', 'X', $arr[0]); 
-            $total_time = implode('T', $arr);
-
-            $total_time = str_replace('P', '', $total_time);
-            $total_time = str_replace('Y', ' years, ', $total_time);
-            $total_time = str_replace('X', ' months, ', $total_time);
-            $total_time = str_replace('D', ' days, ', $total_time);
-            $total_time = str_replace('T', '', $total_time);
-            $total_time = str_replace('H', ' hours, ', $total_time);
-            $total_time = str_replace('M', ' minutes, ', $total_time);
-            $total_time = str_replace('S', ' seconds', $total_time);
-            
-            $total_time = trim($total_time, ' \t,');
-        }
+        $total_time = amd_zlrecipe_format_duration($recipe->total_time);
         
         $output .= '<p id="zlrecipe-total-time">';
         if (strcmp(get_option('zlrecipe_total_time_label_hide'), 'Hide') != 0) {
