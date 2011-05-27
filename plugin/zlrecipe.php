@@ -735,7 +735,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
             <input type='hidden' name='recipe_id' value='$recipe_id' />
             <p id='recipe-title'><label>Recipe Title <span class='required'>*</span></label> <input type='text' name='recipe_title' value='$recipe_title' /></p>
             <p id='recipe-image'><label>Recipe Image</label> <input type='text' name='recipe_image' value='$recipe_image' /></p>
-            <p id='amd_zlrecipe_ingredients' class='cls'><label>Ingredients <span class='required'>*</span> <small>(Put each ingredient on a separate line.  There is no need to use bullets for your ingredients.)</small></label><textarea name='ingredients'>$ingredients</textarea></label></p>
+            <p id='amd_zlrecipe_ingredients' class='cls'><label>Ingredients <span class='required'>*</span> <small>(Put each ingredient on a separate line.  There is no need to use bullets for your ingredients.)</small><small>(Start with an exclamation point to create a label, e.g., "!For the sauce")</small></label><textarea name='ingredients'>$ingredients</textarea></label></p>
             <p id='amd-zlrecipe-instructions' class='cls'><label>Instructions <small>(Press return after each instruction. There is no need to number your instructions.)</small></label><textarea name='instructions'>$instructions</textarea></label></p>
             <p><a href='#' id='more-options-toggle'>More options</a></p>
             <div id='more-options'>
@@ -1053,7 +1053,7 @@ function amd_zlrecipe_format_duration($duration) {
 		$duration = implode('T', $arr);
 
 		foreach ($date_abbr as $abbr => $name) {
-		if (preg_match('/(\d+)' . $abbr . '/ims', $duration, $val)) {
+		if (preg_match('/(\d+)' . $abbr . '/i', $duration, $val)) {
 				$result .= $val[1] . ' ' . $name;
 				if ($val[1] > 1) {
 					$result .= 's';
@@ -1210,6 +1210,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 
     $ingredient_type= '';
     $ingredient_tag = '';
+    $ingredient_class = '';
     $ingredient_list_type_option = get_option('zlrecipe_ingredient_list_type');
     if (strcmp($ingredient_list_type_option, 'ul') == 0 || strcmp($ingredient_list_type_option, 'ol') == 0) {
         $ingredient_type = $ingredient_list_type_option;
@@ -1227,9 +1228,13 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     $i = 0;
     $ingredients = explode("\n", $recipe->ingredients); //!!mwp
     foreach ($ingredients as $ingredient) {
-        $output .= '<' . $ingredient_tag . ' id="zlrecipe-ingredient-' . $i . '" class="ingredient">';
-        //!!mwp $output .= '<span id="zlrecipe-ingredient-' . $i . '-amount" class="amount">' . $ingredient->amount . '</span> ';
-        //!!mwp $output .= '<span id="zlrecipe-ingredient-' . $i . '-name" class="name">' . $ingredient->name . '</span>';
+    	if (preg_match("/^!(.*)/", $ingredient, $matches)) {
+    		$ingredient_class = 'ingredient-label';
+    		$ingredient = $matches[1];
+    	} else {
+    		$ingredient_class = 'ingredient';
+    	}
+        $output .= '<' . $ingredient_tag . ' id="zlrecipe-ingredient-' . $i . '" class="' . $ingredient_class . '">';
         $output .= $ingredient; //!!mwp
         $output .= '</' . $ingredient_tag . '>';
         $i++;
@@ -1271,7 +1276,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 	$hide_tag = '';
     if (strcmp(get_option('ziplist_attribution_hide'), 'Hide') == 0)
         $hide_tag = 'style="display: none;"';
-    $output .= '<div class="zl-linkback" ' . $hide_tag . '>Google Recipe View Microformatting by <a title="Wordpress Recipe Plugin" href="http://www.ziplist.com/" target="_blank">ZipList Recipe Plugin</a></div>';
+    $output .= '<div class="zl-linkback" ' . $hide_tag . '>Google Recipe View Microformatting by <a title="Wordpress Recipe Plugin" href="http://www.ziplist.com/recipe_plugin" target="_blank">ZipList Recipe Plugin</a></div>';
     $output .= '<div class="ziplist-recipe-plugin" style="display: none;">' . AMD_ZLRECIPE_VERSION_NUM . '</div>';
 
     $output .= '</div>'; //!!dc
