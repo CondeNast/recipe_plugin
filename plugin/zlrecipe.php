@@ -1002,6 +1002,7 @@ function amd_zlrecipe_convert_to_recipe($post_text) {
     return $output;
 }
 
+
 add_filter('the_content', 'amd_zlrecipe_convert_to_recipe');
 
 // Pulls a recipe from the db
@@ -1066,6 +1067,15 @@ function amd_zlrecipe_format_duration($duration) {
 	}
 	return $result;
 }
+
+// function to include the javascript for the Add Recipe button
+function amd_zlrecipe_add_button_script() {
+
+    $header_html='<script type="text/javascript" src="http://www.zlcdn.com/javascripts/pt_include.js"></script>
+';
+    echo $header_html;
+}
+add_filter('wp_head', 'amd_zlrecipe_add_button_script');
 
 // Formats the recipe for output
 //!!mwp function amd_zlrecipe_format_recipe($recipe, $ingredients) {
