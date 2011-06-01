@@ -1,0 +1,50 @@
+/* ZLRecipe-Print.css
+A print format stylesheet for the ZipList Recipe Plugin
+Plugin URI: http://www.ziplist.com/
+Plugin Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
+Author: ZipList.com
+Author URI: http://www.ziplist.com/
+License: GPLv2 or later, unless specified
+*/
+
+/* PRINT TYPOGRAPHY */
+#zlrecipe-print-container .fl-l { float: left; }
+#zlrecipe-print-container .width-50 { width: 50%; }
+#zlrecipe-print-container .clear { clear: both; }
+#zlrecipe-print-container p { clear: both; }
+
+/* SPECIFIC PRINT ELEMENT STYLES */
+#zlrecipe-print-container {
+  font-family: 'helvetica neue', helvetica, arial, verdana, sans-serif;
+  background-color: #777777;
+  margin: 0px;
+}
+
+#zlrecipe-innerdiv {
+  padding: 10px;
+  max-width: 7.5in;
+  margin: auto;
+  background-color: white;
+}
+#zlrecipe-print-container #zlrecipe-title {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+#zlrecipe-print-container .zlrecipe-print-link,
+#zlrecipe-print-container .zl-recipe-link,
+#zlrecipe-print-container .img-desc-wrap img.photo,
+#zlrecipe-print-container #zlrecipe-rating,
+#zlrecipe-print-container .zl-linkback
+{ display:none; }
+
+#zlrecipe-print-container .meta p {
+  margin: 0px;
+  font-size: 12px;
+}
+
+#zlrecipe-print-container .img-desc-wrap .summary {
+  font-style: italic;
+  font-size: 14px;
+}
+/* END PRINT FORMATTING */

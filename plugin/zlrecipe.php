@@ -1072,6 +1072,7 @@ function amd_zlrecipe_format_duration($duration) {
 function amd_zlrecipe_add_button_script() {
 
     $header_html='<script type="text/javascript" src="http://www.zlcdn.com/javascripts/pt_include.js"></script>
+    <script type="text/javascript" src="' . AMD_ZLRECIPE_PLUGIN_DIRECTORY . 'zlrecipe_print.js"></script>
 ';
     echo $header_html;
 }
@@ -1094,7 +1095,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 
     // Add the print button
     if (strcmp(get_option('zlrecipe_print_link_hide'), 'Hide') != 0) {
-		$output .= '<div class="zlrecipe-print-link fl-r"><a class="butn-link" title="Print this recipe" href="javascript:void(0);">Print</a></div>';
+		$output .= '<div class="zlrecipe-print-link fl-r"><a class="butn-link" title="Print this recipe" target="_blank" href="#" onclick="zlrPrint(\'zlrecipe-container\'); return false">Print</a></div>';
 	}
 
     //!!mwp add the ZipList recipe button
