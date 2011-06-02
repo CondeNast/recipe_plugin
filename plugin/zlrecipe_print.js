@@ -37,12 +37,11 @@ function zlrPrint(id)
 	self.focus();
 	win.document.open();
 	win.document.write('<html><head>');
-	// win.document.write('<link charset=\'utf-8\' href=\'http://www.zlcdn.com/stylesheets/minibox/zlrecipe-print.css\' rel=\'stylesheet\' type=\'text/css\' />');
-	win.document.write('<link charset=\'utf-8\' href=\'http://test.images.ziplist.com.s3.amazonaws.com/recipe_plugin/zlrecipe-print.css\' rel=\'stylesheet\' type=\'text/css\' />');
+	win.document.write('<link charset=\'utf-8\' href=\'http://www.zlcdn.com/stylesheets/minibox/zlrecipe-print.css\' rel=\'stylesheet\' type=\'text/css\' />');
 	win.document.write('</head><body>');
-	win.document.write('<div id=\'zlrecipe-page-container\' ><div id=\'zlrecipe-print-container\' >');
+	win.document.write('<div id=\'zlrecipe-print-container\' >');
 	win.document.write(content);
-	win.document.write('</div></div>');
+	win.document.write('</div>');
 	win.document.write('</body></html>');
 	win.document.close();
 	win.print();

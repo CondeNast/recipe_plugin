@@ -47,7 +47,8 @@ add_option(AMD_ZLRECIPE_VERSION_KEY, AMD_ZLRECIPE_VERSION_NUM);
 add_option('ziplist_partner_key', ''); //!!mwp
 add_option('ziplist_recipe_button_hide', ''); //!!mwp
 add_option('ziplist_attribution_hide', ''); //!!mwp
-add_option('recipe_title_hide', ''); //!!dc
+add_option('zlrecipe_stylesheet', 'zlrecipe-std'); //!!dc
+add_option('recipe_title_hide', ''); //!!dc (oops, btw)
 add_option('zlrecipe_print_link_hide', ''); //!!dc
 add_option('zlrecipe_ingredient_label', 'Ingredients');
 add_option('zlrecipe_ingredient_label_hide', '');
@@ -165,6 +166,7 @@ function amd_zlrecipe_settings() {
     	$ziplist_partner_key = $_POST['ziplist-partner-key'];
         $ziplist_recipe_button_hide = $_POST['ziplist-recipe-button-hide'];
         $ziplist_attribution_hide = $_POST['ziplist-attribution-hide'];
+        $stylesheet = $_POST['stylesheet'];
         $recipe_title_hide = $_POST['recipe-title-hide'];
         $print_link_hide = $_POST['print-link-hide'];
         $ingredient_label = $_POST['ingredient-label'];
@@ -195,7 +197,8 @@ function amd_zlrecipe_settings() {
         update_option('ziplist_partner_key', $ziplist_partner_key);
         update_option('ziplist_recipe_button_hide', $ziplist_recipe_button_hide);
         update_option('ziplist_attribution_hide', $ziplist_attribution_hide);
-        update_option('recipe_title_hide', $recipe_title_hide); // oops DC
+        update_option('zlrecipe_stylesheet', $stylesheet);
+        update_option('recipe_title_hide', $recipe_title_hide);
         update_option('zlrecipe_print_link_hide', $print_link_hide);
         update_option('zlrecipe_ingredient_label', $ingredient_label);
         update_option('zlrecipe_ingredient_label_hide', $ingredient_label_hide);
@@ -225,6 +228,7 @@ function amd_zlrecipe_settings() {
         $ziplist_partner_key = get_option('ziplist_partner_key');
         $ziplist_recipe_button_hide = get_option('ziplist_recipe_button_hide');
         $ziplist_attribution_hide = get_option('ziplist_attribution_hide');
+        $stylesheet = get_option('zlrecipe_stylesheet');
         $recipe_title_hide = get_option('recipe_title_hide');
         $print_link_hide = get_option('zlrecipe_print_link_hide');
         $ingredient_label = get_option('zlrecipe_ingredient_label');
@@ -257,6 +261,9 @@ function amd_zlrecipe_settings() {
     $ziplist_attribution_hide = (strcmp($ziplist_attribution_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $recipe_title_hide = (strcmp($recipe_title_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $print_link_hide = (strcmp($print_link_hide, 'Hide') == 0 ? 'checked="checked"' : '');
+
+    // Stylesheet processing
+    $stylesheet = (strcmp($stylesheet, 'zlrecipe-std') == 0 ? 'checked="checked"' : '');
 
     // Outer (hrecipe) border style
 	$obs = '';
@@ -345,6 +352,10 @@ function amd_zlrecipe_settings() {
 						<select name="outer-border-style">' . $obs . '</select>
 					</td>
 				</tr>
+                <tr valign="top">
+                    <th scope="row">Stylesheet</th>
+                    <td><label><input type="checkbox" name="stylesheet" value="zlrecipe-std" ' . $stylesheet . ' /> Use ZipList recipe style</label></td>
+                </tr>
             </table>
             <hr />            
             <h3>Ingredients</h3>
@@ -1070,22 +1081,24 @@ function amd_zlrecipe_format_duration($duration) {
 
 // function to include the javascript for the Add Recipe button
 function amd_zlrecipe_process_head() {
-	$css = '';
 
-	// javascript
-    $header_html='<script type="text/javascript" src="http://www.zlcdn.com/javascripts/pt_include.js"></script>
-    <script type="text/javascript" src="' . AMD_ZLRECIPE_PLUGIN_DIRECTORY . 'zlrecipe_print.js"></script>
+	// Always add the print script
+    $header_html='<script type="text/javascript" src="' . AMD_ZLRECIPE_PLUGIN_DIRECTORY . 'zlrecipe_print.js"></script>
 ';
 
-	// styles (I couldn't get wp_enqueue_styles to work...)
-	if (strcmp(get_option('ziplist_attribution_hide'), 'Hide') == 0) {
-		$css = 'generic';
-	} else {
-		$css = 'zlrecipe-std';
+	// If the button is activated, include the button script and the button styles
+	if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
+    	$header_html .= '<script type="text/javascript" src="http://www.zlcdn.com/javascripts/pt_include.js"></script>
+	<link charset="utf-8" href="http://www.zlcdn.com/stylesheets/minibox/generic.css" rel="stylesheet" type="text/css" />
+';
 	}
 
-	$header_html .= '<link charset="utf-8" href="http://www.zlcdn.com/stylesheets/minibox/' . $css . '.css" rel="stylesheet" type="text/css" />
+	// Recipe styling
+	$css = get_option('zlrecipe_stylesheet');
+	if (strcmp($css, '') != 0) {
+		$header_html .= '<link charset="utf-8" href="http://www.zlcdn.com/stylesheets/minibox/' . $css . '.css" rel="stylesheet" type="text/css" />
 ';
+	}
 
     echo $header_html;
 }
