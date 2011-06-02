@@ -2,8 +2,9 @@
 /*
 Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
+Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 0.9
+Version: 1.0
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv2 or later
@@ -37,7 +38,7 @@ if (!defined('AMD_ZLRECIPE_VERSION_KEY'))
     define('AMD_ZLRECIPE_VERSION_KEY', 'amd_zlrecipe_version');
 
 if (!defined('AMD_ZLRECIPE_VERSION_NUM'))
-    define('AMD_ZLRECIPE_VERSION_NUM', '0.9'); //!!mwp
+    define('AMD_ZLRECIPE_VERSION_NUM', '1.0'); //!!mwp
     
 if (!defined('AMD_ZLRECIPE_PLUGIN_DIRECTORY'))
     define('AMD_ZLRECIPE_PLUGIN_DIRECTORY', get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/');
@@ -1121,7 +1122,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 
     // Add the print button
     if (strcmp(get_option('zlrecipe_print_link_hide'), 'Hide') != 0) {
-		$output .= '<div class="zlrecipe-print-link fl-r"><a class="butn-link" title="Print this recipe" target="_blank" href="#" onclick="zlrPrint(\'zlrecipe-container\'); return false">Print</a></div>';
+		$output .= '<div class="zlrecipe-print-link fl-r"><a class="butn-link" title="Print this recipe" href="#" onclick="zlrPrint(\'zlrecipe-container\'); return false">Print</a></div>';
 	}
 
     //!!mwp add the ZipList recipe button
@@ -1313,7 +1314,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 	$hide_tag = '';
     if (strcmp(get_option('ziplist_attribution_hide'), 'Hide') == 0)
         $hide_tag = 'style="display: none;"';
-    $output .= '<div class="zl-linkback" ' . $hide_tag . '>Google Recipe View Microformatting by <a title="Wordpress Recipe Plugin" href="http://www.ziplist.com/recipe_plugin" target="_blank">ZipList Recipe Plugin</a></div>';
+    $output .= '<div class="zl-linkback" ' . $hide_tag . '>Google Recipe View Microformatting by <a title="ZipList Recipe Plugin" href="http://www.ziplist.com/recipe_plugin" target="_blank">ZipList Recipe Plugin</a></div>';
     $output .= '<div class="ziplist-recipe-plugin" style="display: none;">' . AMD_ZLRECIPE_VERSION_NUM . '</div>';
 
     $output .= '</div>'; //!!dc

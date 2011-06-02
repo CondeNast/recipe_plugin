@@ -12,7 +12,7 @@ Recipe SEO made simple. Formats your recipes with the appropriate microformats, 
  * Tags: recipes, seo, hrecipe, Recipe View
  * Requires at least: 3.1
  * Tested up to: 3.1
- * Stable tag: 0.9
+ * Version: 1.0
 
 Description
 -----------
@@ -27,7 +27,7 @@ The ZipList Recipe Plugin gives you the power to take full advantage of the bene
 
 It's quick. It's simple. And best of all, your recipes now have a much better chance of showing up in Google's Recipe View, with very little additional work from you!
 
-(If you don't use WordPress.org, or would rather be able to edit the formatted HTML on your own, check out my [RecipeSEO App!](http://recipeseo.com/))
+(If you don't use WordPress.org, or would rather be able to edit the formatted HTML on your own, check out [RecipeSEO App!](http://recipeseo.com/))
 
 Installation
 ------------
@@ -36,7 +36,7 @@ You can download and install the ZipList Recipe Plugin using the built-in WordPr
 
 Activate the ZipList Recipe Plugin in the "Plugins" admin panel using the "Activate" link.
 
-To use the plugin, click the [little ZipList Recipe icon](http://sushiday.com/wp-content/themes/sushiday/images/recipeseo.gif) on the "Edit Post" pages, right next to the other "Upload/Insert" links at the top of the text editor box. Then enter the details about your recipe into the appropriate boxes, and then click the "Add Recipe" button. This will save your recipe, and insert it into your blog post.
+To use the plugin, click the little ZipList Recipe icon on the "Edit Post" pages, right next to the other "Upload/Insert" links at the top of the text editor box. Then enter the details about your recipe into the appropriate boxes, and then click the "Add Recipe" button. This will save your recipe, and insert it into your blog post.
 
 Frequently Asked Questions
 --------------------------
@@ -51,7 +51,7 @@ We will have a version that uses microdata (instead of microformats) for website
 
 ### How can I request a feature to be added in future versions of the ZipList Recipe Plugin?
 
-You can email mailto:support@ziplist.com with your requests.
+You can email [ZipList](mailto:support@ziplist.com) with your requests.
 
 Screenshots
 -----------
@@ -131,15 +131,26 @@ Changelog
 (Numbering reset for ZipList launch)
 
 0.4 New and improved: Upgrade to add the ZipList recipe button to your recipes, and also get the same great RecipeSEO 1.3.1 features: Users can now choose what format they want their ingredients and instructions in, as well as change or remove all of the labels. Times will now display in ISO 8601 formats.
+
 0.6 New output format to support styling
+
 0.7 Ratings combo-box, full support for hrecipe review, trimmed timing options down to hours & minutes.
+
 0.8 Title display, Ratings label and display
+
 0.9 Image sizing & borders
+
+1.0 Initial Release
+* We're now on [GitHub](https://github.com/Ziplist/recipe_plugin)
+* Recipe print support
+* Improved time formatting
+* Label support for ingredients !tagged with an exclamation point
+* Automatic inclusion of appropriate javascript and css
 
 Features that will be added in upcoming versions of the ZipList Recipe Plugin
 -----------------------------------------------------------------------------
 
-* Theme selection
-* Print support
+* Style selection
+* Time labels
 * Have a suggestion for a feature we should add? [Drop us a line](mailto:support@ziplist.com)
 

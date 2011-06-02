@@ -1,6 +1,7 @@
 /* ZLRecipe-Print.css
 A print format stylesheet for the ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/
+Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Plugin Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
@@ -12,6 +13,12 @@ License: GPLv2 or later, unless specified
 #zlrecipe-print-container .width-50 { width: 50%; }
 #zlrecipe-print-container .clear { clear: both; }
 #zlrecipe-print-container p { clear: both; }
+#zlrecipe-print-container .h-4 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+#zlrecipe-print-container .bold, #zlrecipe-print-container .strong { font-weight: bold; }
+#zlrecipe-print-container .italic, #zlrecipe-print-container .em { font-style: italic; }
 
 /* SPECIFIC PRINT ELEMENT STYLES */
 #zlrecipe-print-container {
@@ -21,8 +28,8 @@ License: GPLv2 or later, unless specified
 
 #zlrecipe-innerdiv {
   padding: 10px;
-  max-width: 7.5in;
-  margin: auto;
+  width: 7.5in;
+  margin: 0 auto;
   border: 1px dashed black;
 }
 #zlrecipe-print-container #zlrecipe-title {
@@ -45,5 +52,13 @@ License: GPLv2 or later, unless specified
 #zlrecipe-print-container .img-desc-wrap .summary {
   font-style: italic;
   font-size: 14px;
+}
+
+#zlrecipe-print-container #zlrecipe-ingredients-list .ingredient-label {
+    font-weight: bold;
+    left: -22px;
+    list-style-type: none;
+    margin-top: 5px;
+    position: relative;
 }
 /* END PRINT FORMATTING */
