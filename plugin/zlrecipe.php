@@ -1069,14 +1069,27 @@ function amd_zlrecipe_format_duration($duration) {
 }
 
 // function to include the javascript for the Add Recipe button
-function amd_zlrecipe_add_button_script() {
+function amd_zlrecipe_process_head() {
+	$css = '';
 
+	// javascript
     $header_html='<script type="text/javascript" src="http://www.zlcdn.com/javascripts/pt_include.js"></script>
     <script type="text/javascript" src="' . AMD_ZLRECIPE_PLUGIN_DIRECTORY . 'zlrecipe_print.js"></script>
 ';
+
+	// styles (I couldn't get wp_enqueue_styles to work...)
+	if (strcmp(get_option('ziplist_attribution_hide'), 'Hide') == 0) {
+		$css = 'generic';
+	} else {
+		$css = 'zlrecipe-std';
+	}
+
+	$header_html .= '<link charset="utf-8" href="http://www.zlcdn.com/stylesheets/minibox/' . $css . '.css" rel="stylesheet" type="text/css" />
+';
+
     echo $header_html;
 }
-add_filter('wp_head', 'amd_zlrecipe_add_button_script');
+add_filter('wp_head', 'amd_zlrecipe_process_head');
 
 // Formats the recipe for output
 //!!mwp function amd_zlrecipe_format_recipe($recipe, $ingredients) {
