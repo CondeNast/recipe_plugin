@@ -141,6 +141,7 @@ Changelog
 0.9 Image sizing & borders
 
 1.0 Initial Release
+
 * We're now on [GitHub](https://github.com/Ziplist/recipe_plugin)
 * Recipe print support
 * Improved time formatting
