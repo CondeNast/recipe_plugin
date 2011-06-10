@@ -43,7 +43,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 if ( cls.indexOf('mceItem') != -1 || cls.indexOf('wpGallery') != -1 || el.nodeName != 'IMG' )
                     return;
 
-                tb_show('', baseurl + '/wp-content/media-upload.php?post_id=1-' + id + '&type=amd_zlrecipe&tab=amd_zlrecipe&TB_iframe=true&width=640&height=523');
+                tb_show('', baseurl + '/wp-admin/media-upload.php?post_id=1-' + id + '&type=amd_zlrecipe&tab=amd_zlrecipe&TB_iframe=true&width=640&height=523');
                 // tb_show('', url + '/editimage.html?ver=321&TB_iframe=true');
                 tinymce.DOM.setStyles('TB_window', {
                     'width':( W - 50 )+'px',
@@ -240,7 +240,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 author : 'ZipList, Inc.',
                 authorurl : 'http://www.ziplist.com/',
                 infourl : 'http://www.ziplist.com/recipe_plugin',
-                version : "1.0"
+                version : "1.0.1"
             };
         }
     });
