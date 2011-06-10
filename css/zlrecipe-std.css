@@ -77,7 +77,7 @@ footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-contai
 /* END BASE */
 
 /* TYPOGRAPHY */
-#zlrecipe-container .heading-one, #zlrecipe-container .h-1 { font-size: 2em; }
+#zlrecipe-container .heading-one, #zlrecipe-container .h-1 { font-size: 2em; line-height: 1.3em; }
 #zlrecipe-container .heading-two, #zlrecipe-container .h-2 { font-size: 1.75em; }
 #zlrecipe-container .heading-three, #zlrecipe-container .h-3 { font-size: 1.5em }
 #zlrecipe-container .heading-four, #zlrecipe-container .h-4 { font-size: 1.25em }
@@ -112,11 +112,19 @@ footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-contai
 /* SPECIFIC ELEMENT STYLES */
 #zlrecipe-container { padding: 10px; }
 #zlrecipe-container #zlrecipe-title { padding-bottom: 0.5em; }
-#zlrecipe-container .zlrecipe-print-link { padding-left: 0.5em; }
+#zlrecipe-container .zlrecipe-print-link {
+	padding-left: 0.5em;
+	margin-top: 5px;
+}
+#zlrecipe-container .zl-recipe-link {
+	margin-top: 5px;
+}
 #zlrecipe-container .zlrecipe-print-link .butn-link {
     background: url("http://ab-assets.ziplist.com.s3.amazonaws.com/print-icon.png") no-repeat scroll 0 1px transparent;
     cursor: pointer;
     padding: 0 0 0 20px;
+    display: block;
+    height: 20px;
 }
 #zlrecipe-container .zlrecipe-print-link .butn-link:hover {
 	background-position: 0 -24px;
