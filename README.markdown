@@ -12,7 +12,7 @@ Recipe SEO made simple. Formats your recipes with the appropriate microformats, 
  * Tags: recipes, seo, hrecipe, Recipe View
  * Requires at least: 3.1
  * Tested up to: 3.1
- * Version: 1.0
+ * Version: 1.1
 
 Description
 -----------
@@ -147,6 +147,8 @@ Changelog
 * Improved time formatting
 * Label support for ingredients !tagged with an exclamation point
 * Automatic inclusion of appropriate javascript and css
+
+1.1 Address problem with wp-content reachability of the edit form on some blogs.
 
 Features that will be added in upcoming versions of the ZipList Recipe Plugin
 -----------------------------------------------------------------------------
