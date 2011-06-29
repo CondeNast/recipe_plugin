@@ -159,7 +159,8 @@ footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-contai
 #zlrecipe-container #zlrecipe-ingredients-list li {
   list-style-type: none;
 }
-#zlrecipe-container #zlrecipe-ingredients-list .ingredient-label {
+#zlrecipe-container #zlrecipe-ingredients-list .ingredient-label,
+#zlrecipe-container #zlrecipe-instructions-list .instruction-label {
   position: relative;
   left: -10px;
   margin-top: 5px;

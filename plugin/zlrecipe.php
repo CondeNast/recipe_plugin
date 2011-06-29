@@ -1105,6 +1105,34 @@ function amd_zlrecipe_process_head() {
 }
 add_filter('wp_head', 'amd_zlrecipe_process_head');
 
+// Replaces the [a|b] pattern with text a that links to b
+function amd_zlrecipe_linkify_item($item, $class) {
+	return preg_replace('/\[([^\]\|\[]*)\|([^\]\|\[]*)\]/', '<a href="\\2" class="' . $class . '-link">\\1</a>', $item);
+}
+
+// Processes markup for attributes like labels, images and links
+// !Label
+// %image
+function amd_zlrecipe_format_item($item, $elem, $class, $id, $i) {
+
+	if (preg_match("/^%(.*)/", $item, $matches)) {	// IMAGE
+		$output = '<img class = "' . $class . '-image" src="' . $matches[1] . '" />';
+		return $output;
+	}
+
+	if (preg_match("/^!(.*)/", $item, $matches)) {	// LABEL
+		$class .= '-label';
+		$elem = 'div';
+		$item = $matches[1];
+	}
+
+	$output = '<' . $elem . ' id="' . $id . $i . '" class="' . $class . '">';
+	$output .= amd_zlrecipe_linkify_item($item, $class);
+	$output .= '</' . $elem . '>';
+
+	return $output;
+}
+
 // Formats the recipe for output
 //!!mwp function amd_zlrecipe_format_recipe($recipe, $ingredients) {
 function amd_zlrecipe_format_recipe($recipe) { //!!mwp
@@ -1241,7 +1269,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 			</p>';
 		}
 		if ($recipe->summary != null) {
-			$output .= '<p id="zlrecipe-summary" class="summary italic">' . $recipe->summary . '</p>';
+			$output .= '<p id="zlrecipe-summary" class="summary italic">' . amd_zlrecipe_linkify_item($recipe->summary, 'summary') . '</p>';
 		}
 		$output .= '</div>';
 	}
@@ -1266,17 +1294,10 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     $i = 0;
     $ingredients = explode("\n", $recipe->ingredients); //!!mwp
     foreach ($ingredients as $ingredient) {
-    	if (preg_match("/^!(.*)/", $ingredient, $matches)) {
-    		$ingredient_class = 'ingredient-label';
-    		$ingredient = $matches[1];
-    	} else {
-    		$ingredient_class = 'ingredient';
-    	}
-        $output .= '<' . $ingredient_tag . ' id="zlrecipe-ingredient-' . $i . '" class="' . $ingredient_class . '">';
-        $output .= $ingredient; //!!mwp
-        $output .= '</' . $ingredient_tag . '>';
+		$output .= amd_zlrecipe_format_item($ingredient, $ingredient_tag, 'ingredient', 'zlrecipe-ingredient-', $i);
         $i++;
     }
+
     $output .= '</' . $ingredient_type . '>';
 
 	// add the instructions
@@ -1300,10 +1321,8 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         $output .= '<' . $instruction_type . ' id="zlrecipe-instructions-list" class="instructions">';
         $j = 0;
         foreach ($instructions as $instruction) {
-            if (strlen($instruction) > 1) {            
-                $output .= '<' . $instruction_tag . ' id="zlrecipe-instruction-' . $j . '" class="instruction">';
-                $output .= $instruction;
-                $output .= '</' . $instruction_tag . '>';
+            if (strlen($instruction) > 1) {
+            	$output .= amd_zlrecipe_format_item($instruction, $instruction_tag, 'instruction', 'zlrecipe-instruction-', $j);
                 $j++;
             }
         }
