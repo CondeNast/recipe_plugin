@@ -151,6 +151,7 @@ Changelog
 1.1 Address problem with wp-content reachability of the edit form on some blogs.
 
 1.2 Features Release
+
 * Support for multiple recipes per page
 * Support for labels in instructions
 * Support for images images in ingredients and instrutions
