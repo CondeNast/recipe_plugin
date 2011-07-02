@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 1.1
+Version: 1.1c
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv2 or later
@@ -747,8 +747,8 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
             <input type='hidden' name='recipe_id' value='$recipe_id' />
             <p id='recipe-title'><label>Recipe Title <span class='required'>*</span></label> <input type='text' name='recipe_title' value='$recipe_title' /></p>
             <p id='recipe-image'><label>Recipe Image</label> <input type='text' name='recipe_image' value='$recipe_image' /></p>
-            <p id='amd_zlrecipe_ingredients' class='cls'><label>Ingredients <span class='required'>*</span> <small>(Put each ingredient on a separate line.  There is no need to use bullets for your ingredients.)</small><small>(Start with an exclamation point to create a label, e.g., "!For the sauce")</small></label><textarea name='ingredients'>$ingredients</textarea></label></p>
-            <p id='amd-zlrecipe-instructions' class='cls'><label>Instructions <small>(Press return after each instruction. There is no need to number your instructions.)</small></label><textarea name='instructions'>$instructions</textarea></label></p>
+            <p id='amd_zlrecipe_ingredients' class='cls'><label>Ingredients <span class='required'>*</span> <small>Put each ingredient on a separate line.  There is no need to use bullets for your ingredients.</small><small>You can also create labels, hyperlinks and even add images! <a href="http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf" target="_blank">Learn how here</a></small></label><textarea name='ingredients'>$ingredients</textarea></label></p>
+            <p id='amd-zlrecipe-instructions' class='cls'><label>Instructions <small>Press return after each instruction. There is no need to number your instructions.</small><small>You can also create labels, hyperlinks and even add images! <a href="http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf" target="_blank">Learn how here</a></small></label><textarea name='instructions'>$instructions</textarea></label></p>
             <p><a href='#' id='more-options-toggle'>More options</a></p>
             <div id='more-options'>
                 <p class='cls'><label>Summary</label> <textarea name='summary'>$summary</textarea></label></p>

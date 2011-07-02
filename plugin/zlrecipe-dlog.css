@@ -28,7 +28,7 @@ body#amd-zlrecipe-uploader { }
 #amd-zlrecipe-uploader input[type='text']:focus, #amd-zlrecipe-uploader input.text:focus, #amd-zlrecipe-uploader input[type='password']:focus, #amd-zlrecipe-uploader textarea:focus { background-color: #eee; border-color: #ccc; color:#383f41; -webkit-box-shadow:0 0 5px rgba(160,160,112,0.6); }
 #amd-zlrecipe-uploader #amd_zlrecipe_ingredients small { font-weight: normal; display: block; line-height: 16px; font-size: 11px; }
 #amd-zlrecipe-uploader #amd_zlrecipe_ingredients textarea { width: 585px; }
-#amd-zlrecipe-uploader a { color: #21759B; margin-bottom: 32px; display: block; }
+#amd-zlrecipe-uploader a { color: #21759B; margin-bottom: 32px; }
 #amd-zlrecipe-uploader #amd-zlrecipe-instructions small { font-weight: normal; display: block; line-height: 16px; font-size: 11px; }
 #amd-zlrecipe-uploader #amd-zlrecipe-instructions textarea { width: 585px; }
 #amd-zlrecipe-uploader .time { width: 470px; float: right; }
