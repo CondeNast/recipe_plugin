@@ -6,7 +6,7 @@ Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.1
-Version: 1.1
+Version: 1.2
 
 ZipList recipe formatting for WordPress.
 
@@ -110,6 +110,12 @@ You can email mailto:support@ziplist.com with your requests.
 * Automatic inclusion of appropriate javascript and css
 
 1.1 Address problem with wp-content reachability of the edit form on some blogs.
+
+1.2 Features Release
+* Support for multiple recipes per page
+* Support for labels in instructions
+* Support for images images in ingredients and instrutions
+* Support for hyperlinks in summary, ingredients and instructions
 
 == Features that will be added in upcoming versions of the ZipList Recipe Plugin ==
 
