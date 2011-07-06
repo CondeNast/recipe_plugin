@@ -1,20 +1,24 @@
 === ZipList Recipe Plugin ===
 Contributors: ZipList Inc., codeswan
+Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
+License: GPLv2 or later
+Tags: recipe, hrecipe, google rich snippets, seo
+Author URI: http://www.ziplist.com/
+Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.1
+Stable tag: 1.2
 Version: 1.2
 
-ZipList recipe formatting for WordPress.
-
-This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: http://sushiday.com/recipe-seo-plugin/
-
-Recipe SEO made simple. Formats your recipes with the appropriate microformats, so they are more likely to appear in Google's Recipe View. Allows you to customize styling too, making posts visually attractive. 
+Encodes your recipe in the hrecipe microformat providing a visually attractive presentation and Google/SEO compatibility.
 
 == Description ==
+
+Recipe SEO made simple. Formats your recipes with the hrecipe microformat, so they are more likely to appear in Google's Recipe View. Allows you to customize styling too, making posts visually attractive. 
 
 With the introduction of [Google's Recipe View](http://googleblog.blogspot.com/2011/02/slice-and-dice-your-recipe-search.html), suddenly microformats became incredibly important to food bloggers. If you don't use microformats for your recipes (or microdata, for those using HTML5), then your blog most likely won't show up in Recipe View searches.
 
@@ -27,6 +31,8 @@ The ZipList Recipe Plugin gives you the power to take full advantage of the bene
 It's quick. It's simple. And best of all, your recipes now have a much better chance of showing up in Google's Recipe View, with very little additional work from you!
 
 (If you don't use WordPress.org, or would rather be able to edit the formatted HTML on your own, check out [RecipeSEO App!](http://recipeseo.com/))
+
+This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: http://sushiday.com/recipe-seo-plugin/
 
 == Installation ==
 
@@ -116,6 +122,7 @@ You can email mailto:support@ziplist.com with your requests.
 * Support for labels in instructions
 * Support for images images in ingredients and instrutions
 * Support for hyperlinks in summary, ingredients and instructions
+* Removal of "\" characters introduced by older WordPress DB encodings
 
 == Features that will be added in upcoming versions of the ZipList Recipe Plugin ==
 
