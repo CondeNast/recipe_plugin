@@ -433,6 +433,11 @@ function amd_zlrecipe_add_recipe_button() {
 	echo "<a class=\"thickbox\" href=\"{$media_amd_zlrecipe_iframe_src}&amp;TB_iframe=true&amp;height=500&amp;width=640\" title=\"$media_amd_zlrecipe_title\"><img src='" . get_option('siteurl').'/wp-content/plugins/'.dirname(plugin_basename(__FILE__)) . "/zlrecipe.gif?ver=1.0' alt='ZLRecipe Icon' /></a>";
 }
 
+function amd_zlrecipe_strip_chars( $val )
+{
+	return str_replace( '\\', '', $val );
+}
+
 // Content for the popup iframe when creating or editing a recipe
 function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
     $recipe_id = 0;
@@ -454,9 +459,9 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
             $recipe = amd_zlrecipe_select_recipe_db($recipe_id);
             //!!mwp $ingredients_list = amd_zlrecipe_select_ingredients_db($recipe_id);
             
-            $recipe_title = $recipe->recipe_title;
+            $recipe_title = $recipe->recipe_title; //!!xxx amd_zlrecipe_strip_chars( $recipe->recipe_title );
             $recipe_image = $recipe->recipe_image;
-            $summary = $recipe->summary;
+            $summary = $recipe->summary; //!!xxx amd_zlrecipe_strip_chars( $recipe->summary );
             $rating = $recipe->rating;
             $ss = array();
             $ss[(int)$rating] = 'selected="true"';
@@ -579,8 +584,8 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
                 $i++;
             }
 */
-            $ingredients = $recipe->ingredients; //!!mwp
-            $instructions = $recipe->instructions;
+            $ingredients = $recipe->ingredients; //!!xxx amd_zlrecipe_strip_chars( $recipe->ingredients ); //!!mwp
+            $instructions = $recipe->instructions; //!!xxx amd_zlrecipe_strip_chars( $recipe->instructions );
             //!!mwp $iframe_title = "Update Your Recipe";
             //!!mwp $submit = "Update Recipe";
         } else {
@@ -588,9 +593,9 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
             if( !$get_info["add-recipe-button"] ) //!!mwp
                  $recipe_title = get_the_title( $get_info["post_id"] ); //!!mwp
             else
-                 $recipe_title = htmlentities($post_info["recipe_title"], ENT_QUOTES);
+                 $recipe_title = amd_zlrecipe_strip_chars( htmlentities($post_info["recipe_title"], ENT_QUOTES) );
             $recipe_image = htmlentities($post_info["recipe_image"], ENT_QUOTES); //!!mwp
-            $summary = htmlentities($post_info["summary"], ENT_QUOTES);
+            $summary = amd_zlrecipe_strip_chars( htmlentities($post_info["summary"], ENT_QUOTES) );
             $rating = htmlentities($post_info["rating"], ENT_QUOTES);
             $prep_time_seconds = htmlentities($post_info["prep_time_seconds"], ENT_QUOTES);
             $prep_time_minutes = htmlentities($post_info["prep_time_minutes"], ENT_QUOTES);
@@ -624,8 +629,9 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
                 //!!mwp $ingredients[$i]["amount"] = htmlentities($post_info["ingredients"][$i]["amount"], ENT_QUOTES);
             }
 */
-            $ingredients = htmlentities($post_info["ingredients"], ENT_QUOTES); //!!mwp
-            $instructions = htmlentities($post_info["instructions"], ENT_QUOTES);
+            $ingredients = amd_zlrecipe_strip_chars( htmlentities($post_info["ingredients"], ENT_QUOTES) ); //!!mwp
+            $instructions = amd_zlrecipe_strip_chars( htmlentities($post_info["instructions"], ENT_QUOTES) );
+            
             //!!mwp if ($recipe_title != null && $recipe_title != '' && $ingredients[0]['name'] != null && $ingredients[0]['name'] != '') {
             if ($recipe_title != null && $recipe_title != '' && $ingredients != null && $ingredients != '') { //!!mwp
                 $recipe_id = amd_zlrecipe_insert_db($post_info);
@@ -886,9 +892,9 @@ function amd_zlrecipe_insert_db($post_info) {
         
     $recipe = array (
         "post_id" => $post_info["post_id"],
-        "recipe_title" => $post_info["recipe_title"],
+        "recipe_title" => amd_zlrecipe_strip_chars( $post_info["recipe_title"] ),
         "recipe_image" => $post_info["recipe_image"],
-        "summary" => $post_info["summary"],
+        "summary" => amd_zlrecipe_strip_chars( $post_info["summary"] ),
         "rating" => $post_info["rating"],
         "prep_time" => $prep_time,
         "cook_time" => $cook_time,
@@ -897,8 +903,8 @@ function amd_zlrecipe_insert_db($post_info) {
         "serving_size" => $post_info["serving_size"],
         "calories" => $post_info["calories"],
         "fat" => $post_info["fat"],
-        "ingredients" => $post_info["ingredients"],
-        "instructions" => $post_info["instructions"],
+        "ingredients" => amd_zlrecipe_strip_chars( $post_info["ingredients"] ),
+        "instructions" => amd_zlrecipe_strip_chars( $post_info["instructions"] ),
     );
     
     if (amd_zlrecipe_select_recipe_db($recipe_id) == null) {
