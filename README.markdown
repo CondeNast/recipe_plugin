@@ -157,7 +157,7 @@ Changelog
 * Support for labels in instructions
 * Support for images images in ingredients and instrutions
 * Support for hyperlinks in summary, ingredients and instructions
-* Removal of "\" characters introduced by older WordPress DB encodings
+* Removal of "\" characters introduced by entity encoding
 
 Features that will be added in upcoming versions of the ZipList Recipe Plugin
 -----------------------------------------------------------------------------
