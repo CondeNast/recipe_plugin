@@ -10,29 +10,33 @@ Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
-Tested up to: 3.1
+Tested up to: 3.2
 Stable tag: 1.2
 Version: 1.2
 
-Encodes your recipe in the hrecipe microformat providing a visually attractive presentation and Google/SEO compatibility.
+Formats recipes so they are SEO-friendly and more likely to appear in Google’s Recipe View search.
 
 == Description ==
 
-Recipe SEO made simple. Formats your recipes with the hrecipe microformat, so they are more likely to appear in Google's Recipe View. Allows you to customize styling too, making posts visually attractive. 
+Make your recipes SEO-friendly and more likely to appear in [Google's Recipe View](http://googleblog.blogspot.com/2011/02/slice-and-dice-your-recipe-search.html) search. No need to hand-code your recipes into the sophisticated hRecipe microformat when the ZipList Recipe Plugin will do all the heavy lifting for you, enhancing the findability of your recipe website.
 
-With the introduction of [Google's Recipe View](http://googleblog.blogspot.com/2011/02/slice-and-dice-your-recipe-search.html), suddenly microformats became incredibly important to food bloggers. If you don't use microformats for your recipes (or microdata, for those using HTML5), then your blog most likely won't show up in Recipe View searches.
+As a bonus, the ZipList Recipe Plugin enables you to add a “Save Recipe” button to each recipe so that readers can add favorite recipes to a universal recipe box and shopping list directly from your site. Each recipe they add includes a link back to your site so readers always go back to you for instructions.
 
-But most people don't want to spend the time and effort to hand-code microformats into their recipes every single time they publish a blog post. It's a lot of work, and quite frankly a pain in the rear, especially if you're not familiar with HTML.
+If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you’ll quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
 
-That's where this plugin comes in.
+*Recipe Image Support:* Add images within the plugin to appear with your recipe.
 
-The ZipList Recipe Plugin gives you the power to take full advantage of the benefits of microformats, without having to deal with HTML and the messy microformat code at all. All you have to do is enter the information about your recipe, and the plugin will automatically add all the necessary code to your recipe.
+*Copy/Paste Ingredients:* Simply cut a block of ingredients and paste them into one field. No need to add each ingredient one by one into separate fields.
 
-It's quick. It's simple. And best of all, your recipes now have a much better chance of showing up in Google's Recipe View, with very little additional work from you!
+*Auto-Populate Recipe Name:* The recipe name is automatically replicated inside the plugin, taking the name from the post name, which further enhances SEO.
 
-(If you don't use WordPress.org, or would rather be able to edit the formatted HTML on your own, check out [RecipeSEO App!](http://recipeseo.com/))
+*Integrated Recipe Box and Shopping List:* Turn on a feature that allows readers to save their favorite recipes to an online recipe box, and then add recipe ingredients to their shopping list with one click.
 
-This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: http://sushiday.com/recipe-seo-plugin/
+*Add Links to Ingredients or Instructions:* Attach affiliate links or links to related recipes from the Ingredients, Instructions or Summary fields with ease. No other plugin enables you to do this.
+
+*Incorporate Images into Instructions:* Now you can easily add step-by-step images to your instructions (or ingredients) from within the plugin.
+
+The ZipList Recipe Plugin is very easy to use and you can find step-by-step instructions [here](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions_wp.pdf). If you have more questions on how to use the plugin, feel free to reach out to ZipList at [plugins@ziplist.com](mailto:plugins@ziplist.com).
 
 == Installation ==
 
@@ -96,7 +100,7 @@ You can email mailto:support@ziplist.com with your requests.
 
 2.5 DB versioning moved from 2.0 to 3.0 for the new name.
 
-== (Numbering reset for ZipList launch)
+(Numbering reset for ZipList launch)
 
 0.4 New and improved: Upgrade to add the ZipList recipe button to your recipes, and also get the same great RecipeSEO 1.3.1 features: Users can now choose what format they want their ingredients and instructions in, as well as change or remove all of the labels. Times will now display in ISO 8601 formats.
 
@@ -109,6 +113,7 @@ You can email mailto:support@ziplist.com with your requests.
 0.9 Image sizing & borders
 
 1.0 Initial Release
+
 * We're now on GitHub at https://github.com/Ziplist/recipe_plugin
 * Recipe print support
 * Improved time formatting
@@ -118,11 +123,20 @@ You can email mailto:support@ziplist.com with your requests.
 1.1 Address problem with wp-content reachability of the edit form on some blogs.
 
 1.2 Features Release
+
 * Support for multiple recipes per page
 * Support for labels in instructions
 * Support for images images in ingredients and instrutions
 * Support for hyperlinks in summary, ingredients and instructions
 * Removal of "\" characters introduced by entity encoding
+
+== Upgrade Notice ==
+
+= 1.1 =
+Addresses problem of not being able to edit existing recipes on some blogs. Upgrade if you have this problem.
+
+= 1.2 =
+Feature update. Upgrade to gain access to hyperlink, image and label markup in recipes.
 
 == Features that will be added in upcoming versions of the ZipList Recipe Plugin ==
 

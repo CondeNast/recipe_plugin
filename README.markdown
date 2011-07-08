@@ -5,7 +5,7 @@ ZipList Recipe Plugin
 
 This code is derived from the 1.3.1 build of [RecipeSEO](http://sushiday.com/recipe-seo-plugin/) released by codeswan.
 
-Recipe SEO made simple. Formats your recipes with the hrecipe microformat, so they are more likely to appear in Google's Recipe View. Allows you to customize styling too, making posts visually attractive.
+Formats recipes so they are SEO-friendly and more likely to appear in Google’s Recipe View search.
 
  * Contributors: ZipList Inc., codeswan
  * Donate: http://sushiday.com/recipe-seo-plugin/
@@ -18,17 +18,25 @@ Recipe SEO made simple. Formats your recipes with the hrecipe microformat, so th
 Description
 -----------
 
-With the introduction of [Google's Recipe View](http://googleblog.blogspot.com/2011/02/slice-and-dice-your-recipe-search.html), suddenly microformats became incredibly important to food bloggers. If you don't use microformats for your recipes (or microdata, for those using HTML5), then your blog most likely won't show up in Recipe View searches.
+Make your recipes SEO-friendly and more likely to appear in [Google's Recipe View](http://googleblog.blogspot.com/2011/02/slice-and-dice-your-recipe-search.html) search. No need to hand-code your recipes into the sophisticated hRecipe microformat when the ZipList Recipe Plugin will do all the heavy lifting for you, enhancing the findability of your recipe website.
 
-But most people don't want to spend the time and effort to hand-code microformats into their recipes every single time they publish a blog post. It's a lot of work, and quite frankly a pain in the rear, especially if you're not familiar with HTML.
+As a bonus, the ZipList Recipe Plugin enables you to add a “Save Recipe” button to each recipe so that readers can add favorite recipes to a universal recipe box and shopping list directly from your site. Each recipe they add includes a link back to your site so readers always go back to you for instructions.
 
-That's where this plugin comes in.
+If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you’ll quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
 
-The ZipList Recipe Plugin gives you the power to take full advantage of the benefits of microformats, without having to deal with HTML and the messy microformat code at all. All you have to do is enter the information about your recipe, and the plugin will automatically add all the necessary code to your recipe.
+*Recipe Image Support:* Add images within the plugin to appear with your recipe.
 
-It's quick. It's simple. And best of all, your recipes now have a much better chance of showing up in Google's Recipe View, with very little additional work from you!
+*Copy/Paste Ingredients:* Simply cut a block of ingredients and paste them into one field. No need to add each ingredient one by one into separate fields.
 
-(If you don't use WordPress.org, or would rather be able to edit the formatted HTML on your own, check out [RecipeSEO App!](http://recipeseo.com/))
+*Auto-Populate Recipe Name:* The recipe name is automatically replicated inside the plugin, taking the name from the post name, which further enhances SEO.
+
+*Integrated Recipe Box and Shopping List:* Turn on a feature that allows readers to save their favorite recipes to an online recipe box, and then add recipe ingredients to their shopping list with one click.
+
+*Add Links to Ingredients or Instructions:* Attach affiliate links or links to related recipes from the Ingredients, Instructions or Summary fields with ease. No other plugin enables you to do this.
+
+*Incorporate Images into Instructions:* Now you can easily add step-by-step images to your instructions (or ingredients) from within the plugin.
+
+The ZipList Recipe Plugin is very easy to use and you can find step-by-step instructions in the plugin_instructions.pdf document that is part of this package. If you have more questions on how to use the plugin, feel free to reach out to ZipList at [plugins@ziplist.com](mailto:plugins@ziplist.com).
 
 Installation
 ------------
