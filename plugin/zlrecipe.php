@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 1.2.2
+Version: 1.2.3
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv2 or later
@@ -433,11 +433,6 @@ function amd_zlrecipe_add_recipe_button() {
 	echo "<a class=\"thickbox\" href=\"{$media_amd_zlrecipe_iframe_src}&amp;TB_iframe=true&amp;height=500&amp;width=640\" title=\"$media_amd_zlrecipe_title\"><img src='" . get_option('siteurl').'/wp-content/plugins/'.dirname(plugin_basename(__FILE__)) . "/zlrecipe.gif?ver=1.0' alt='ZLRecipe Icon' /></a>";
 }
 
-function amd_zlrecipe_strip_chars( $val )
-{
-	return str_replace( '\\', '', $val );
-}
-
 // Content for the popup iframe when creating or editing a recipe
 function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
     $recipe_id = 0;
@@ -584,53 +579,54 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
                 $i++;
             }
 */
-            $ingredients = $recipe->ingredients; //!!xxx amd_zlrecipe_strip_chars( $recipe->ingredients ); //!!mwp
-            $instructions = $recipe->instructions; //!!xxx amd_zlrecipe_strip_chars( $recipe->instructions );
+            $ingredients = $recipe->ingredients;
+            $instructions = $recipe->instructions;
             //!!mwp $iframe_title = "Update Your Recipe";
             //!!mwp $submit = "Update Recipe";
         } else {
-            $recipe_id = htmlentities($post_info["recipe_id"], ENT_QUOTES);
+            //!!mwp change per http://php.net/manual/en/function.htmlentities.php
+            $recipe_id = htmlentities($post_info["recipe_id"], ENT_NOQUOTES);
             if( !$get_info["add-recipe-button"] ) //!!mwp
                  $recipe_title = get_the_title( $get_info["post_id"] ); //!!mwp
             else
-                 $recipe_title = amd_zlrecipe_strip_chars( htmlentities($post_info["recipe_title"], ENT_QUOTES) );
-            $recipe_image = htmlentities($post_info["recipe_image"], ENT_QUOTES); //!!mwp
-            $summary = amd_zlrecipe_strip_chars( htmlentities($post_info["summary"], ENT_QUOTES) );
-            $rating = htmlentities($post_info["rating"], ENT_QUOTES);
-            $prep_time_seconds = htmlentities($post_info["prep_time_seconds"], ENT_QUOTES);
-            $prep_time_minutes = htmlentities($post_info["prep_time_minutes"], ENT_QUOTES);
-            $prep_time_hours = htmlentities($post_info["prep_time_hours"], ENT_QUOTES);
-            $prep_time_days = htmlentities($post_info["prep_time_days"], ENT_QUOTES);
-            $prep_time_weeks = htmlentities($post_info["prep_time_weeks"], ENT_QUOTES);
-            $prep_time_months = htmlentities($post_info["prep_time_months"], ENT_QUOTES);
-            $prep_time_years = htmlentities($post_info["prep_time_years"], ENT_QUOTES);
-            $cook_time_seconds = htmlentities($post_info["cook_time_seconds"], ENT_QUOTES);
-            $cook_time_minutes = htmlentities($post_info["cook_time_minutes"], ENT_QUOTES);
-            $cook_time_hours = htmlentities($post_info["cook_time_hours"], ENT_QUOTES);
-            $cook_time_days = htmlentities($post_info["cook_time_days"], ENT_QUOTES);
-            $cook_time_weeks = htmlentities($post_info["cook_time_weeks"], ENT_QUOTES);
-            $cook_time_months = htmlentities($post_info["cook_time_months"], ENT_QUOTES);
-            $cook_time_years = htmlentities($post_info["cook_time_years"], ENT_QUOTES);
-            $total_time_seconds = htmlentities($post_info["total_time_seconds"], ENT_QUOTES);
-            $total_time_minutes = htmlentities($post_info["total_time_minutes"], ENT_QUOTES);
-            $total_time_hours = htmlentities($post_info["total_time_hours"], ENT_QUOTES);
-            $total_time_days = htmlentities($post_info["total_time_days"], ENT_QUOTES);
-            $total_time_weeks = htmlentities($post_info["total_time_weeks"], ENT_QUOTES);
-            $total_time_months = htmlentities($post_info["total_time_months"], ENT_QUOTES);
-            $total_time_years = htmlentities($post_info["total_time_years"], ENT_QUOTES);
-            $yield = htmlentities($post_info["yield"], ENT_QUOTES);
-            $serving_size = htmlentities($post_info["serving_size"], ENT_QUOTES);
-            $calories = htmlentities($post_info["calories"], ENT_QUOTES);
-            $fat = htmlentities($post_info["fat"], ENT_QUOTES);
+                 $recipe_title = htmlentities($post_info["recipe_title"], ENT_NOQUOTES);
+            $recipe_image = htmlentities($post_info["recipe_image"], ENT_NOQUOTES); //!!mwp
+            $summary = htmlentities($post_info["summary"], ENT_NOQUOTES);
+            $rating = htmlentities($post_info["rating"], ENT_NOQUOTES);
+            $prep_time_seconds = htmlentities($post_info["prep_time_seconds"], ENT_NOQUOTES);
+            $prep_time_minutes = htmlentities($post_info["prep_time_minutes"], ENT_NOQUOTES);
+            $prep_time_hours = htmlentities($post_info["prep_time_hours"], ENT_NOQUOTES);
+            $prep_time_days = htmlentities($post_info["prep_time_days"], ENT_NOQUOTES);
+            $prep_time_weeks = htmlentities($post_info["prep_time_weeks"], ENT_NOQUOTES);
+            $prep_time_months = htmlentities($post_info["prep_time_months"], ENT_NOQUOTES);
+            $prep_time_years = htmlentities($post_info["prep_time_years"], ENT_NOQUOTES);
+            $cook_time_seconds = htmlentities($post_info["cook_time_seconds"], ENT_NOQUOTES);
+            $cook_time_minutes = htmlentities($post_info["cook_time_minutes"], ENT_NOQUOTES);
+            $cook_time_hours = htmlentities($post_info["cook_time_hours"], ENT_NOQUOTES);
+            $cook_time_days = htmlentities($post_info["cook_time_days"], ENT_NOQUOTES);
+            $cook_time_weeks = htmlentities($post_info["cook_time_weeks"], ENT_NOQUOTES);
+            $cook_time_months = htmlentities($post_info["cook_time_months"], ENT_NOQUOTES);
+            $cook_time_years = htmlentities($post_info["cook_time_years"], ENT_NOQUOTES);
+            $total_time_seconds = htmlentities($post_info["total_time_seconds"], ENT_NOQUOTES);
+            $total_time_minutes = htmlentities($post_info["total_time_minutes"], ENT_NOQUOTES);
+            $total_time_hours = htmlentities($post_info["total_time_hours"], ENT_NOQUOTES);
+            $total_time_days = htmlentities($post_info["total_time_days"], ENT_NOQUOTES);
+            $total_time_weeks = htmlentities($post_info["total_time_weeks"], ENT_NOQUOTES);
+            $total_time_months = htmlentities($post_info["total_time_months"], ENT_NOQUOTES);
+            $total_time_years = htmlentities($post_info["total_time_years"], ENT_NOQUOTES);
+            $yield = htmlentities($post_info["yield"], ENT_NOQUOTES);
+            $serving_size = htmlentities($post_info["serving_size"], ENT_NOQUOTES);
+            $calories = htmlentities($post_info["calories"], ENT_NOQUOTES);
+            $fat = htmlentities($post_info["fat"], ENT_NOQUOTES);
 /*!!mwp
             $ingredients = array();
             for ($i = 0; $i < count($post_info["ingredients"]); $i++) {
-                $ingredients[$i]["name"] = htmlentities($post_info["ingredients"][$i]["name"], ENT_QUOTES);
-                //!!mwp $ingredients[$i]["amount"] = htmlentities($post_info["ingredients"][$i]["amount"], ENT_QUOTES);
+                $ingredients[$i]["name"] = htmlentities($post_info["ingredients"][$i]["name"], ENT_NOQUOTES);
+                //!!mwp $ingredients[$i]["amount"] = htmlentities($post_info["ingredients"][$i]["amount"], ENT_NOQUOTES);
             }
 */
-            $ingredients = amd_zlrecipe_strip_chars( htmlentities($post_info["ingredients"], ENT_QUOTES) ); //!!mwp
-            $instructions = amd_zlrecipe_strip_chars( htmlentities($post_info["instructions"], ENT_QUOTES) );
+            $ingredients = htmlentities($post_info["ingredients"], ENT_NOQUOTES);
+            $instructions = htmlentities($post_info["instructions"], ENT_NOQUOTES);
             
             //!!mwp if ($recipe_title != null && $recipe_title != '' && $ingredients[0]['name'] != null && $ingredients[0]['name'] != '') {
             if ($recipe_title != null && $recipe_title != '' && $ingredients != null && $ingredients != '') { //!!mwp
@@ -892,9 +888,9 @@ function amd_zlrecipe_insert_db($post_info) {
         
     $recipe = array (
         "post_id" => $post_info["post_id"],
-        "recipe_title" => amd_zlrecipe_strip_chars( $post_info["recipe_title"] ),
+        "recipe_title" => $post_info["recipe_title"],
         "recipe_image" => $post_info["recipe_image"],
-        "summary" => amd_zlrecipe_strip_chars( $post_info["summary"] ),
+        "summary" => $post_info["summary"],
         "rating" => $post_info["rating"],
         "prep_time" => $prep_time,
         "cook_time" => $cook_time,
@@ -903,8 +899,8 @@ function amd_zlrecipe_insert_db($post_info) {
         "serving_size" => $post_info["serving_size"],
         "calories" => $post_info["calories"],
         "fat" => $post_info["fat"],
-        "ingredients" => amd_zlrecipe_strip_chars( $post_info["ingredients"] ),
-        "instructions" => amd_zlrecipe_strip_chars( $post_info["instructions"] ),
+        "ingredients" => $post_info["ingredients"],
+        "instructions" => $post_info["instructions"],
     );
     
     if (amd_zlrecipe_select_recipe_db($recipe_id) == null) {
