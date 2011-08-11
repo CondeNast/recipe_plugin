@@ -12,17 +12,17 @@ Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.2
 Stable tag: 1.2
-Version: 1.2
+Version: 1.2.2
 
-Formats recipes so they are SEO-friendly and more likely to appear in Google’s Recipe View search.
+Formats recipes so they are SEO-friendly and more likely to appear in Google's Recipe View search.
 
 == Description ==
 
 Make your recipes SEO-friendly and more likely to appear in [Google's Recipe View](http://googleblog.blogspot.com/2011/02/slice-and-dice-your-recipe-search.html) search. No need to hand-code your recipes into the sophisticated hRecipe microformat when the ZipList Recipe Plugin will do all the heavy lifting for you, enhancing the findability of your recipe website.
 
-As a bonus, the ZipList Recipe Plugin enables you to add a “Save Recipe” button to each recipe so that readers can add favorite recipes to a universal recipe box and shopping list directly from your site. Each recipe they add includes a link back to your site so readers always go back to you for instructions.
+As a bonus, the ZipList Recipe Plugin enables you to add a "Save Recipe" button to each recipe so that readers can add favorite recipes to a universal recipe box and shopping list directly from your site. Each recipe they add includes a link back to your site so readers always go back to you for instructions.
 
-If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you’ll quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
+If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you� will quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
 
 *Recipe Image Support:* Add images within the plugin to appear with your recipe.
 
@@ -126,9 +126,14 @@ You can email mailto:support@ziplist.com with your requests.
 
 * Support for multiple recipes per page
 * Support for labels in instructions
-* Support for images images in ingredients and instrutions
+* Support for images images in ingredients and instructions
 * Support for hyperlinks in summary, ingredients and instructions
 * Removal of "\" characters introduced by entity encoding
+
+1.2.2 New Development
+
+* Print recipes from multi-recipe posts.
+* Remove non-UTF-8 characters from readme.txt.
 
 == Upgrade Notice ==
 

@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 1.2
+Version: 1.2.2
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv2 or later
@@ -1150,13 +1150,14 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 	if ($border_style != null)
 		$style_tag = 'style="border: ' . $border_style . ';"';
     $output .= '
+    <div id="zlrecipe-container-' . $recipe->recipe_id . '">
     <div id="zlrecipe-container" class="hrecipe serif" ' . $style_tag . '>
       <div id="zlrecipe-innerdiv">
         <div class="item b-b">';
 
     // Add the print button
     if (strcmp(get_option('zlrecipe_print_link_hide'), 'Hide') != 0) {
-		$output .= '<div class="zlrecipe-print-link fl-r"><a class="butn-link" title="Print this recipe" href="#" onclick="zlrPrint(\'zlrecipe-container\'); return false">Print</a></div>';
+		$output .= '<div class="zlrecipe-print-link fl-r"><a class="butn-link" title="Print this recipe" href="#" onclick="zlrPrint(\'zlrecipe-container-' . $recipe->recipe_id . '\'); return false">Print</a></div>';
 	}
 
     //!!mwp add the ZipList recipe button
@@ -1170,7 +1171,8 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 	if (strcmp(get_option('recipe_title_hide'), 'Hide') == 0)
         $hide_tag = 'style="text-indent: -9999px;"';
 	$output .= '<div id="zlrecipe-title" class="fn b-b h-1 strong" ' . $hide_tag . '>' . $recipe->recipe_title . '</div>
-	</div>';
+	</div>
+    </div>';
 	
 	//!!dc open the meta and fl-l container divs
 	$output .= '<div class="meta clear">
