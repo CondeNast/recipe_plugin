@@ -12,7 +12,7 @@ Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.2
 Stable tag: 1.2
-Version: 1.2.2
+Version: 1.2.3
 
 Formats recipes so they are SEO-friendly and more likely to appear in Google's Recipe View search.
 
@@ -130,10 +130,9 @@ You can email mailto:support@ziplist.com with your requests.
 * Support for hyperlinks in summary, ingredients and instructions
 * Removal of "\" characters introduced by entity encoding
 
-1.2.2 New Development
+1.2.2 Print recipes from multi-recipe posts. Remove non-UTF-8 characters from readme.txt.
 
-* Print recipes from multi-recipe posts.
-* Remove non-UTF-8 characters from readme.txt.
+1.2.3 New zlrecipe-placeholder.png art.
 
 == Upgrade Notice ==
 
