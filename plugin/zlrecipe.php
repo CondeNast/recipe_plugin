@@ -143,8 +143,8 @@ add_action('admin_menu', 'amd_zlrecipe_menu_pages');
 // Adds module to left sidebar in wp-admin for ZLRecipe
 function amd_zlrecipe_menu_pages() {
     // Add the top-level admin menu
-    $page_title = 'ZipList Recipe Settings';
-    $menu_title = 'ZipList Recipe Formatter';
+    $page_title = 'ZipList Recipe Plugin Settings';
+    $menu_title = 'ZipList Recipe Plugin';
     $capability = 'manage_options';
     $menu_slug = 'zlrecipe-settings';
     $function = 'amd_zlrecipe_settings';
@@ -316,7 +316,8 @@ function amd_zlrecipe_settings() {
     </style>
     <div class="wrap">
         <form enctype="multipart/form-data" method="post" action="" name="zlrecipe_settings_form">
-            <h2><img src="' . $zlrecipe_icon . '" /> ZipList Plugin Settings</h2>
+            <h2><img src="' . $zlrecipe_icon . '" /> ZipList Recipe Plugin Settings</h2>
+            For full customization options, see the <a href="http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf" target="_blank">Instructions document</a>.
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row">Partner Key</th>
