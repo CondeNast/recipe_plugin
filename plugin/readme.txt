@@ -24,17 +24,17 @@ As a bonus, the ZipList Recipe Plugin enables you to add a "Save Recipe" button 
 
 If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, youâ will quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
 
-*Recipe Image Support:* Add images within the plugin to appear with your recipe.
+**Recipe Image Support:** Add images within the plugin to appear with your recipe.
 
-*Copy/Paste Ingredients:* Simply cut a block of ingredients and paste them into one field. No need to add each ingredient one by one into separate fields.
+**Copy/Paste Ingredients:** Simply cut a block of ingredients and paste them into one field. No need to add each ingredient one by one into separate fields.
 
-*Auto-Populate Recipe Name:* The recipe name is automatically replicated inside the plugin, taking the name from the post name, which further enhances SEO.
+**Auto-Populate Recipe Name:** The recipe name is automatically replicated inside the plugin, taking the name from the post name, which further enhances SEO.
 
-*Integrated Recipe Box and Shopping List:* Turn on a feature that allows readers to save their favorite recipes to an online recipe box, and then add recipe ingredients to their shopping list with one click.
+**Integrated Recipe Box and Shopping List:** Turn on a feature that allows readers to save their favorite recipes to an online recipe box, and then add recipe ingredients to their shopping list with one click.
 
-*Add Links to Ingredients or Instructions:* Attach affiliate links or links to related recipes from the Ingredients, Instructions or Summary fields with ease. No other plugin enables you to do this.
+**Add Links to Ingredients or Instructions:** Attach affiliate links or links to related recipes from the Ingredients, Instructions or Summary fields with ease. No other plugin enables you to do this.
 
-*Incorporate Images into Instructions:* Now you can easily add step-by-step images to your instructions (or ingredients) from within the plugin.
+**Incorporate Images into Instructions:** Now you can easily add step-by-step images to your instructions (or ingredients) from within the plugin.
 
 The ZipList Recipe Plugin is very easy to use and you can find step-by-step instructions [here](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions_wp.pdf). If you have more questions on how to use the plugin, feel free to reach out to ZipList at [plugins@ziplist.com](mailto:plugins@ziplist.com).
 
