@@ -105,6 +105,8 @@ footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-contai
 
 #zlrecipe-container .clear { clear: both; }
 
+#zlrecipe-container .texthide { text-indent: -9999px; }
+
 #zlrecipe-container .border-bottom, #zlrecipe-container .b-b { border-bottom: 1px solid #000; }
 #zlrecipe-container .border-top, #zlrecipe-container .b-t { border-top: 1px solid #000; }
 /* END FORMATTING */

@@ -1170,8 +1170,8 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 	//!!dc add the title and close the item class
 	$hide_tag = '';
 	if (strcmp(get_option('recipe_title_hide'), 'Hide') == 0)
-        $hide_tag = 'style="text-indent: -9999px;"';
-	$output .= '<div id="zlrecipe-title" class="fn b-b h-1 strong" ' . $hide_tag . '>' . $recipe->recipe_title . '</div>
+        $hide_tag = ' texthide';
+	$output .= '<div id="zlrecipe-title" class="fn b-b h-1 strong' . $hide_tag . '" >' . $recipe->recipe_title . '</div>
 	</div>
     </div>';
 	
