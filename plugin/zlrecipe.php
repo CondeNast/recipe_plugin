@@ -1022,7 +1022,7 @@ function amd_zlrecipe_convert_to_recipe($post_text) {
 }
 
 
-add_filter('the_content', 'amd_zlrecipe_convert_to_recipe');
+add_filter('the_content', 'amd_zlrecipe_convert_to_recipe', 8);
 
 // Pulls a recipe from the db
 function amd_zlrecipe_select_recipe_db($recipe_id) {
