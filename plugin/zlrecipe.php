@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 1.2.3
+Version: 1.2.4
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv2 or later
@@ -48,6 +48,8 @@ add_option(AMD_ZLRECIPE_VERSION_KEY, AMD_ZLRECIPE_VERSION_NUM);
 add_option('ziplist_partner_key', ''); //!!mwp
 add_option('ziplist_recipe_button_hide', ''); //!!mwp
 add_option('ziplist_attribution_hide', ''); //!!mwp
+add_option('zlrecipe_printed_permalink_hide', ''); //!!mwp
+add_option('zlrecipe_printed_copyright_statement', ''); //!!mwp
 add_option('zlrecipe_stylesheet', 'zlrecipe-std'); //!!dc
 add_option('recipe_title_hide', ''); //!!dc (oops, btw)
 add_option('zlrecipe_print_link_hide', ''); //!!dc
@@ -167,6 +169,8 @@ function amd_zlrecipe_settings() {
     	$ziplist_partner_key = $_POST['ziplist-partner-key'];
         $ziplist_recipe_button_hide = $_POST['ziplist-recipe-button-hide'];
         $ziplist_attribution_hide = $_POST['ziplist-attribution-hide'];
+        $printed_permalink_hide = $_POST['printed-permalink-hide'];
+        $printed_copyright_statement = $_POST['printed-copyright-statement'];
         $stylesheet = $_POST['stylesheet'];
         $recipe_title_hide = $_POST['recipe-title-hide'];
         $print_link_hide = $_POST['print-link-hide'];
@@ -194,10 +198,13 @@ function amd_zlrecipe_settings() {
         $rating_label_hide = $_POST['rating-label-hide'];
         $image_width = $_POST['image-width'];
         $outer_border_style = $_POST['outer-border-style'];
+
         
         update_option('ziplist_partner_key', $ziplist_partner_key);
         update_option('ziplist_recipe_button_hide', $ziplist_recipe_button_hide);
         update_option('ziplist_attribution_hide', $ziplist_attribution_hide);
+        update_option('zlrecipe_printed_permalink_hide', $printed_permalink_hide );
+        update_option('zlrecipe_printed_copyright_statement', $printed_copyright_statement);
         update_option('zlrecipe_stylesheet', $stylesheet);
         update_option('recipe_title_hide', $recipe_title_hide);
         update_option('zlrecipe_print_link_hide', $print_link_hide);
@@ -229,6 +236,8 @@ function amd_zlrecipe_settings() {
         $ziplist_partner_key = get_option('ziplist_partner_key');
         $ziplist_recipe_button_hide = get_option('ziplist_recipe_button_hide');
         $ziplist_attribution_hide = get_option('ziplist_attribution_hide');
+        $printed_permalink_hide = get_option('zlrecipe_printed_permalink_hide');
+        $printed_copyright_statement = get_option('zlrecipe_printed_copyright_statement');
         $stylesheet = get_option('zlrecipe_stylesheet');
         $recipe_title_hide = get_option('recipe_title_hide');
         $print_link_hide = get_option('zlrecipe_print_link_hide');
@@ -260,6 +269,7 @@ function amd_zlrecipe_settings() {
     
     $ziplist_recipe_button_hide = (strcmp($ziplist_recipe_button_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $ziplist_attribution_hide = (strcmp($ziplist_attribution_hide, 'Hide') == 0 ? 'checked="checked"' : '');
+    $printed_permalink_hide = (strcmp($printed_permalink_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $recipe_title_hide = (strcmp($recipe_title_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $print_link_hide = (strcmp($print_link_hide, 'Hide') == 0 ? 'checked="checked"' : '');
 
@@ -330,6 +340,14 @@ function amd_zlrecipe_settings() {
                 <tr valign="top">
                     <th scope="row">ZipList Recipe Plugin Link</th>
                     <td><label><input type="checkbox" name="ziplist-attribution-hide" value="Hide" ' . $ziplist_attribution_hide . ' /> Don\'t show plugin link</label></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Printed Output: Recipe Permalink</th>
+                    <td><label><input type="checkbox" name="printed-permalink-hide" value="Hide" ' . $printed_permalink_hide . ' /> Don\'t show permalink in printed output</label></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Printed Output: Copyright Statement</th>
+                    <td><input type="text" name="printed-copyright-statement" value="' . $printed_copyright_statement . '" class="regular-text" /></td>
                 </tr>
             </table>
             
@@ -1171,9 +1189,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 	$hide_tag = '';
 	if (strcmp(get_option('recipe_title_hide'), 'Hide') == 0)
         $hide_tag = ' texthide';
-	$output .= '<div id="zlrecipe-title" class="fn b-b h-1 strong' . $hide_tag . '" >' . $recipe->recipe_title . '</div>
-	</div>
-    </div>';
+	$output .= '<div id="zlrecipe-title" class="fn b-b h-1 strong' . $hide_tag . '" >' . $recipe->recipe_title . '</div></div>';
 	
 	//!!dc open the meta and fl-l container divs
 	$output .= '<div class="meta clear">
@@ -1219,6 +1235,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         }
         $output .= '<span class="duration">' . $total_time . '<span class="value-title" title="' . $recipe->total_time . '"><!-- --></span></span></p>';
     }
+    
     //!! close the first container div and open the second
     $output .= '</div>
       <div class="fl-l width-50">';
@@ -1345,7 +1362,20 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     $output .= '<div class="zl-linkback" ' . $hide_tag . '>Google Recipe View Microformatting by <a title="ZipList Recipe Plugin" href="http://www.ziplist.com/recipe_plugin" target="_blank">ZipList Recipe Plugin</a></div>';
     $output .= '<div class="ziplist-recipe-plugin" style="display: none;">' . AMD_ZLRECIPE_VERSION_NUM . '</div>';
 
+    //!!mwp add permalink for printed output before closing the innerdiv
+    if (strcmp(get_option('zlrecipe_printed_permalink_hide'), 'Hide') != 0) {
+		$permalink = get_permalink();
+		$output .= '<div id="zl-printed-permalink" class="zl-printed-permalink">' . $permalink . '</div>';
+	}
+
     $output .= '</div>'; //!!dc
+
+    //!!mwp add copyright statement for printed output (outside the dotted print line)
+    $printed_copyright_statement = get_option('zlrecipe_printed_copyright_statement');
+    if (strlen($printed_copyright_statement) > 0) {
+		$output .= '<div id="zl-printed-copyright-statement" class="zl-printed-copyright-statement">' . $printed_copyright_statement . '</div>';
+	}
+
     $output .= '</div>';
     
     return $output;
