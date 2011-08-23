@@ -1280,7 +1280,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
       <div class="clear">
       </div>
     </div>';
-    
+
     //!! create image and summary container
     if ($recipe->recipe_image != null || $recipe->summary != null) {
     	$style_tag = '';
@@ -1376,7 +1376,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 		$output .= '<div id="zl-printed-copyright-statement" class="zl-printed-copyright-statement">' . $printed_copyright_statement . '</div>';
 	}
 
-    $output .= '</div>';
+    $output .= '</div></div>';
     
     return $output;
 }
