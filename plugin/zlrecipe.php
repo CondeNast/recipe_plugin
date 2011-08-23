@@ -1039,8 +1039,8 @@ function amd_zlrecipe_convert_to_recipe($post_text) {
     return $output;
 }
 
-
-add_filter('the_content', 'amd_zlrecipe_convert_to_recipe', 8);
+add_filter('the_content', 'amd_zlrecipe_convert_to_recipe');
+//add_filter('the_content', 'amd_zlrecipe_convert_to_recipe', 8);
 
 // Pulls a recipe from the db
 function amd_zlrecipe_select_recipe_db($recipe_id) {
@@ -1182,6 +1182,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     //!!mwp add the ZipList recipe button
     if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
 		$ziplist_partner_key = get_option('ziplist_partner_key');
+		$permalink = get_permalink();
 		$output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"><a class="butn-link" title="Add this recipe to your ZipList, where you can store all of your favorite web recipes in one place and easily add ingredients to your shopping list." onmouseup="getZRecipe(this, \''. $ziplist_partner_key .'\', \'hrecipe\'); return false;" href="javascript:void(0);"><span>Add this recipe to ZipList!</span></a></div>';
 	}
 
@@ -1189,7 +1190,8 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 	$hide_tag = '';
 	if (strcmp(get_option('recipe_title_hide'), 'Hide') == 0)
         $hide_tag = ' texthide';
-	$output .= '<div id="zlrecipe-title" class="fn b-b h-1 strong' . $hide_tag . '" >' . $recipe->recipe_title . '</div></div>';
+	$output .= '<div id="zlrecipe-title" class="fn b-b h-1 strong' . $hide_tag . '" >' . $recipe->recipe_title . '</div>
+      </div>';
 	
 	//!!dc open the meta and fl-l container divs
 	$output .= '<div class="meta clear">
@@ -1376,7 +1378,8 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 		$output .= '<div id="zl-printed-copyright-statement" class="zl-printed-copyright-statement">' . $printed_copyright_statement . '</div>';
 	}
 
-    $output .= '</div></div>';
+    $output .= '</div>
+		</div>';
     
     return $output;
 }
