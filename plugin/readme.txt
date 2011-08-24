@@ -12,7 +12,7 @@ Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.2
 Stable tag: 1.2
-Version: 1.2.4
+Version: 1.3
 
 Formats recipes so they are SEO-friendly and more likely to appear in Google's Recipe View search.
 
@@ -62,7 +62,7 @@ You can email mailto:support@ziplist.com with your requests.
 
 == Screenshots ==
 
-1. The RecipeSEO Plugin icon is located next to the other "Upload/Insert" media icons.
+1. The ZipList Recipe Plugin icon is located next to the other "Upload/Insert" media icons.
 2. It's easy to enter the basic information for your recipes: the title, the ingredients, and the instructions for preparing the recipe.
 3. There is no limit on the number of ingredients you can add.
 4. And if you want to add even more information about your recipe, such as your rating of the recipe, or the serving size, all you have to do is click the "More Options" link, and you can!
@@ -130,11 +130,11 @@ You can email mailto:support@ziplist.com with your requests.
 * Support for hyperlinks in summary, ingredients and instructions
 * Removal of "\" characters introduced by entity encoding
 
-1.2.2 Print recipes from multi-recipe posts. Remove non-UTF-8 characters from readme.txt.
+1.3 Features Release
 
-1.2.3 New zlrecipe-placeholder.png art.
-
-1.2.4 print-output-copyright-statement implementation.
+* Print recipes from multi-recipe posts.
+* New instructions in zlrecipe-placeholder.png art.
+* Print output copyright statement and URL implementation.
 
 == Upgrade Notice ==
 

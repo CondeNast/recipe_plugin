@@ -13,7 +13,7 @@ Formats recipes so they are SEO-friendly and more likely to appear in Google’s
  * License: GPLv2 or later
  * Requires at least: 3.1
  * Tested up to: 3.1
- * Version: 1.2
+ * Version: 1.3
 
 Description
 -----------
@@ -65,7 +65,7 @@ You can email [ZipList](mailto:support@ziplist.com) with your requests.
 Screenshots
 -----------
 
-### The RecipeSEO Plugin icon is located next to the other "Upload/Insert" media icons.
+### The ZipList Recipe Plugin icon is located next to the other "Upload/Insert" media icons.
 
 ![Screen Shot 1](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-1.png)
 
@@ -166,6 +166,12 @@ Changelog
 * Support for images images in ingredients and instrutions
 * Support for hyperlinks in summary, ingredients and instructions
 * Removal of "\" characters introduced by entity encoding
+
+1.3 Features Release
+
+* Print recipes from multi-recipe posts.
+* New instructions in zlrecipe-placeholder.png art.
+* Print output copyright statement and URL implementation.
 
 Features that will be added in upcoming versions of the ZipList Recipe Plugin
 -----------------------------------------------------------------------------
