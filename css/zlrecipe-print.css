@@ -65,7 +65,13 @@ License: GPLv2 or later, unless specified
     position: relative;
 }
 
-#zlrecipe-container .zl-printed-permalink { font-size: 0.7em; text-align: center; margin-top: 2em; }
-#zlrecipe-container .zl-printed-copyright-statement { font-size: 0.9em; }
+#zlrecipe-print-container #zl-printed-permalink {
+	font-size: 0.7em;
+	color: #777777;
+	margin-top: 2em;
+}
+#zlrecipe-print-container a { cursor: pointer; }
+
+#zlrecipe-print-container #zl-printed-copyright-statement { font-size: 0.9em; text-align: center; }
 
 /* END PRINT FORMATTING */

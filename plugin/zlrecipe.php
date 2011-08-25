@@ -1367,7 +1367,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     //!!mwp add permalink for printed output before closing the innerdiv
     if (strcmp(get_option('zlrecipe_printed_permalink_hide'), 'Hide') != 0) {
 		$permalink = get_permalink();
-		$output .= '<div id="zl-printed-permalink" class="zl-printed-permalink">' . $permalink . '</div>';
+		$output .= '<a id="zl-printed-permalink" title="Permalink to Recipe>' . $permalink . '</a>';
 	}
 
     $output .= '</div>'; //!!dc
@@ -1375,7 +1375,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     //!!mwp add copyright statement for printed output (outside the dotted print line)
     $printed_copyright_statement = get_option('zlrecipe_printed_copyright_statement');
     if (strlen($printed_copyright_statement) > 0) {
-		$output .= '<div id="zl-printed-copyright-statement" class="zl-printed-copyright-statement">' . $printed_copyright_statement . '</div>';
+		$output .= '<div id="zl-printed-copyright-statement">' . $printed_copyright_statement . '</div>';
 	}
 
     $output .= '</div>
