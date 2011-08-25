@@ -70,8 +70,11 @@ License: GPLv2 or later, unless specified
 	color: #777777;
 	margin-top: 2em;
 }
-#zlrecipe-print-container a { cursor: pointer; }
 
-#zlrecipe-print-container #zl-printed-copyright-statement { font-size: 0.9em; text-align: center; }
+#zlrecipe-print-container #zl-printed-copyright-statement {
+	font-size: 0.9em;
+	text-align: center;
+	margin-top: 1em;
+}
 
 /* END PRINT FORMATTING */
