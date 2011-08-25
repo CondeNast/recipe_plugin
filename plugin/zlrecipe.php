@@ -1182,8 +1182,12 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     //!!mwp add the ZipList recipe button
     if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
 		$ziplist_partner_key = get_option('ziplist_partner_key');
-		$permalink = get_permalink();
-		$output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"><a class="butn-link" title="Add this recipe to your ZipList, where you can store all of your favorite web recipes in one place and easily add ingredients to your shopping list." onmouseup="getZRecipe(this, \''. $ziplist_partner_key .'\', \'hrecipe\'); return false;" href="javascript:void(0);"><span>Add this recipe to ZipList!</span></a></div>';
+		$output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r">
+		  <a class="butn-link" title="Add this recipe to your ZipList, where you can store all of your favorite web recipes in one place and easily add ingredients to your shopping list."
+		    onmouseup="getZRecipeArgs(this, {\'partner_key\':\''. $ziplist_partner_key . '\', \'url\':\'' . get_permalink() . '\', \'class\':\'hrecipe\'}); return false;"
+		    href="javascript:void(0);"><span>Add this recipe to ZipList!</span>
+		  </a>
+		</div>';
 	}
 
 	//!!dc add the title and close the item class
