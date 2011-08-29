@@ -1135,6 +1135,16 @@ function amd_zlrecipe_linkify_item($item, $class) {
 	return preg_replace('/\[([^\]\|\[]*)\|([^\]\|\[]*)\]/', '<a href="\\2" class="' . $class . '-link">\\1</a>', $item);
 }
 
+function amd_zlrecipe_break( $otag, $text, $ctag) {
+	$output = "";
+	$split_string = explode( "\r\n\r\n", $text, 10 );
+	foreach ( $split_string as $str )
+	{
+		$output .= $otag . $str . $ctag;
+	}
+	return $output;
+}
+
 // Processes markup for attributes like labels, images and links
 // !Label
 // %image
@@ -1301,7 +1311,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 			</p>';
 		}
 		if ($recipe->summary != null) {
-			$output .= '<p id="zlrecipe-summary" class="summary italic">' . amd_zlrecipe_linkify_item($recipe->summary, 'summary') . '</p>';
+			$output .= amd_zlrecipe_break( '<p id="zlrecipe-summary" class="summary italic">', amd_zlrecipe_linkify_item($recipe->summary, 'summary'), '</p>' );
 		}
 		$output .= '</div>';
 	}
