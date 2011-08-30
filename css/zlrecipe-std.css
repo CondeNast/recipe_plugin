@@ -175,7 +175,8 @@ footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-contai
   padding-top: 1px;
 }
 #zlrecipe-container .img-desc-wrap img.photo { width:545px; }
-#zlrecipe-container .img-desc-wrap .summary { padding:0 10px 10px; }
+#zlrecipe-container .img-desc-wrap #zlrecipe-summary { padding:0 10px 10px; }
+#zlrecipe-container #zlrecipe-summary .summary { margin: 5px 0; }
 
 #zlrecipe-container .zl-linkback { font-size: 0.9em; color: #aaa; margin-top: 4em; }
 #zlrecipe-container #zl-printed-permalink { display:none; font-size: 0.7em; }

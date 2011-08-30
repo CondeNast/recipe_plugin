@@ -1311,7 +1311,9 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 			</p>';
 		}
 		if ($recipe->summary != null) {
-			$output .= amd_zlrecipe_break( '<p id="zlrecipe-summary" class="summary italic">', amd_zlrecipe_linkify_item($recipe->summary, 'summary'), '</p>' );
+			$output .= '<div id="zlrecipe-summary">';
+			$output .= amd_zlrecipe_break( '<p class="summary italic">', amd_zlrecipe_linkify_item($recipe->summary, 'summary'), '</p>' );
+			$output .= '</div>';
 		}
 		$output .= '</div>';
 	}

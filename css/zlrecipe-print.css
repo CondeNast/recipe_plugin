@@ -51,10 +51,12 @@ License: GPLv2 or later, unless specified
   font-size: 12px;
 }
 
-#zlrecipe-print-container .img-desc-wrap .summary {
+#zlrecipe-print-container .img-desc-wrap #zlrecipe-summary {
   font-style: italic;
   font-size: 14px;
 }
+
+#zlrecipe-print-container #zlrecipe-summary .summary { margin: 5px 0; }
 
 #zlrecipe-print-container #zlrecipe-ingredients-list .ingredient-label,
 #zlrecipe-print-container #zlrecipe-instructions-list .instruction-label {
