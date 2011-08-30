@@ -1383,7 +1383,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     //!!mwp add permalink for printed output before closing the innerdiv
     if (strcmp(get_option('zlrecipe_printed_permalink_hide'), 'Hide') != 0) {
 		$permalink = get_permalink();
-		$output .= '<a id="zl-printed-permalink" href="' . get_permalink() . '"title="Permalink to Recipe>' . $permalink . '</a>';
+		$output .= '<a id="zl-printed-permalink" href="' . get_permalink() . '"title="Permalink to Recipe>"' . $permalink . '</a>';
 	}
 
     $output .= '</div>'; //!!dc
