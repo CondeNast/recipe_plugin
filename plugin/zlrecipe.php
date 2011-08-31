@@ -331,7 +331,13 @@ function amd_zlrecipe_settings() {
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row">Partner Key</th>
-                    <td><input type="text" name="ziplist-partner-key" value="' . $ziplist_partner_key . '" class="regular-text" /><br />
+                    <td>
+                        <input type="text" name="ziplist-partner-key" value="' . $ziplist_partner_key . '" class="regular-text" />
+                        <br />
+                        <a href="mailto:plugins@ziplist.com?Subject=Partner%20Key%20Request&body=Please%20send%20me%20a%20partner%20key%20for%20this%20awesome%20ZipList%20Recipe%20Plugin!" target="_blank">
+                            Request a partner key now
+                        </a>
+                    </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row">ZipList Recipe Box and Shopping List</th>
@@ -1172,6 +1178,7 @@ function amd_zlrecipe_format_item($item, $elem, $class, $id, $i) {
 //!!mwp function amd_zlrecipe_format_recipe($recipe, $ingredients) {
 function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     $output = "";
+    $permalink = get_permalink();
 
 	// Output main recipe div with border style
 	$style_tag = '';
@@ -1194,7 +1201,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 		$ziplist_partner_key = get_option('ziplist_partner_key');
 		$output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r">
 		  <a class="butn-link" title="Add this recipe to your ZipList, where you can store all of your favorite web recipes in one place and easily add ingredients to your shopping list."
-		    onmouseup="getZRecipeArgs(this, {\'partner_key\':\''. $ziplist_partner_key . '\', \'url\':\'' . get_permalink() . '\', \'class\':\'hrecipe\'}); return false;"
+		    onmouseup="getZRecipeArgs(this, {\'partner_key\':\''. $ziplist_partner_key . '\', \'url\':\'' . $permalink . '\', \'class\':\'hrecipe\'}); return false;"
 		    href="javascript:void(0);"><span>Add this recipe to ZipList!</span>
 		  </a>
 		</div>';
@@ -1382,8 +1389,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 
     //!!mwp add permalink for printed output before closing the innerdiv
     if (strcmp(get_option('zlrecipe_printed_permalink_hide'), 'Hide') != 0) {
-		$permalink = get_permalink();
-		$output .= '<a id="zl-printed-permalink" href="' . get_permalink() . '"title="Permalink to Recipe>"' . $permalink . '</a>';
+		$output .= '<a id="zl-printed-permalink" href="' . $permalink . '"title="Permalink to Recipe">' . $permalink . '</a>';
 	}
 
     $output .= '</div>'; //!!dc

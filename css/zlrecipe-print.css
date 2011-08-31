@@ -37,6 +37,8 @@ License: GPLv2 or later, unless specified
   font-size: 36px;
 }
 
+#zlrecipe-print-container .b-b { margin-bottom: 10px; }
+
 #zlrecipe-print-container .zlrecipe-print-link,
 #zlrecipe-print-container .zl-recipe-link,
 #zlrecipe-print-container .img-desc-wrap img.photo,
