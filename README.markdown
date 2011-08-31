@@ -169,9 +169,11 @@ Changelog
 
 1.3 Features Release
 
-* Print recipes from multi-recipe posts.
-* New instructions in zlrecipe-placeholder.png art.
-* Print output copyright statement and URL implementation.
+* Printing support for multiple recipes on a page
+* Button support for multiple recipes displayed on blog rolls
+* User-definable copyright statement or site promotion on print page
+* Optional recipe permalink displayed on print page
+* Support for multiple summary paragraphs
 
 Features that will be added in upcoming versions of the ZipList Recipe Plugin
 -----------------------------------------------------------------------------

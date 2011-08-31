@@ -11,7 +11,7 @@ Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.2
-Stable tag: 1.2
+Stable tag: 1.3
 Version: 1.3
 
 Formats recipes so they are SEO-friendly and more likely to appear in Google's Recipe View search.
@@ -132,9 +132,11 @@ You can email mailto:support@ziplist.com with your requests.
 
 1.3 Features Release
 
-* Print recipes from multi-recipe posts.
-* New instructions in zlrecipe-placeholder.png art.
-* Print output copyright statement and URL implementation.
+* Printing support for multiple recipes on a page
+* Button support for multiple recipes displayed on blog rolls
+* User-definable copyright statement or site promotion on print page
+* Optional recipe permalink displayed on print page
+* Support for multiple summary paragraphs
 
 == Upgrade Notice ==
 
@@ -143,6 +145,9 @@ Addresses problem of not being able to edit existing recipes on some blogs. Upgr
 
 = 1.2 =
 Feature update. Upgrade to gain access to hyperlink, image and label markup in recipes.
+
+= 1.3 =
+Feature update. Upgrade when using a homepage blog roll to display recipes or to add a copyright/promotional statement and/or permalink to the print output.
 
 == Features that will be added in upcoming versions of the ZipList Recipe Plugin ==
 
