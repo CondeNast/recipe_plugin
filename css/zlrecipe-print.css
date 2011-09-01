@@ -58,7 +58,7 @@ License: GPLv2 or later, unless specified
   font-size: 14px;
 }
 
-#zlrecipe-print-container #zlrecipe-summary .summary { margin: 5px 0; }
+#zlrecipe-print-container #zlrecipe-summary .summary { margin: 10px 0; }
 
 #zlrecipe-print-container #zlrecipe-ingredients-list .ingredient-label,
 #zlrecipe-print-container #zlrecipe-instructions-list .instruction-label {
