@@ -14,7 +14,7 @@ Tested up to: 3.2
 Stable tag: 1.3
 Version: 1.3
 
-Formats recipes so they are SEO-friendly and more likely to appear in Google's Recipe View search.
+Formats recipes so they are SEO-friendly and more likely to appear in Google's Recipe View search. New features enhance recipe printing capabilities and provide support for multiple recipes, as well as support for multiple paragraphs in the Summary section. 
 
 == Description ==
 
@@ -22,7 +22,13 @@ Make your recipes SEO-friendly and more likely to appear in [Google's Recipe Vie
 
 As a bonus, the ZipList Recipe Plugin enables you to add a "Save Recipe" button to each recipe so that readers can add favorite recipes to a universal recipe box and shopping list directly from your site. Each recipe they add includes a link back to your site so readers always go back to you for instructions.
 
-If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, youâ will quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
+If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you will quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
+
+**NEW: Enhanced Printing Capabilities: Add a copyright statement or URL to appear at the bottom of your printed recipes. Also, display a permalink at the bottom of printed recipes so users can easily find individual recipes on your website.
+
+**NEW: Multiple Recipe Support: The recipe plugin now fully supports the display and printing of multiple recipe posts on a single page.
+
+**NEW: Multiple Paragraph Support in Summary Section: Users can now add multiple paragraphs to the Summary field within the plugin.
 
 **Recipe Image Support:** Add images within the plugin to appear with your recipe.
 
@@ -133,7 +139,7 @@ You can email mailto:support@ziplist.com with your requests.
 1.3 Features Release
 
 * Printing support for multiple recipes on a page
-* Button support for multiple recipes displayed on blog rolls
+* Button support for multiple recipe posts displayed on a single page
 * User-definable copyright statement or site promotion on print page
 * Optional recipe permalink displayed on print page
 * Support for multiple summary paragraphs
@@ -147,7 +153,7 @@ Addresses problem of not being able to edit existing recipes on some blogs. Upgr
 Feature update. Upgrade to gain access to hyperlink, image and label markup in recipes.
 
 = 1.3 =
-Feature update. Upgrade when using a homepage blog roll to display recipes or to add a copyright/promotional statement and/or permalink to the print output.
+Feature update. Upgrade when the home page of your blog displays multiple recipe posts or to add a copyright/promotional statement and/or permalink to the print output.
 
 == Features that will be added in upcoming versions of the ZipList Recipe Plugin ==
 
