@@ -1186,7 +1186,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 	if ($border_style != null)
 		$style_tag = 'style="border: ' . $border_style . ';"';
     $output .= '
-    <div id="zlrecipe-container-' . $recipe->recipe_id . '" ' . $style_tag . '>
+    <div id="zlrecipe-container-' . $recipe->recipe_id . '" class="zlrecipe-container-border" ' . $style_tag . '>
     <div id="zlrecipe-container" class="hrecipe serif">
       <div id="zlrecipe-innerdiv">
         <div class="item b-b">';
