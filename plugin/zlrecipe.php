@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 1.3
+Version: 1.31
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv2 or later
@@ -334,8 +334,9 @@ function amd_zlrecipe_settings() {
                     <td>
                         <input type="text" name="ziplist-partner-key" value="' . $ziplist_partner_key . '" class="regular-text" />
                         <br />
+                        <span style="font-weight: bold;">Enhance recipe search and add your blog name and logo to your recipes.</span>
                         <a href="mailto:plugins@ziplist.com?Subject=Partner%20Key%20Request&body=Please%20send%20me%20a%20partner%20key%20for%20this%20awesome%20ZipList%20Recipe%20Plugin!" target="_blank">
-                            Request a partner key now
+                            Request a free partner key now
                         </a>
                     </td>
                 </tr>
