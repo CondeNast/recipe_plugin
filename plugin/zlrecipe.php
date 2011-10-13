@@ -335,7 +335,7 @@ function amd_zlrecipe_settings() {
                         <input type="text" name="ziplist-partner-key" value="' . $ziplist_partner_key . '" class="regular-text" />
                         <br />
                         <span style="font-weight: bold;">Enhance recipe search and add your blog name and logo to your recipes.</span>
-                        <a href="mailto:plugins@ziplist.com?Subject=Partner%20Key%20Request&body=Please%20send%20me%20a%20partner%20key%20for%20this%20awesome%20ZipList%20Recipe%20Plugin!" target="_blank">
+                        <a href="http://www.ziplist.com/partner_signup" target="_blank">
                             Request a free partner key now
                         </a>
                     </td>
