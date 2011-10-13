@@ -12,7 +12,7 @@ Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.2
 Stable tag: 1.3
-Version: 1.31
+Version: 1.33
 
 Formats recipes so they are SEO-friendly and more likely to appear in Google's Recipe View search. New features enhance recipe printing capabilities and provide support for multiple recipes, as well as support for multiple paragraphs in the Summary section. 
 

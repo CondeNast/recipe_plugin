@@ -19,8 +19,11 @@ License: GPLv2 or later, unless specified
 }
 #zlrecipe-print-container .bold, #zlrecipe-print-container .strong { font-weight: bold; }
 #zlrecipe-print-container .italic, #zlrecipe-print-container .em { font-style: italic; }
+#zlrecipe-print-container .t-a-c { text-align: center; }
 
 /* SPECIFIC PRINT ELEMENT STYLES */
+#zlrecipe-container .hide-print { display: none; } /* used to hide things in the recipe print view */
+
 #zlrecipe-print-container {
   font-family: 'helvetica neue', helvetica, arial, verdana, sans-serif;
   margin: 0px;
@@ -41,7 +44,6 @@ License: GPLv2 or later, unless specified
 
 #zlrecipe-print-container .zlrecipe-print-link,
 #zlrecipe-print-container .zl-recipe-link,
-#zlrecipe-print-container .img-desc-wrap img.photo,
 #zlrecipe-print-container img.ingredient-image,
 #zlrecipe-print-container img.instruction-image,
 #zlrecipe-print-container #zlrecipe-rating,

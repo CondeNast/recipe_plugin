@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 1.31
+Version: 1.33
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv2 or later
@@ -52,6 +52,8 @@ add_option('zlrecipe_printed_permalink_hide', ''); //!!mwp
 add_option('zlrecipe_printed_copyright_statement', ''); //!!mwp
 add_option('zlrecipe_stylesheet', 'zlrecipe-std'); //!!dc
 add_option('recipe_title_hide', ''); //!!dc (oops, btw)
+add_option('zlrecipe_image_hide', ''); //!!dc
+add_option('zlrecipe_image_hide_print', 'Hide'); //!!dc
 add_option('zlrecipe_print_link_hide', ''); //!!dc
 add_option('zlrecipe_ingredient_label', 'Ingredients');
 add_option('zlrecipe_ingredient_label_hide', '');
@@ -173,6 +175,8 @@ function amd_zlrecipe_settings() {
         $printed_copyright_statement = $_POST['printed-copyright-statement'];
         $stylesheet = $_POST['stylesheet'];
         $recipe_title_hide = $_POST['recipe-title-hide'];
+        $image_hide = $_POST['image-hide'];
+        $image_hide_print = $_POST['image-hide-print'];
         $print_link_hide = $_POST['print-link-hide'];
         $ingredient_label = $_POST['ingredient-label'];
         $ingredient_label_hide = $_POST['ingredient-label-hide'];
@@ -207,6 +211,8 @@ function amd_zlrecipe_settings() {
         update_option('zlrecipe_printed_copyright_statement', $printed_copyright_statement);
         update_option('zlrecipe_stylesheet', $stylesheet);
         update_option('recipe_title_hide', $recipe_title_hide);
+        update_option('zlrecipe_image_hide', $image_hide);
+        update_option('zlrecipe_image_hide_print', $image_hide_print);
         update_option('zlrecipe_print_link_hide', $print_link_hide);
         update_option('zlrecipe_ingredient_label', $ingredient_label);
         update_option('zlrecipe_ingredient_label_hide', $ingredient_label_hide);
@@ -240,6 +246,8 @@ function amd_zlrecipe_settings() {
         $printed_copyright_statement = get_option('zlrecipe_printed_copyright_statement');
         $stylesheet = get_option('zlrecipe_stylesheet');
         $recipe_title_hide = get_option('recipe_title_hide');
+        $image_hide = get_option('zlrecipe_image_hide');
+        $image_hide_print = get_option('zlrecipe_image_hide_print');
         $print_link_hide = get_option('zlrecipe_print_link_hide');
         $ingredient_label = get_option('zlrecipe_ingredient_label');
         $ingredient_label_hide = get_option('zlrecipe_ingredient_label_hide');
@@ -271,6 +279,8 @@ function amd_zlrecipe_settings() {
     $ziplist_attribution_hide = (strcmp($ziplist_attribution_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $printed_permalink_hide = (strcmp($printed_permalink_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $recipe_title_hide = (strcmp($recipe_title_hide, 'Hide') == 0 ? 'checked="checked"' : '');
+    $image_hide = (strcmp($image_hide, 'Hide') == 0 ? 'checked="checked"' : '');
+    $image_hide_print = (strcmp($image_hide_print, 'Hide') == 0 ? 'checked="checked"' : '');
     $print_link_hide = (strcmp($print_link_hide, 'Hide') == 0 ? 'checked="checked"' : '');
 
     // Stylesheet processing
@@ -362,8 +372,12 @@ function amd_zlrecipe_settings() {
 			<h3>General</h3>
             <table class="form-table">
                 <tr valign="top">
+                    <th scope="row">Stylesheet</th>
+                    <td><label><input type="checkbox" name="stylesheet" value="zlrecipe-std" ' . $stylesheet . ' /> Use ZipList recipe style</label></td>
+                </tr>
+                <tr valign="top">
                     <th scope="row">Recipe Title</th>
-                    <td><label><input type="checkbox" name="recipe-title-hide" value="Hide" ' . $recipe_title_hide . ' /> Don\'t show Recipe Title</label></td>
+                    <td><label><input type="checkbox" name="recipe-title-hide" value="Hide" ' . $recipe_title_hide . ' /> Don\'t show Recipe Title in post (still shows in print view)</label></td>
                 </tr>
                 <tr valign="top">
                     <th scope="row">Print Button</th>
@@ -374,15 +388,19 @@ function amd_zlrecipe_settings() {
                     <td><label><input type="text" name="image-width" value="' . $image_width . '" class="regular-text" /> pixels</label></td>
                 </tr>
                 <tr valign="top">
+                    <th scope="row">Image Display</th>
+                    <td>
+                    	<label><input type="checkbox" name="image-hide" value="Hide" ' . $image_hide . ' /> Don\'t show Image in post</label>
+                    	<br />
+                    	<label><input type="checkbox" name="image-hide-print" value="Hide" ' . $image_hide_print . ' /> Don\'t show Image in print view</label>
+                    </td>
+                </tr>
+                <tr valign="top">
                 	<th scope="row">Border Style</th>
                 	<td>
 						<select name="outer-border-style">' . $obs . '</select>
 					</td>
 				</tr>
-                <tr valign="top">
-                    <th scope="row">Stylesheet</th>
-                    <td><label><input type="checkbox" name="stylesheet" value="zlrecipe-std" ' . $stylesheet . ' /> Use ZipList recipe style</label></td>
-                </tr>
             </table>
             <hr />            
             <h3>Ingredients</h3>
@@ -1129,7 +1147,9 @@ function amd_zlrecipe_process_head() {
 	// Recipe styling
 	$css = get_option('zlrecipe_stylesheet');
 	if (strcmp($css, '') != 0) {
-		$header_html .= '<link charset="utf-8" href="http://www.zlcdn.com/stylesheets/minibox/' . $css . '.css" rel="stylesheet" type="text/css" />
+		/*$header_html .= '<link charset="utf-8" href="http://www.zlcdn.com/stylesheets/minibox/' . $css . '.css" rel="stylesheet" type="text/css" />
+';*/
+		$header_html .= '<link charset="utf-8" href="http://dev.ziplist.com.s3.amazonaws.com/' . $css . '.css" rel="stylesheet" type="text/css" />
 ';
 	}
 
@@ -1306,14 +1326,19 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 
     //!! create image and summary container
     if ($recipe->recipe_image != null || $recipe->summary != null) {
-    	$style_tag = '';
         $output .= '<div class="img-desc-wrap">';
 		if ($recipe->recipe_image != null) {
+			$style_tag = '';
+			$class_tag = '';
 			$image_width = get_option('zlrecipe_image_width');
 			if ($image_width != null) {
 				$style_tag = 'style="width: ' . $image_width . 'px;"';
 			}
-			$output .= '<p class="t-a-c">
+			if (strcmp(get_option('zlrecipe_image_hide'), 'Hide') == 0)
+				$class_tag .= ' hide-card';
+			if (strcmp(get_option('zlrecipe_image_hide_print'), 'Hide') == 0)
+				$class_tag .= ' hide-print';
+			$output .= '<p class="t-a-c' . $class_tag . '">
 			  <img class="photo" src="' . $recipe->recipe_image . '" title="' . $recipe->recipe_title . '" ' . $style_tag . ' />
 			</p>';
 		}
