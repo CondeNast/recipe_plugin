@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 1.33
+Version: 1.34
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv2 or later
@@ -38,7 +38,7 @@ if (!defined('AMD_ZLRECIPE_VERSION_KEY'))
     define('AMD_ZLRECIPE_VERSION_KEY', 'amd_zlrecipe_version');
 
 if (!defined('AMD_ZLRECIPE_VERSION_NUM'))
-    define('AMD_ZLRECIPE_VERSION_NUM', '1.3'); //!!mwp
+    define('AMD_ZLRECIPE_VERSION_NUM', '1.4'); //!!mwp
     
 if (!defined('AMD_ZLRECIPE_PLUGIN_DIRECTORY'))
     define('AMD_ZLRECIPE_PLUGIN_DIRECTORY', get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/');
@@ -61,6 +61,8 @@ add_option('zlrecipe_ingredient_list_type', 'ul');
 add_option('zlrecipe_instruction_label', 'Instructions'); //!!mwp
 add_option('zlrecipe_instruction_label_hide', '');
 add_option('zlrecipe_instruction_list_type', 'ol');
+add_option('zlrecipe_notes_label', 'Notes'); //!!dc
+add_option('zlrecipe_notes_label_hide', ''); //!dc
 add_option('zlrecipe_prep_time_label', 'Prep Time:');
 add_option('zlrecipe_prep_time_label_hide', '');
 add_option('zlrecipe_cook_time_label', 'Cook Time:');
@@ -184,6 +186,8 @@ function amd_zlrecipe_settings() {
         $instruction_label = $_POST['instruction-label'];
         $instruction_label_hide = $_POST['instruction-label-hide'];
         $instruction_list_type = $_POST['instruction-list-type'];
+        $notes_label = $_POST['notes-label'];
+        $notes_label_hide = $_POST['notes-label-hide'];
         $prep_time_label = $_POST['prep-time-label'];
         $prep_time_label_hide = $_POST['prep-time-label-hide'];
         $cook_time_label = $_POST['cook-time-label'];
@@ -220,6 +224,8 @@ function amd_zlrecipe_settings() {
         update_option('zlrecipe_instruction_label', $instruction_label);
         update_option('zlrecipe_instruction_label_hide', $instruction_label_hide);
         update_option('zlrecipe_instruction_list_type', $instruction_list_type);
+        update_option('zlrecipe_notes_label', $notes_label);
+        update_option('zlrecipe_notes_label_hide', $notes_label_hide);
         update_option('zlrecipe_prep_time_label', $prep_time_label);
         update_option('zlrecipe_prep_time_label_hide', $prep_time_label_hide);
         update_option('zlrecipe_cook_time_label', $cook_time_label);
@@ -255,6 +261,8 @@ function amd_zlrecipe_settings() {
         $instruction_label = get_option('zlrecipe_instruction_label');
         $instruction_label_hide = get_option('zlrecipe_instruction_label_hide');
         $instruction_list_type = get_option('zlrecipe_instruction_list_type');
+        $notes_label = get_option('zlrecipe_notes_label');
+        $notes_label_hide = get_option('zlrecipe_notes_label_hide');
         $prep_time_label = get_option('zlrecipe_prep_time_label');
         $prep_time_label_hide = get_option('zlrecipe_prep_time_label_hide');
         $cook_time_label = get_option('zlrecipe_cook_time_label');
@@ -307,6 +315,8 @@ function amd_zlrecipe_settings() {
     $ins_p = (strcmp($instruction_list_type, 'p') == 0 ? 'checked="checked"' : '');
     $ins_div = (strcmp($instruction_list_type, 'div') == 0 ? 'checked="checked"' : '');
     
+    $notes_label_hide = (strcmp($notes_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
+
     $prep_time_label_hide = (strcmp($prep_time_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $cook_time_label_hide = (strcmp($cook_time_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $total_time_label_hide = (strcmp($total_time_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
@@ -317,7 +327,7 @@ function amd_zlrecipe_settings() {
     $rating_label_hide = (strcmp($rating_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     
     $other_options = '';
-    $other_options_array = array('Rating', 'Prep Time', 'Cook Time', 'Total Time', 'Yield', 'Serving Size', 'Calories', 'Fat');
+    $other_options_array = array('Rating', 'Prep Time', 'Cook Time', 'Total Time', 'Yield', 'Serving Size', 'Calories', 'Fat', 'Notes');
     
     foreach ($other_options_array as $option) {
         $name = strtolower(str_replace(' ', '-', $option));
