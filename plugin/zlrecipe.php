@@ -1253,10 +1253,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         if (strcmp(get_option('zlrecipe_rating_label_hide'), 'Hide') != 0) {
         	$output .= get_option('zlrecipe_rating_label') . ' ';
         }
-        $output .= '<span class="rating rating-' . $recipe->rating . '">
-          	<span class="average">' . $recipe->rating . '</span>
-          	<span class="count" style="display: none;">1</span>
-          </span>
+        $output .= '<span class="rating rating-' . $recipe->rating . '"><span class="average">' . $recipe->rating . '</span><span class="count" style="display: none;">1</span></span>
        </p>';
     }
     
