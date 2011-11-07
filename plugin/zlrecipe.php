@@ -945,7 +945,6 @@ function amd_zlrecipe_insert_db($post_info) {
     }
         
     $recipe = array (
-        "post_id" => $post_info["post_id"],
         "recipe_title" => amd_zlrecipe_strip_chars( $post_info["recipe_title"] ),
         "recipe_image" => $post_info["recipe_image"],
         "summary" => amd_zlrecipe_strip_chars( $post_info["summary"] ),
@@ -962,6 +961,7 @@ function amd_zlrecipe_insert_db($post_info) {
     );
     
     if (amd_zlrecipe_select_recipe_db($recipe_id) == null) {
+    	$recipe["post_id"] = $post_info["post_id"];	// set only during record creation
         $wpdb->insert( $wpdb->prefix . "amd_zlrecipe_recipes", $recipe );
         $recipe_id = $wpdb->insert_id;
     } else {
