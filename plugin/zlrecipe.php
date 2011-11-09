@@ -43,7 +43,8 @@ if (!defined('AMD_ZLRECIPE_VERSION_NUM'))
 if (!defined('AMD_ZLRECIPE_PLUGIN_DIRECTORY'))
     define('AMD_ZLRECIPE_PLUGIN_DIRECTORY', get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/');
 
-add_option(AMD_ZLRECIPE_VERSION_KEY, AMD_ZLRECIPE_VERSION_NUM);
+add_option(AMD_ZLRECIPE_VERSION_KEY, AMD_ZLRECIPE_VERSION_NUM);  // sort of useless as is never updated
+add_option("amd_zlrecipe_db_version"); // used to store DB version
 
 add_option('ziplist_partner_key', ''); //!!mwp
 add_option('ziplist_recipe_button_hide', ''); //!!mwp
@@ -62,7 +63,7 @@ add_option('zlrecipe_instruction_label', 'Instructions'); //!!mwp
 add_option('zlrecipe_instruction_label_hide', '');
 add_option('zlrecipe_instruction_list_type', 'ol');
 add_option('zlrecipe_notes_label', 'Notes'); //!!dc
-add_option('zlrecipe_notes_label_hide', ''); //!dc
+add_option('zlrecipe_notes_label_hide', ''); //!!dc
 add_option('zlrecipe_prep_time_label', 'Prep Time:');
 add_option('zlrecipe_prep_time_label_hide', '');
 add_option('zlrecipe_cook_time_label', 'Cook Time:');
@@ -82,8 +83,8 @@ add_option('zlrecipe_rating_label_hide', ''); //!!dc
 add_option('zlrecipe_image_width', ''); //!!dc
 add_option('zlrecipe_outer_border_style', ''); //!!dc
 
-
 register_activation_hook(__FILE__, 'amd_zlrecipe_install');
+add_action('plugins_loaded', 'amd_zlrecipe_install');
 
 add_action('media_buttons', 'amd_zlrecipe_add_recipe_button', 30);
 add_action('init', 'amd_zlrecipe_enhance_mce');
@@ -94,13 +95,29 @@ if (strpos($_SERVER['REQUEST_URI'], 'media-upload.php') && strpos($_SERVER['REQU
 	exit;
 }
 
+global $zlrecipe_db_version;
+$zlrecipe_db_version = "3.1";	// This must be changed when the DB structure is modified
+
 // Creates ZLRecipe tables in the db if they don't exist already.
+// Don't do any data initialization in this routine as it is called on both install as well as
+//   every plugin load as an upgrade check.
+//
+// Updates the table if needed
+// Plugin Ver  DB Ver
+//   1.0        3.0
+//   1.1        3.0
+//   1.2        3.0
+//   1.3        3.0
+//   1.4        3.1  Adds Notes column to recipes table
 function amd_zlrecipe_install() {
     global $wpdb;
+    global $zlrecipe_db_version;
 
     $recipes_table = $wpdb->prefix . "amd_zlrecipe_recipes";
+    $installed_db_ver - get_option("amd_zlrecipe_db_version");
     
-    if($wpdb->get_var("SHOW TABLES LIKE '$recipes_table'") != $recipes_table) {
+    if($wpdb->get_var("SHOW TABLES LIKE '$recipes_table'") != $recipes_table	// NO database exists
+    	|| strcmp($installed_db_ver, $zlrecipe_db_version) != 0) {				// An older database exists
         $sql = "CREATE TABLE " . $recipes_table . " (
             recipe_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
             post_id BIGINT(20) UNSIGNED NOT NULL,
@@ -117,31 +134,16 @@ function amd_zlrecipe_install() {
             fat VARCHAR(50),
             ingredients TEXT,
             instructions TEXT,
+            notes TEXT,
             created_at TIMESTAMP DEFAULT NOW()
         	);";
 
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
         dbDelta($sql);
-    }
-   
- /*!!mwp
-    $ingredients_table = $wpdb->prefix . "amd_zlrecipe_ingredients";
-    
-    if($wpdb->get_var("SHOW TABLES LIKE '$ingredients_table'") != $ingredients_table) {
-        $sql_2 = "CREATE TABLE " . $ingredients_table . " (
-            ingredient_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            recipe_id BIGINT(20) UNSIGNED NOT NULL,
-            name VARCHAR(200) NOT NULL,
-            amount VARCHAR(200),
-            created_at TIMESTAMP DEFAULT NOW()
-        	);";
 
-        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-        dbDelta($sql_2);
+        update_option("amd_zlrecipe_db_version", $zlrecipe_db_version);
+
     }
- */
- 
-    add_option("amd_zlrecipe_db_version", "3.0"); //!!mwp
 }
 
 add_action('admin_menu', 'amd_zlrecipe_menu_pages');
@@ -314,8 +316,6 @@ function amd_zlrecipe_settings() {
     $ins_ol = (strcmp($instruction_list_type, 'ol') == 0 ? 'checked="checked"' : '');
     $ins_p = (strcmp($instruction_list_type, 'p') == 0 ? 'checked="checked"' : '');
     $ins_div = (strcmp($instruction_list_type, 'div') == 0 ? 'checked="checked"' : '');
-    
-    $notes_label_hide = (strcmp($notes_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
 
     $prep_time_label_hide = (strcmp($prep_time_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $cook_time_label_hide = (strcmp($cook_time_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
@@ -325,6 +325,7 @@ function amd_zlrecipe_settings() {
     $calories_label_hide = (strcmp($calories_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $fat_label_hide = (strcmp($fat_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $rating_label_hide = (strcmp($rating_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
+    $notes_label_hide = (strcmp($notes_label_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     
     $other_options = '';
     $other_options_array = array('Rating', 'Prep Time', 'Cook Time', 'Total Time', 'Yield', 'Serving Size', 'Calories', 'Fat', 'Notes');
