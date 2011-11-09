@@ -517,6 +517,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
             $recipe_title = $recipe->recipe_title; //!!xxx amd_zlrecipe_strip_chars( $recipe->recipe_title );
             $recipe_image = $recipe->recipe_image;
             $summary = $recipe->summary; //!!xxx amd_zlrecipe_strip_chars( $recipe->summary );
+            $notes = $recipe->notes;
             $rating = $recipe->rating;
             $ss = array();
             $ss[(int)$rating] = 'selected="true"';
@@ -651,6 +652,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
                  $recipe_title = amd_zlrecipe_strip_chars( htmlentities($post_info["recipe_title"], ENT_QUOTES) );
             $recipe_image = htmlentities($post_info["recipe_image"], ENT_QUOTES); //!!mwp
             $summary = amd_zlrecipe_strip_chars( htmlentities($post_info["summary"], ENT_QUOTES) );
+            $notes = amd_zlrecipe_strip_chars( htmlentities($post_info["notes"], ENT_QUOTES) );
             $rating = htmlentities($post_info["rating"], ENT_QUOTES);
             $prep_time_seconds = htmlentities($post_info["prep_time_seconds"], ENT_QUOTES);
             $prep_time_minutes = htmlentities($post_info["prep_time_minutes"], ENT_QUOTES);
@@ -850,6 +852,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
                 <p><label>Serving Size</label> <input type='text' name='serving_size' value='$serving_size' /></p>
                 <p><label>Calories</label> <input type='text' name='calories' value='$calories' /></p>
                 <p><label>Fat</label> <input type='text' name='fat' value='$fat' /></p>
+                <p class='cls'><label>Notes</label> <textarea name='notes'>$notes</textarea></label></p>
             </div>
             <input type='submit' value='$submit' name='add-recipe-button' />
         </div>
@@ -959,6 +962,7 @@ function amd_zlrecipe_insert_db($post_info) {
         "fat" => $post_info["fat"],
         "ingredients" => amd_zlrecipe_strip_chars( $post_info["ingredients"] ),
         "instructions" => amd_zlrecipe_strip_chars( $post_info["instructions"] ),
+        "notes" => amd_zlrecipe_strip_chars( $post_info["notes"] ),
     );
     
     if (amd_zlrecipe_select_recipe_db($recipe_id) == null) {
@@ -1412,6 +1416,18 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         }
         $output .= '</' . $instruction_type . '>';
     }
+
+    //!! add notes section
+    if ($recipe->notes != null) {
+        if (strcmp(get_option('zlrecipe_notes_label_hide'), 'Hide') != 0) {
+            $output .= '<p id="zlrecipe-notes" class="h-4 strong">' . get_option('zlrecipe_notes_label') . '</p>';
+        }
+
+		$output .= '<div id="zlrecipe-notes">';
+		$output .= amd_zlrecipe_break( '<p class="notes">', amd_zlrecipe_linkify_item($recipe->notes, 'notes'), '</p>' );
+		$output .= '</div>';
+
+	}
 
 	//!!mwp add ZipList attribution and version
 	$hide_tag = '';
