@@ -1423,7 +1423,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
             $output .= '<p id="zlrecipe-notes" class="h-4 strong">' . get_option('zlrecipe_notes_label') . '</p>';
         }
 
-		$output .= '<div id="zlrecipe-notes">';
+		$output .= '<div id="zlrecipe-notes-list">';
 		$output .= amd_zlrecipe_break( '<p class="notes">', amd_zlrecipe_linkify_item($recipe->notes, 'notes'), '</p>' );
 		$output .= '</div>';
 
