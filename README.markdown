@@ -181,10 +181,17 @@ Changelog
 * Optional recipe permalink displayed on print page
 * Support for multiple summary paragraphs
 
+1.4 Features Release
+
+* Control display of recipe images on both web and print screens without manual styles or degrading SEO
+* Support for optional recipe Notes field with user-definable label
+* Easier partner registration for branded recipe display
+* Iniital RSS/email support
+* Various bugfixes
+
 Features that will be added in upcoming versions of the ZipList Recipe Plugin
 -----------------------------------------------------------------------------
 
-* Style selection
-* Time labels
+* You tell us!
 * Have a suggestion for a feature we should add? [Drop us a line](mailto:support@ziplist.com)
 

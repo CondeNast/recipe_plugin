@@ -12,7 +12,7 @@ Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.2
 Stable tag: 1.3
-Version: 1.34
+Version: 1.35
 
 Formats recipes so they are SEO-friendly and more likely to appear in Google's Recipe View search. New features enhance recipe printing capabilities and provide support for multiple recipes, as well as support for multiple paragraphs in the Summary section. 
 
@@ -144,6 +144,15 @@ You can email mailto:support@ziplist.com with your requests.
 * Optional recipe permalink displayed on print page
 * Support for multiple summary paragraphs
 
+1.4 Features Release
+
+* Control display of recipe images on both web and print screens without manual styles or degrading SEO
+* Support for optional recipe Notes field with user-definable label
+* Easier partner registration for branded recipe display
+* Iniital RSS/email support
+* Various bugfixes
+
+
 == Upgrade Notice ==
 
 = 1.1 =
@@ -154,6 +163,9 @@ Feature update. Upgrade to gain access to hyperlink, image and label markup in r
 
 = 1.3 =
 Feature update. Upgrade when the home page of your blog displays multiple recipe posts or to add a copyright/promotional statement and/or permalink to the print output.
+
+= 1.4 =
+Feature update. Upgrade to add an additional notes recipe field or for better control over image display in web and print.
 
 == Features that will be added in upcoming versions of the ZipList Recipe Plugin ==
 
