@@ -103,7 +103,7 @@ footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-contai
 
 #zlrecipe-container .width-50, #zlrecipe-container .w-50 { width: 50%; }
 
-#zlrecipe-container .clear { clear: both; }
+#zlrecipe-container .clear, #zlrecipe-container .zlclear { clear: both; }
 
 #zlrecipe-container .texthide { text-indent: -9999px; }
 #zlrecipe-container .hide-card { display: none; } /* used to hide things in the recipe card (web) view */
@@ -133,11 +133,11 @@ footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-contai
 	background-position: 0 -24px;
 }
 
-#zlrecipe-container .meta {
+#zlrecipe-container .meta, #zlrecipe-container .zlmeta {
   font-size: 0.85em;
   font-weight: bold;
 }
-#zlrecipe-container .meta span { font-weight: normal; }
+#zlrecipe-container .meta span, #zlrecipe-container .zlmeta span { font-weight: normal; }
 
 #zlrecipe-rating .rating {
   background: url('http://ab-assets.ziplist.com.s3.amazonaws.com/star-rating.gif') no-repeat scroll 0 0;

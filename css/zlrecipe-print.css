@@ -11,7 +11,7 @@ License: GPLv2 or later, unless specified
 /* PRINT TYPOGRAPHY */
 #zlrecipe-print-container .fl-l { float: left; }
 #zlrecipe-print-container .width-50 { width: 50%; }
-#zlrecipe-print-container .clear { clear: both; }
+#zlrecipe-print-container .clear, #zlrecipe-print-container .zlclear { clear: both; }
 #zlrecipe-print-container p { clear: both; }
 #zlrecipe-print-container .h-4 {
   font-size: 20px;
@@ -50,7 +50,7 @@ License: GPLv2 or later, unless specified
 #zlrecipe-print-container .zl-linkback
 { display:none; }
 
-#zlrecipe-print-container .meta p {
+#zlrecipe-print-container .meta p, #zlrecipe-print-container .zlmeta p {
   margin: 0px;
   font-size: 12px;
 }

@@ -1247,8 +1247,8 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 	$output .= '<div id="zlrecipe-title" class="fn b-b h-1 strong' . $hide_tag . '" >' . $recipe->recipe_title . '</div>
       </div>';
 	
-	//!!dc open the meta and fl-l container divs
-	$output .= '<div class="meta clear">
+	//!!dc open the zlmeta and fl-l container divs
+	$output .= '<div class="zlmeta zlclear">
       <div class="fl-l width-50">';
 
     if ($recipe->rating != 0) {
@@ -1330,7 +1330,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 
     //!! close the second container
     $output .= '</div>
-      <div class="clear">
+      <div class="zlclear">
       </div>
     </div>';
 
