@@ -1016,16 +1016,22 @@ function amd_zlrecipe_plugin_footer() {
             output += rid;
             output += '" class="amd-zlrecipe-recipe" src="' + getoption + '/wp-content/plugins/' + dirname + '/zlrecipe-placeholder.png" alt="" />';
             
-        	if ( typeof tinyMCE != 'undefined' && ( ed = tinyMCE.activeEditor ) && !ed.isHidden() ) {
+        	if ( typeof tinyMCE != 'undefined' && ( ed = tinyMCE.activeEditor ) && !ed.isHidden() ) {  //!!mwp path followed when in Visual editor mode
         		ed.focus();
         		if ( tinymce.isIE )
         			ed.selection.moveToBookmark(tinymce.EditorManager.activeEditor.windowManager.bookmark);
 
         		ed.execCommand('mceInsertContent', false, output);
 
-        	} else if ( typeof edInsertContent == 'function' ) {
-        		edInsertContent(edCanvas, output);
+        	} else if ( typeof edInsertContent == 'function' ) {  //!!mwp path followed when in HTML editor mode
+                output = '[amd-zlrecipe-recipe:'; //!!mwp
+                output += rid;
+                output += ']';
+                edInsertContent(edCanvas, output);
         	} else {
+                output = '[amd-zlrecipe-recipe:'; //!!mwp
+                output += rid;
+                output += ']';
         		jQuery( edCanvas ).val( jQuery( edCanvas ).val() + output );
         	}
         }
