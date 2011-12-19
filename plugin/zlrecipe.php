@@ -114,10 +114,9 @@ function amd_zlrecipe_install() {
     global $zlrecipe_db_version;
 
     $recipes_table = $wpdb->prefix . "amd_zlrecipe_recipes";
-    $installed_db_ver - get_option("amd_zlrecipe_db_version");
+    $installed_db_ver = get_option("amd_zlrecipe_db_version");
     
-    if($wpdb->get_var("SHOW TABLES LIKE '$recipes_table'") != $recipes_table	// NO database exists
-    	|| strcmp($installed_db_ver, $zlrecipe_db_version) != 0) {				// An older database exists
+    if(strcmp($installed_db_ver, $zlrecipe_db_version) != 0) {				// An older (or no) database table exists
         $sql = "CREATE TABLE " . $recipes_table . " (
             recipe_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
             post_id BIGINT(20) UNSIGNED NOT NULL,

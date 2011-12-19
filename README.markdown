@@ -12,7 +12,7 @@ Formats recipes so they are SEO-friendly and more likely to appear in Google’s
  * Tags: recipe, hrecipe, google rich snippets, seo
  * License: GPLv2 or later
  * Requires at least: 3.1
- * Tested up to: 3.1
+ * Tested up to: 3.2.1
  * Version: 1.4
 
 Description
