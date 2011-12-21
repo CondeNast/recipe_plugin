@@ -12,7 +12,7 @@ Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.2.1
 Stable tag: 1.4
-Version: 1.4
+Version: 1.41
 
 Formats recipes so they are SEO-friendly. New features include a Notes field and enhanced image display options.
 
@@ -158,6 +158,11 @@ You can email mailto:support@ziplist.com with your requests.
 * Iniital RSS/email support
 * Various bugfixes
 
+1.41 Bugfix Release
+
+* Fix for repeating dbDelta database error
+* UI Improvement to avoid "placeholder" image in post
+
 
 == Upgrade Notice ==
 
@@ -172,6 +177,9 @@ Feature update. Upgrade when the home page of your blog displays multiple recipe
 
 = 1.4 =
 Feature update. Upgrade to add an additional notes recipe field or for better control over image display in web and print.
+
+= 1.41 =
+Bugfix update. Upgrade if you are experiencing repeating DB errors regarding a call to "dbDelta" by the plugin.
 
 == Features that will be added in upcoming versions of the ZipList Recipe Plugin ==
 

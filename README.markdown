@@ -13,7 +13,7 @@ Formats recipes so they are SEO-friendly and more likely to appear in Google’s
  * License: GPLv2 or later
  * Requires at least: 3.1
  * Tested up to: 3.2.1
- * Version: 1.4
+ * Version: 1.41
 
 Description
 -----------
@@ -194,6 +194,11 @@ Changelog
 * Easier partner registration for branded recipe display
 * Iniital RSS/email support
 * Various bugfixes
+
+1.41 Bugfix Release
+
+* Fix for repeating dbDelta database error
+* UI Improvement to avoid "placeholder" image in post
 
 Features that will be added in upcoming versions of the ZipList Recipe Plugin
 -----------------------------------------------------------------------------

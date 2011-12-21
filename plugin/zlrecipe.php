@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 1.4
+Version: 1.41
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv2 or later
@@ -108,7 +108,7 @@ $zlrecipe_db_version = "3.1";	// This must be changed when the DB structure is m
 //   1.1        3.0
 //   1.2        3.0
 //   1.3        3.0
-//   1.4        3.1  Adds Notes column to recipes table
+//   1.4x       3.1  Adds Notes column to recipes table
 function amd_zlrecipe_install() {
     global $wpdb;
     global $zlrecipe_db_version;
