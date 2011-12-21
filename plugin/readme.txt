@@ -162,6 +162,7 @@ You can email mailto:support@ziplist.com with your requests.
 
 * Fix for repeating dbDelta database error
 * UI Improvement to avoid "placeholder" image in post
+* Recipe links now open in new tabs
 
 
 == Upgrade Notice ==

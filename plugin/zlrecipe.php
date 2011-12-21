@@ -1179,7 +1179,7 @@ add_filter('wp_head', 'amd_zlrecipe_process_head');
 
 // Replaces the [a|b] pattern with text a that links to b
 function amd_zlrecipe_linkify_item($item, $class) {
-	return preg_replace('/\[([^\]\|\[]*)\|([^\]\|\[]*)\]/', '<a href="\\2" class="' . $class . '-link">\\1</a>', $item);
+	return preg_replace('/\[([^\]\|\[]*)\|([^\]\|\[]*)\]/', '<a href="\\2" class="' . $class . '-link" target="_blank">\\1</a>', $item);
 }
 
 function amd_zlrecipe_break( $otag, $text, $ctag) {

@@ -199,6 +199,7 @@ Changelog
 
 * Fix for repeating dbDelta database error
 * UI Improvement to avoid "placeholder" image in post
+* Recipe links now open in new tabs
 
 Features that will be added in upcoming versions of the ZipList Recipe Plugin
 -----------------------------------------------------------------------------
