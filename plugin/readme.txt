@@ -11,7 +11,7 @@ Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: 1.4
+Stable tag: 1.41
 Version: 1.41
 
 Formats recipes so they are SEO-friendly. New features include a Notes field and enhanced image display options.
@@ -36,7 +36,7 @@ If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugi
 
 **Auto-Populate Recipe Name:** The recipe name is automatically replicated inside the plugin, taking the name from the post name, which further enhances SEO.
 
-**Integrated Recipe Box and Shopping List:** Turn on a feature that allows readers to save their favorite recipes to an online recipe box, and then add recipe ingredients to their shopping list with one click. Used by over 2,000 bloggers, it also supports ZipList's full shopping list and recipe box capabilities as used on [Woman's Day](http://womansday.com/), [SkinnyTaste.com](http://skinnytaste.com/), [SouthernPlate.com](http://southernplate.com/) and over 50 other leading food and lifestyle web sites.
+**Integrated Recipe Box and Shopping List:** Turn on a feature that allows readers to save their favorite recipes to an online recipe box, and then add recipe ingredients to their shopping list with one click. Used by over 2,000 bloggers, it also supports ZipList's full shopping list and recipe box capabilities as used on [RecipeGirl](http://www.recipegirl.com/), [Joy of Baking](http://www.joyofbaking.com/), [Skinnytaste](http://skinnytaste.com/), [Southern Plate](http://southernplate.com/) and over 50 other leading food and lifestyle web sites.
 
 **Add Links to Ingredients or Instructions:** Attach affiliate links or links to related recipes from the Ingredients, Instructions or Summary fields with ease. No other plugin enables you to do this.
 
@@ -48,7 +48,7 @@ If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugi
 
 **Multiple Paragraph Support in Summary Section: Users can now add multiple paragraphs to the Summary field within the plugin.
 
-The ZipList Recipe Plugin is very easy to use and you can find step-by-step instructions [here](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions_wp.pdf). If you have more questions on how to use the plugin, feel free to reach out to ZipList at [plugins@ziplist.com](mailto:plugins@ziplist.com).
+The ZipList Recipe Plugin is very easy to use and you can find step-by-step instructions [here](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf). If you have more questions on how to use the plugin, feel free to reach out to ZipList at [plugins@ziplist.com](mailto:plugins@ziplist.com).
 
 == Installation ==
 
