@@ -1354,7 +1354,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 			if (strcmp(get_option('zlrecipe_image_hide_print'), 'Hide') == 0)
 				$class_tag .= ' hide-print';
 			$output .= '<p class="t-a-c' . $class_tag . '">
-			  <img class="photo" src="' . $recipe->recipe_image . '" title="' . $recipe->recipe_title . '" ' . $style_tag . ' />
+			  <img class="photo" src="' . $recipe->recipe_image . '" title="' . $recipe->recipe_title . '" alt="' . $recipe->recipe_title . '" ' . $style_tag . ' />
 			</p>';
 		}
 		if ($recipe->summary != null) {
