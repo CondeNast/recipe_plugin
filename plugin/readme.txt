@@ -42,11 +42,11 @@ If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugi
 
 **Incorporate Images into Instructions:** Now you can easily add step-by-step images to your instructions (or ingredients) from within the plugin.
 
-**Enhanced Printing Capabilities: Add a copyright statement or URL to appear at the bottom of your printed recipes. Also, display a permalink at the bottom of printed recipes so users can easily find individual recipes on your website.
+**Enhanced Printing Capabilities:** Add a copyright statement or URL to appear at the bottom of your printed recipes. Also, display a permalink at the bottom of printed recipes so users can easily find individual recipes on your website.
 
-**Multiple Recipe Support: The recipe plugin now fully supports the display and printing of multiple recipe posts on a single page.
+**Multiple Recipe Support:** The recipe plugin now fully supports the display and printing of multiple recipe posts on a single page.
 
-**Multiple Paragraph Support in Summary Section: Users can now add multiple paragraphs to the Summary field within the plugin.
+**Multiple Paragraph Support in Summary Section:** Users can now add multiple paragraphs to the Summary field within the plugin.
 
 The ZipList Recipe Plugin is very easy to use and you can find step-by-step instructions [here](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf). If you have more questions on how to use the plugin, feel free to reach out to ZipList at [plugins@ziplist.com](mailto:plugins@ziplist.com).
 
