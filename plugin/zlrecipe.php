@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 1.41
+Version: 1.45
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv2 or later
@@ -1195,20 +1195,22 @@ function amd_zlrecipe_break( $otag, $text, $ctag) {
 // Processes markup for attributes like labels, images and links
 // !Label
 // %image
-function amd_zlrecipe_format_item($item, $elem, $class, $id, $i) {
+function amd_zlrecipe_format_item($item, $elem, $class, $itemprop, $id, $i) {
 
 	if (preg_match("/^%(.*)/", $item, $matches)) {	// IMAGE
 		$output = '<img class = "' . $class . '-image" src="' . $matches[1] . '" />';
-		return $output;
+		return $output; // Images don't also have labels or links so return the line immediately.
 	}
 
 	if (preg_match("/^!(.*)/", $item, $matches)) {	// LABEL
 		$class .= '-label';
 		$elem = 'div';
 		$item = $matches[1];
+		$output = '<' . $elem . ' id="' . $id . $i . '" class="' . $class . '" >';	// No itemprop for labels
+	} else {
+		$output = '<' . $elem . ' id="' . $id . $i . '" class="' . $class . '" itemprop="' . $itemprop . '">';
 	}
 
-	$output = '<' . $elem . ' id="' . $id . $i . '" class="' . $class . '">';
 	$output .= amd_zlrecipe_linkify_item($item, $class);
 	$output .= '</' . $elem . '>';
 
@@ -1228,7 +1230,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 		$style_tag = 'style="border: ' . $border_style . ';"';
     $output .= '
     <div id="zlrecipe-container-' . $recipe->recipe_id . '" class="zlrecipe-container-border" ' . $style_tag . '>
-    <div id="zlrecipe-container" class="hrecipe serif">
+    <div id="zlrecipe-container" class="serif" itemscope itemtype="http://schema.org/Recipe">
       <div id="zlrecipe-innerdiv">
         <div class="item b-b">';
 
@@ -1249,7 +1251,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 	$hide_tag = '';
 	if (strcmp(get_option('recipe_title_hide'), 'Hide') == 0)
         $hide_tag = ' texthide';
-	$output .= '<div id="zlrecipe-title" class="fn b-b h-1 strong' . $hide_tag . '" >' . $recipe->recipe_title . '</div>
+	$output .= '<div id="zlrecipe-title" itemprop="name" class="b-b h-1 strong' . $hide_tag . '" >' . $recipe->recipe_title . '</div>
       </div>';
 	
 	//!!dc open the zlmeta and fl-l container divs
@@ -1257,11 +1259,11 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
       <div class="fl-l width-50">';
 
     if ($recipe->rating != 0) {
-        $output .= '<p id="zlrecipe-rating" class="review hreview-aggregate">';
+        $output .= '<p id="zlrecipe-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
         if (strcmp(get_option('zlrecipe_rating_label_hide'), 'Hide') != 0) {
         	$output .= get_option('zlrecipe_rating_label') . ' ';
         }
-        $output .= '<span class="rating rating-' . $recipe->rating . '"><span class="average">' . $recipe->rating . '</span><span class="count" style="display: none;">1</span></span>
+        $output .= '<span class="rating rating-' . $recipe->rating . '"><span itemprop="ratingValue">' . $recipe->rating . '</span><span itemprop="reviewCount" style="display: none;">1</span></span>
        </p>';
     }
     
@@ -1273,7 +1275,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         if (strcmp(get_option('zlrecipe_prep_time_label_hide'), 'Hide') != 0) {
             $output .= get_option('zlrecipe_prep_time_label') . ' ';
         }
-        $output .= '<span class="preptime">' . $prep_time . '<span class="value-title" title="' . $recipe->prep_time . '"><!-- --></span></span></p>';
+        $output .= '<span itemprop="prepTime" content="' . $recipe->prep_time . '">' . $prep_time . '</span></p>';
     }
     if ($recipe->cook_time != null) {
         $cook_time = amd_zlrecipe_format_duration($recipe->cook_time);
@@ -1282,7 +1284,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         if (strcmp(get_option('zlrecipe_cook_time_label_hide'), 'Hide') != 0) {
             $output .= get_option('zlrecipe_cook_time_label') . ' ';
         }
-        $output .= '<span class="cooktime">' . $cook_time . '<span class="value-title" title="' . $recipe->cook_time . '"><!-- --></span></span></p>';
+        $output .= '<span itemprop="cookTime" content="' . $recipe->cook_time . '">' . $cook_time . '</span></p>';
     }
     if ($recipe->total_time != null) {
         $total_time = amd_zlrecipe_format_duration($recipe->total_time);
@@ -1291,7 +1293,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         if (strcmp(get_option('zlrecipe_total_time_label_hide'), 'Hide') != 0) {
             $output .= get_option('zlrecipe_total_time_label') . ' ';
         }
-        $output .= '<span class="duration">' . $total_time . '<span class="value-title" title="' . $recipe->total_time . '"><!-- --></span></span></p>';
+        $output .= '<span itemprop="totalTime" content="' . $recipe->total_time . '">' . $total_time . '</span></p>';
     }
     
     //!! close the first container div and open the second
@@ -1304,31 +1306,31 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         if (strcmp(get_option('zlrecipe_yield_label_hide'), 'Hide') != 0) {
             $output .= get_option('zlrecipe_yield_label') . ' ';
         }
-        $output .= '<span class="yield">' . $recipe->yield . '</span></p>';
+        $output .= '<span itemprop="recipeYield">' . $recipe->yield . '</span></p>';
     }
     
     if ($recipe->serving_size != null || $recipe->calories != null || $recipe->fat != null) {
-        $output .= '<div id="zlrecipe-nutrition" class="nutrition">';
+        $output .= '<div id="zlrecipe-nutrition" itemprop="nutrition" itemscope itemtype="http://schema.org/NutritionInformation">';
         if ($recipe->serving_size != null) {
             $output .= '<p id="zlrecipe-serving-size">';
             if (strcmp(get_option('zlrecipe_serving_size_label_hide'), 'Hide') != 0) {
                 $output .= get_option('zlrecipe_serving_size_label') . ' ';
             }
-            $output .= '<span class="servingsize">' . $recipe->serving_size . '</span></p>';
+            $output .= '<span itemprop="servingSize">' . $recipe->serving_size . '</span></p>';
         }
         if ($recipe->calories != null) {
             $output .= '<p id="zlrecipe-calories">';
             if (strcmp(get_option('zlrecipe_calories_label_hide'), 'Hide') != 0) {
                 $output .= get_option('zlrecipe_calories_label') . ' ';
             }
-            $output .= '<span class="calories">' . $recipe->calories . '</span></p>';
+            $output .= '<span itemprop="calories">' . $recipe->calories . '</span></p>';
         }
         if ($recipe->fat != null) {
             $output .= '<p id="zlrecipe-fat">';
             if (strcmp(get_option('zlrecipe_fat_label_hide'), 'Hide') != 0) {
                 $output .= get_option('zlrecipe_fat_label') . ' ';
             }
-            $output .= '<span class="fat">' . $recipe->fat . '</span></p>';
+            $output .= '<span itemprop="fatContent">' . $recipe->fat . '</span></p>';
         }
         $output .= '</div>';
     }
@@ -1354,11 +1356,11 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 			if (strcmp(get_option('zlrecipe_image_hide_print'), 'Hide') == 0)
 				$class_tag .= ' hide-print';
 			$output .= '<p class="t-a-c' . $class_tag . '">
-			  <img class="photo" src="' . $recipe->recipe_image . '" title="' . $recipe->recipe_title . '" alt="' . $recipe->recipe_title . '" ' . $style_tag . ' />
+			  <img class="photo" itemprop="image" src="' . $recipe->recipe_image . '" title="' . $recipe->recipe_title . '" alt="' . $recipe->recipe_title . '" ' . $style_tag . ' />
 			</p>';
 		}
 		if ($recipe->summary != null) {
-			$output .= '<div id="zlrecipe-summary">';
+			$output .= '<div id="zlrecipe-summary" itemprop="description">';
 			$output .= amd_zlrecipe_break( '<p class="summary italic">', amd_zlrecipe_linkify_item($recipe->summary, 'summary'), '</p>' );
 			$output .= '</div>';
 		}
@@ -1385,7 +1387,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     $i = 0;
     $ingredients = explode("\n", $recipe->ingredients); //!!mwp
     foreach ($ingredients as $ingredient) {
-		$output .= amd_zlrecipe_format_item($ingredient, $ingredient_tag, 'ingredient', 'zlrecipe-ingredient-', $i);
+		$output .= amd_zlrecipe_format_item($ingredient, $ingredient_tag, 'ingredient', 'ingredients', 'zlrecipe-ingredient-', $i);
         $i++;
     }
 
@@ -1413,7 +1415,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         $j = 0;
         foreach ($instructions as $instruction) {
             if (strlen($instruction) > 1) {
-            	$output .= amd_zlrecipe_format_item($instruction, $instruction_tag, 'instruction', 'zlrecipe-instruction-', $j);
+            	$output .= amd_zlrecipe_format_item($instruction, $instruction_tag, 'instruction', 'recipeInstructions', 'zlrecipe-instruction-', $j);
                 $j++;
             }
         }
@@ -1449,7 +1451,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     // Add copyright statement for printed output (outside the dotted print line)
     $printed_copyright_statement = get_option('zlrecipe_printed_copyright_statement');
     if (strlen($printed_copyright_statement) > 0) {
-		$output .= '<div id="zl-printed-copyright-statement">' . $printed_copyright_statement . '</div>';
+		$output .= '<div id="zl-printed-copyright-statement" itemprop="copyrightHolder">' . $printed_copyright_statement . '</div>';
 	}
 
     $output .= '</div>
