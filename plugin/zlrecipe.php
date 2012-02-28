@@ -1178,8 +1178,11 @@ function amd_zlrecipe_process_head() {
 add_filter('wp_head', 'amd_zlrecipe_process_head');
 
 // Replaces the [a|b] pattern with text a that links to b
-function amd_zlrecipe_linkify_item($item, $class) {
-	return preg_replace('/\[([^\]\|\[]*)\|([^\]\|\[]*)\]/', '<a href="\\2" class="' . $class . '-link" target="_blank">\\1</a>', $item);
+// Replaces _words_ with an italic span and *words* with a bold span
+function amd_zlrecipe_richify_item($item, $class) {
+	$output = preg_replace('/\[([^\]\|\[]*)\|([^\]\|\[]*)\]/', '<a href="\\2" class="' . $class . '-link" target="_blank">\\1</a>', $item);
+	$output = preg_replace('/(^|\s)\*([^\s\*][^\*]*[^\s\*]|[^\s\*])\*(\W|$)/', '\\1<span class="bold">\\2</span>\\3', $output);
+	return preg_replace('/(^|\s)_([^\s_][^_]*[^\s_]|[^\s_])_(\W|$)/', '\\1<span class="italic">\\2</span>\\3', $output);
 }
 
 function amd_zlrecipe_break( $otag, $text, $ctag) {
@@ -1211,7 +1214,7 @@ function amd_zlrecipe_format_item($item, $elem, $class, $itemprop, $id, $i) {
 		$output = '<' . $elem . ' id="' . $id . $i . '" class="' . $class . '" itemprop="' . $itemprop . '">';
 	}
 
-	$output .= amd_zlrecipe_linkify_item($item, $class);
+	$output .= amd_zlrecipe_richify_item($item, $class);
 	$output .= '</' . $elem . '>';
 
 	return $output;
@@ -1361,7 +1364,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 		}
 		if ($recipe->summary != null) {
 			$output .= '<div id="zlrecipe-summary" itemprop="description">';
-			$output .= amd_zlrecipe_break( '<p class="summary italic">', amd_zlrecipe_linkify_item($recipe->summary, 'summary'), '</p>' );
+			$output .= amd_zlrecipe_break( '<p class="summary italic">', amd_zlrecipe_richify_item($recipe->summary, 'summary'), '</p>' );
 			$output .= '</div>';
 		}
 		$output .= '</div>';
@@ -1429,7 +1432,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
         }
 
 		$output .= '<div id="zlrecipe-notes-list">';
-		$output .= amd_zlrecipe_break( '<p class="notes">', amd_zlrecipe_linkify_item($recipe->notes, 'notes'), '</p>' );
+		$output .= amd_zlrecipe_break( '<p class="notes">', amd_zlrecipe_richify_item($recipe->notes, 'notes'), '</p>' );
 		$output .= '</div>';
 
 	}
