@@ -10,7 +10,7 @@ Formats recipes so they are SEO-friendly and more likely to appear in Google’s
  * Contributors: ZipList Inc., codeswan
  * Donate: http://sushiday.com/recipe-seo-plugin/
  * Tags: recipe, hrecipe, google rich snippets, seo
- * License: GPLv2 or later
+ * License: GPLv3 or later
  * Requires at least: 3.1
  * Tested up to: 3.2.1
  * Version: 1.41
