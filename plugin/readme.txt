@@ -10,25 +10,29 @@ Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
-Tested up to: 3.2.1
-Stable tag: 1.41
-Version: 1.45
+Tested up to: 3.3.1
+Stable tag: 1.5
+Version: 1.5
 
-Formats recipes so they are SEO-friendly. New features include a Notes field and enhanced image display options.
+Formats recipes so they are SEO-friendly. New features include bold and italics capabilities, as well as schema.org/Recipe mark-up. 
 
 == Description ==
 
-Make your recipes SEO-friendly and more likely to appear in [Google's Recipe View](http://googleblog.blogspot.com/2011/02/slice-and-dice-your-recipe-search.html) search. No need to hand-code your recipes into the sophisticated hRecipe microformat when the ZipList Recipe Plugin will do all the heavy lifting for you, enhancing the findability of your recipe website.
+Make your recipes SEO-friendly and more likely to appear in [Google's Recipe View](http://googleblog.blogspot.com/2011/02/slice-and-dice-your-recipe-search.html) search. No need to hand-code your recipes into a sophisticated recipe structure when the ZipList Recipe Plugin will do all the heavy lifting for you, enhancing the findability of your recipe website.
 
 As a bonus, the ZipList Recipe Plugin enables you to add a "Save Recipe" button to each recipe so that readers can add favorite recipes to a universal recipe box and shopping list directly from your site. Each recipe they add includes a link back to your site so readers always go back to you for instructions.
 
 If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you will quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
 
-**NEW: Notes Field: Add notes to your recipes, such as optional ingredients, required kitchen tools and equipment and/or additional instructions (e.g., freezing, microwave, etc.)
+**NEW: Bold and Asterisk Styling:** Add bold or italicized styling to words or phrases within the Ingredients, Instructions, Summary and Notes sections. 
 
-**NEW: Modified Image Display: Add a recipe image to the plugin so that it displays in a user’s recipe box, but then choose to hide it from view on your recipe post and/or print view.
+**NEW: Schema/Recipe Support:** Automatically integrate Schema.org's Recipe mark-up into your recipe posts to make them more findable by search engines. 
 
-**NEW: Simplified Partner Registration: New self-service user interface to register for a partner key so that your logo and website name sit next to recipes that appear in user recipe boxes and in the ZipList recipe search index.
+**Notes Field:** Add notes to your recipes, such as optional ingredients, required kitchen tools and equipment and/or additional instructions (e.g., freezing, microwave, etc.)
+
+**Modified Image Display:** Add a recipe image to the plugin so that it displays in a user’s recipe box, but then choose to hide it from view on your recipe post and/or print view.
+
+**Simplified Partner Registration:** Self-service user interface for partner key registration so that your logo and website name sit next to recipes that appear in user recipe boxes and in the ZipList recipe search index.
 
 **Recipe Image Support:** Add images within the plugin to appear with your recipe.
 
@@ -36,7 +40,7 @@ If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugi
 
 **Auto-Populate Recipe Name:** The recipe name is automatically replicated inside the plugin, taking the name from the post name, which further enhances SEO.
 
-**Integrated Recipe Box and Shopping List:** Turn on a feature that allows readers to save their favorite recipes to an online recipe box, and then add recipe ingredients to their shopping list with one click. Used by over 2,000 bloggers, it also supports ZipList's full shopping list and recipe box capabilities as used on [RecipeGirl](http://www.recipegirl.com/), [Joy of Baking](http://www.joyofbaking.com/), [Skinnytaste](http://skinnytaste.com/), [Southern Plate](http://southernplate.com/) and over 50 other leading food and lifestyle web sites.
+**Integrated Recipe Box and Shopping List:** Turn on a feature that allows readers to save their favorite recipes to an online recipe box, and then add recipe ingredients to their shopping list with one click. Used by over 2,000 bloggers, it also supports ZipList's full shopping list and recipe box capabilities as used on [RecipeGirl](http://www.recipegirl.com/), [Joy of Baking](http://www.joyofbaking.com/), [Skinnytaste](http://skinnytaste.com/), [Southern Plate](http://southernplate.com/) and over 100 other leading food and lifestyle web sites.
 
 **Add Links to Ingredients or Instructions:** Attach affiliate links or links to related recipes from the Ingredients, Instructions or Summary fields with ease. No other plugin enables you to do this.
 
@@ -164,6 +168,11 @@ You can email mailto:support@ziplist.com with your requests.
 * UI Improvement to avoid "placeholder" image in post
 * Recipe links now open in new tabs
 
+1.5 Features Release
+
+* Move to Schema.org/Recipe from hrecipe microformat
+* Bold and Italic formatting of ingredients, instructions, summary and note
+* Confirm stability on WP 3.3.1
 
 == Upgrade Notice ==
 
