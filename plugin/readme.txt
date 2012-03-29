@@ -11,8 +11,8 @@ Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 1.5
-Version: 1.5
+Stable tag: 1.50
+Version: 1.50
 
 Formats recipes so they are SEO-friendly. New features include bold and italics capabilities, as well as schema.org/Recipe mark-up. 
 
