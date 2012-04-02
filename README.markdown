@@ -13,7 +13,7 @@ Formats recipes so they are SEO-friendly and more likely to appear in Google’s
  * License: GPLv3 or later
  * Requires at least: 3.1
  * Tested up to: 3.3.1
- * Version: 1.50
+ * Version: 2.0
 
 Description
 -----------
@@ -205,7 +205,7 @@ Changelog
 * UI Improvement to avoid "placeholder" image in post
 * Recipe links now open in new tabs
 
-1.5 Features Release
+2.0 Features Release
 
 * Move to Schema.org/Recipe from hrecipe microformat
 * Bold and Italic formatting of ingredients, instructions, summary and note

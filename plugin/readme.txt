@@ -11,8 +11,8 @@ Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 1.50
-Version: 1.50
+Stable tag: 2.0
+Version: 2.0
 
 Formats recipes so they are SEO-friendly. New features include bold and italics capabilities, as well as schema.org/Recipe mark-up. 
 
@@ -168,7 +168,7 @@ You can email mailto:support@ziplist.com with your requests.
 * UI Improvement to avoid "placeholder" image in post
 * Recipe links now open in new tabs
 
-1.5 Features Release
+2.0 Features Release
 
 * Move to Schema.org/Recipe from hrecipe microformat
 * Bold and Italic formatting of ingredients, instructions, summary and note
@@ -190,6 +190,9 @@ Feature update. Upgrade to add an additional notes recipe field or for better co
 
 = 1.41 =
 Bugfix update. Upgrade if you are experiencing repeating DB errors regarding a call to "dbDelta" by the plugin.
+
+= 2.0 =
+Feature update. Upgrapde for the benefits of Schema.org/Recipe and bold/italic formatting
 
 == Features that will be added in upcoming versions of the ZipList Recipe Plugin ==
 
