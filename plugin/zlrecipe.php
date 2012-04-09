@@ -1238,7 +1238,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 		$style_tag = 'style="border: ' . $border_style . ';"';
     $output .= '
     <div id="zlrecipe-container-' . $recipe->recipe_id . '" class="zlrecipe-container-border" ' . $style_tag . '>
-    <div id="zlrecipe-container" class="serif" itemscope itemtype="http://schema.org/Recipe">
+    <div itemscope itemtype="http://schema.org/Recipe" id="zlrecipe-container" class="serif zlrecipe">
       <div id="zlrecipe-innerdiv">
         <div class="item b-b">';
 
@@ -1251,7 +1251,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
 		$ziplist_partner_key = get_option('ziplist_partner_key');
 		$output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r">
-		  <a class="butn-link" title="Add this recipe to your ZipList, where you can store all of your favorite web recipes in one place and easily add ingredients to your shopping list." onmouseup="getZRecipeArgs(this, {\'partner_key\':\''. $ziplist_partner_key . '\', \'url\':\'' . $permalink . '\', \'class\':\'hrecipe\'}); return false;" href="javascript:void(0);"></a>
+		  <a class="butn-link" title="Add this recipe to your ZipList, where you can store all of your favorite web recipes in one place and easily add ingredients to your shopping list." onmouseup="getZRecipeArgs(this, {\'partner_key\':\''. $ziplist_partner_key . '\', \'url\':\'' . $permalink . '\', \'class\':\'zlrecipe\'}); return false;" href="javascript:void(0);"></a>
 		</div>';
 	}
 
