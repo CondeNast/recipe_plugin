@@ -40,15 +40,13 @@ If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plu
 
 **Auto-Populate Recipe Name:** The recipe name is automatically replicated inside the plugin, taking the name from the post name, which further enhances SEO.
 
-**Integrated Recipe Box and Shopping List:** Turn on a feature that allows readers to save their favorite recipes to an online recipe box, and then add recipe ingredients to their shopping list with one click. Used by over 2,000 bloggers, it also supports ZipList's full shopping list and recipe box capabilities as used on [RecipeGirl](http://www.recipegirl.com/), [Joy of Baking](http://www.joyofbaking.com/), [Skinnytaste](http://skinnytaste.com/), [Southern Plate](http://southernplate.com/) and over 100 other leading food and lifestyle web sites.
+**Integrated Recipe Box and Shopping List:** Turn on a feature that allows readers to save their favorite recipes to an online recipe box, and then add recipe ingredients to their shopping list with one click. Used by over 2,000 bloggers, it also supports ZipList's full shopping list and recipe box capabilities as used on [RecipeGirl](http://www.recipegirl.com/), [Skinnytaste](http://skinnytaste.com/), [Southern Plate](http://southernplate.com/) and over 100 other leading food and lifestyle web sites.
 
 **Add Links to Ingredients or Instructions:** Attach affiliate links or links to related recipes from the Ingredients, Instructions or Summary fields with ease. No other plugin enables you to do this.
 
 **Incorporate Images into Instructions:** Now you can easily add step-by-step images to your instructions (or ingredients) from within the plugin.
 
 **Enhanced Printing Capabilities:** Add a copyright statement or URL to appear at the bottom of your printed recipes. Also, display a permalink at the bottom of printed recipes so users can easily find individual recipes on your website.
-
-**Multiple Recipe Support:** The recipe plugin now fully supports the display and printing of multiple recipe posts on a single page.
 
 **Multiple Paragraph Support in Summary Section:** Users can now add multiple paragraphs to the Summary field within the plugin.
 
@@ -129,67 +127,17 @@ Screenshots
 Changelog
 =========
 
-1.0 First iteration, derived from Recipe SEO 1.3.1 -- thanks for the jump-start [Allison](http://sushiday.com/recipe-seo-plugin/)!
+2.0 Features Release
 
-1.1 Includes the ZipList Recipe button.
+* Move to Schema.org/Recipe from hrecipe microformat
+* Bold and Italic formatting of ingredients, instructions, summary and note
+* Confirm stability on WP 3.3.1
 
-1.2 Pre-populates the recipe title with the post title; adds an optional recipe image.
+1.41 Bugfix Release
 
-1.3 ZipList Recipe attribution, and settings to hide ZipList attribution or button.
-
-1.4 New Add a Recipe icon; new place-holder recipe art; updated settings button text; updated Instructions default; added ziplist\_partner\_key, debugged settings.
-
-1.5 Remove "amount" from ingredients; first step toward copy&paste support.
-
-2.0 Collapse "ingredients" into primary database; full break in compatibility with RecipeSEO data structures; single ingredients field to allow users to copy&paste their recipes.
-
-2.1 textarea-based ingredients editing debugged.
-
-2.2 Overhaul to add RecipeSEO attribution in all code.
-
-2.3 New recipeseo-placeholder.png; new hrecipe structure from Dave; new UI text for instructions.
-
-2.4 Rename filenames, code and DB: recipeseo to zlrecipe; RecipeSeo -> ZLRecipe; RECIPESEO -> ZLRECIPE.
-
-2.5 DB versioning moved from 2.0 to 3.0 for the new name.
-
-(Numbering reset for ZipList launch)
-
-0.4 New and improved: Upgrade to add the ZipList recipe button to your recipes, and also get the same great RecipeSEO 1.3.1 features: Users can now choose what format they want their ingredients and instructions in, as well as change or remove all of the labels. Times will now display in ISO 8601 formats.
-
-0.6 New output format to support styling
-
-0.7 Ratings combo-box, full support for hrecipe review, trimmed timing options down to hours & minutes.
-
-0.8 Title display, Ratings label and display
-
-0.9 Image sizing & borders
-
-1.0 Initial Release
-
-* We're now on [GitHub](https://github.com/Ziplist/recipe_plugin)
-* Recipe print support
-* Improved time formatting
-* Label support for ingredients !tagged with an exclamation point
-* Automatic inclusion of appropriate javascript and css
-
-1.1 Address problem with wp-content reachability of the edit form on some blogs.
-
-1.2 Features Release
-
-* Support for multiple recipes per page
-* Support for labels in instructions
-* Support for images images in ingredients and instrutions
-* Support for hyperlinks in summary, ingredients and instructions
-* Removal of "\" characters introduced by entity encoding
-
-1.3 Features Release
-
-* Printing support for multiple recipes on a page
-* Button support for multiple recipe posts displayed on a single page
-* User-definable copyright statement or site promotion on print page
-* Optional recipe permalink displayed on print page
-* Support for multiple summary paragraphs
+* Fix for repeating dbDelta database error
+* UI Improvement to avoid "placeholder" image in post
+* Recipe links now open in new tabs
 
 1.4 Features Release
 
@@ -199,17 +147,33 @@ Changelog
 * Iniital RSS/email support
 * Various bugfixes
 
-1.41 Bugfix Release
+1.3 Features Release
 
-* Fix for repeating dbDelta database error
-* UI Improvement to avoid "placeholder" image in post
-* Recipe links now open in new tabs
+* Printing support for multiple recipes on a page
+* Button support for multiple recipe posts displayed on a single page
+* User-definable copyright statement or site promotion on print page
+* Optional recipe permalink displayed on print page
+* Support for multiple summary paragraphs
 
-2.0 Features Release
+1.2 Features Release
 
-* Move to Schema.org/Recipe from hrecipe microformat
-* Bold and Italic formatting of ingredients, instructions, summary and note
-* Confirm stability on WP 3.3.1
+* Support for multiple recipes per page
+* Support for labels in instructions
+* Support for images images in ingredients and instructions
+* Support for hyperlinks in summary, ingredients and instructions
+* Removal of "\" characters introduced by entity encoding
+
+1.1 Address problem with wp-content reachability of the edit form on some blogs.
+
+1.0 Initial Release
+
+* We're now on GitHub at https://github.com/Ziplist/recipe_plugin
+* Recipe print support
+* Improved time formatting
+* Label support for ingredients !tagged with an exclamation point
+* Automatic inclusion of appropriate javascript and css
+
+0.9 First iteration, derived from Recipe SEO 1.3.1 -- thanks for the jump-start Allison!  (http://sushiday.com/recipe-seo-plugin/)
 
 Features that will be added in upcoming versions of the ZipList Recipe Plugin
 -----------------------------------------------------------------------------
