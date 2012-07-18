@@ -1242,12 +1242,10 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
 
     //!!mwp add the ZipList recipe button
     if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
-		$ziplist_partner_key = get_option('ziplist_partner_key');
-		$output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r">
-		  <a class="butn-link" title="Add this recipe to your ZipList, where you can store all of your favorite web recipes in one place and easily add ingredients to your shopping list." onmouseup="getZRecipeArgs(this, {\'partner_key\':\''. $ziplist_partner_key . '\', \'url\':\'' . $permalink . '\', \'class\':\'zlrecipe\'}); return false;" href="javascript:void(0);"></a>
-		</div>';
-	}
-
+        $ziplist_partner_key = get_option('ziplist_partner_key');
+        $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script data=\'{"partner_key":"' . $ziplist_partner_key . '","button_type":"large"}\' src=\'http://www.zlcdn.com/javascripts/wk.js\' type=\'text/javascript\'></script><a class=\'ziplist-button\' href=\'http://www.zlcdn.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '\'target=\'_blank\'>Ziplist Add Recipe</a>
+        </div>';
+    }
 	//!!dc add the title and close the item class
 	$hide_tag = '';
 	if (strcmp(get_option('recipe_title_hide'), 'Hide') == 0)
@@ -1452,7 +1450,7 @@ function amd_zlrecipe_format_recipe($recipe) { //!!mwp
     // Add copyright statement for printed output (outside the dotted print line)
     $printed_copyright_statement = get_option('zlrecipe_printed_copyright_statement');
     if (strlen($printed_copyright_statement) > 0) {
-		$output .= '<div id="zl-printed-copyright-statement" itemprop="copyrightHolder">' . $printed_copyright_statement . '</div>';
+		$output .= '<div id="zl-printed-copyright-statement" itemprop="copyrightHolder">' . htmlentities(stripslashes_deep($printed_copyright_statement, ENT_NOQUOTES)) . '</div>';
 	}
 
     $output .= '</div>
