@@ -379,7 +379,7 @@ function amd_zlrecipe_settings() {
                 </tr>
                 <tr valign="top">
                     <th scope="row">Printed Output: Copyright Statement</th>
-                    <td><input type="text" name="printed-copyright-statement" value="' . $printed_copyright_statement . '" class="regular-text" /></td>
+                    <td><input type="text" name="printed-copyright-statement" value="' . htmlentities(stripslashes_deep($printed_copyright_statement, ENT_NOQUOTES)) . '" class="regular-text" /></td>
                 </tr>
             </table>
 
