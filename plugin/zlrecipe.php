@@ -968,7 +968,8 @@ function amd_zlrecipe_insert_db($post_info) {
         "instructions" => amd_zlrecipe_strip_chars( $post_info["instructions"] ),
         "notes" => amd_zlrecipe_strip_chars( $post_info["notes"] ),
     );
-    
+
+    //if (($recipe_id == NULL) || (amd_zlrecipe_select_recipe_db($recipe_id) == null)) { // BUG FIX maybe
     if (amd_zlrecipe_select_recipe_db($recipe_id) == null) {
     	$recipe["post_id"] = $post_info["post_id"];	// set only during record creation
         $wpdb->insert( $wpdb->prefix . "amd_zlrecipe_recipes", $recipe );
@@ -1097,6 +1098,7 @@ function amd_zlrecipe_select_recipe_db($recipe_id) {
     global $wpdb;
     
     $recipe = $wpdb->get_row("SELECT * FROM " . $wpdb->prefix . "amd_zlrecipe_recipes WHERE recipe_id=" . $recipe_id);
+    // $recipe = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}amd_zlrecipe_recipes WHERE recipe_id=%s", $recipe_id )); BUGfix maybe
 
     return $recipe;
 }
@@ -1205,7 +1207,7 @@ function amd_zlrecipe_break( $otag, $text, $ctag) {
 // %image
 function amd_zlrecipe_format_item($item, $elem, $class, $itemprop, $id, $i) {
 
-	if (preg_match("/^%(.*)/", $item, $matches)) {	// IMAGE
+	if (preg_match("/^%(\S*)/", $item, $matches)) {	// IMAGE Updated to only pull non-whitespace after some blogs were adding additional returns to the output
 		$output = '<img class = "' . $class . '-image" src="' . $matches[1] . '" />';
 		return $output; // Images don't also have labels or links so return the line immediately.
 	}
