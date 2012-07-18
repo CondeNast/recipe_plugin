@@ -1036,13 +1036,6 @@ function amd_zlrecipe_process_head() {
     $header_html='<script type="text/javascript" src="' . AMD_ZLRECIPE_PLUGIN_DIRECTORY . 'zlrecipe_print.js"></script>
 ';
 
-	// If the button is activated, include the button script and the button styles
-	if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
-    	$header_html .= '<script type="text/javascript" src="http://www.zlcdn.com/javascripts/pt_include.js"></script>
-	<link charset="utf-8" href="http://www.zlcdn.com/stylesheets/minibox/generic.css" rel="stylesheet" type="text/css" />
-';
-	}
-
 	// Recipe styling
 	$css = get_option('zlrecipe_stylesheet');
 	if (strcmp($css, '') != 0) {
