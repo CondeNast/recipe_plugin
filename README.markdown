@@ -12,8 +12,8 @@ Formats recipes so they are SEO-friendly and more likely to appear in Google’s
  * Tags: recipe, hrecipe, google rich snippets, seo
  * License: GPLv3 or later
  * Requires at least: 3.1
- * Tested up to: 3.3.1
- * Version: 2.0
+ * Tested up to: 3.4.1
+ * Version: 2.1
 
 Description
 -----------
