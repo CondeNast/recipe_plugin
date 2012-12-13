@@ -10,9 +10,9 @@ Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
-Tested up to: 3.3.1
-Stable tag: 2.0
-Version: 2.0
+Tested up to: 3.4.1
+Stable tag: 2.1
+Version: 2.1
 
 Formats recipes so they are SEO-friendly. New features include bold and italics capabilities, as well as schema.org/Recipe mark-up. 
 

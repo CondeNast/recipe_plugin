@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 2.0
+Version: 2.1
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv3 or later
@@ -40,7 +40,7 @@ if (!defined('AMD_ZLRECIPE_VERSION_KEY'))
     define('AMD_ZLRECIPE_VERSION_KEY', 'amd_zlrecipe_version');
 
 if (!defined('AMD_ZLRECIPE_VERSION_NUM'))
-    define('AMD_ZLRECIPE_VERSION_NUM', '2.0');
+    define('AMD_ZLRECIPE_VERSION_NUM', '2.1');
 
 if (!defined('AMD_ZLRECIPE_PLUGIN_DIRECTORY'))
     define('AMD_ZLRECIPE_PLUGIN_DIRECTORY', get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/');
@@ -374,7 +374,7 @@ function amd_zlrecipe_settings() {
                 </tr>
                 <tr valign="top">
                     <th scope="row">Printed Output: Copyright Statement</th>
-                    <td><input type="text" name="printed-copyright-statement" value="' . $printed_copyright_statement . '" class="regular-text" /></td>
+                    <td><input type="text" name="printed-copyright-statement" value="' . htmlentities(stripslashes_deep($printed_copyright_statement, ENT_NOQUOTES)) . '" class="regular-text" /></td>
                 </tr>
             </table>
 
@@ -663,7 +663,8 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
             $fat = htmlentities($post_info["fat"], ENT_QUOTES);
             $ingredients = amd_zlrecipe_strip_chars( htmlentities($post_info["ingredients"], ENT_QUOTES) );
             $instructions = amd_zlrecipe_strip_chars( htmlentities($post_info["instructions"], ENT_QUOTES) );
-            if ($recipe_title != null && $recipe_title != '' && $ingredients != null && $ingredients != '') { 
+
+            if ($recipe_title != null && $recipe_title != '' && $ingredients != null && $ingredients != '') {
                 $recipe_id = amd_zlrecipe_insert_db($post_info);
             }
         }
@@ -694,10 +695,12 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
 
                 return false;
             }
-            var ingredients = $('#amd_zlrecipe_ingredients textarea').val();
-            if (ingredients==null || ingredients=='' || ingredients==undefined) {
-                    $('#amd_zlrecipe_ingredients textarea').addClass('input-error');
-                $('#amd_zlrecipe_ingredients').append('<p class="error-message">You must enter at least one ingredient.</p>');
+            var ingredients = $('#amd_zlrecipe_ingredients textarea').val(); //!!mwp
+            if (ingredients==null || ingredients=='' || ingredients==undefined) { //!!mwp
+                //!!mwp $('#ingredient-0 input').addClass('input-error');
+                $('#amd_zlrecipe_ingredients textarea').addClass('input-error'); //!!mwp
+                //!!mwp old append line deleted
+                $('#amd_zlrecipe_ingredients').append('<p class="error-message">You must enter at least one ingredient.</p>'); //!!mwp
 
                 return false;
             }
@@ -1027,13 +1030,6 @@ function amd_zlrecipe_process_head() {
     $header_html='<script type="text/javascript" src="' . AMD_ZLRECIPE_PLUGIN_DIRECTORY . 'zlrecipe_print.js"></script>
 ';
 
-	// If the button is activated, include the button script and the button styles
-	if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
-    	$header_html .= '<script type="text/javascript" src="http://www.zlcdn.com/javascripts/pt_include.js"></script>
-	<link charset="utf-8" href="http://www.zlcdn.com/stylesheets/minibox/generic.css" rel="stylesheet" type="text/css" />
-';
-	}
-
 	// Recipe styling
 	$css = get_option('zlrecipe_stylesheet');
 	if (strcmp($css, '') != 0) {
@@ -1070,7 +1066,7 @@ function amd_zlrecipe_break( $otag, $text, $ctag) {
 // %image
 function amd_zlrecipe_format_item($item, $elem, $class, $itemprop, $id, $i) {
 
-	if (preg_match("/^%(.*)/", $item, $matches)) {	// IMAGE
+	if (preg_match("/^%(\S*)/", $item, $matches)) {	// IMAGE Updated to only pull non-whitespace after some blogs were adding additional returns to the output
 		$output = '<img class = "' . $class . '-image" src="' . $matches[1] . '" />';
 		return $output; // Images don't also have labels or links so return the line immediately.
 	}
@@ -1113,12 +1109,10 @@ function amd_zlrecipe_format_recipe($recipe) {
 
     //!!mwp add the ZipList recipe button
     if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
-		$ziplist_partner_key = get_option('ziplist_partner_key');
-		$output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r">
-		  <a class="butn-link" title="Add this recipe to your ZipList, where you can store all of your favorite web recipes in one place and easily add ingredients to your shopping list." onmouseup="getZRecipeArgs(this, {\'partner_key\':\''. $ziplist_partner_key . '\', \'url\':\'' . $permalink . '\', \'class\':\'zlrecipe\'}); return false;" href="javascript:void(0);"></a>
-		</div>';
-	}
-
+        $ziplist_partner_key = get_option('ziplist_partner_key');
+        $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script data=\'{"partner_key":"' . $ziplist_partner_key . '","button_type":"large"}\' src=\'http://www.zlcdn.com/javascripts/wk.js\' type=\'text/javascript\'></script><a class=\'ziplist-button\' href=\'http://www.ziplist.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '\'target=\'_blank\'>Ziplist Add Recipe</a>
+        </div>';
+    }
 	//!!dc add the title and close the item class
 	$hide_tag = '';
 	if (strcmp(get_option('recipe_title_hide'), 'Hide') == 0)
@@ -1323,13 +1317,11 @@ function amd_zlrecipe_format_recipe($recipe) {
     // Add copyright statement for printed output (outside the dotted print line)
     $printed_copyright_statement = get_option('zlrecipe_printed_copyright_statement');
     if (strlen($printed_copyright_statement) > 0) {
-		$output .= '<div id="zl-printed-copyright-statement" itemprop="copyrightHolder">' . $printed_copyright_statement . '</div>';
+		$output .= '<div id="zl-printed-copyright-statement" itemprop="copyrightHolder">' . htmlentities(stripslashes_deep($printed_copyright_statement, ENT_NOQUOTES)) . '</div>';
 	}
 
     $output .= '</div>
 		</div>';
-    
+
     return $output;
 }
-
-
