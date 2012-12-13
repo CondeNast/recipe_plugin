@@ -178,7 +178,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
         },
 
         _get_shcode : function(co) {
-            return co.replace(/\<img.*id="amd-zlrecipe-recipe-([0-9]+).*?\>/g, function(a, b){
+            return co.replace(/\<img.*?id="amd-zlrecipe-recipe-([0-9]+).*?\>/g, function(a, b){
                 
                 return '[amd-zlrecipe-recipe:'+b+']';
             });
