@@ -10,7 +10,7 @@ Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
-Tested up to: 3.4.1
+Tested up to: 3.5
 Stable tag: 2.1
 Version: 2.1
 
@@ -24,9 +24,11 @@ As a bonus, the ZipList Recipe Plugin enables you to add a "Save Recipe" button 
 
 If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you will quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
 
-**NEW: Bold and Asterisk Styling:** Add bold or italicized styling to words or phrases within the Ingredients, Instructions, Summary and Notes sections. 
+**NEW: Works with WordPress 3.5:** Updated for full compatibility with WordPress 3.5.
 
-**NEW: Schema/Recipe Support:** Automatically integrate Schema.org's Recipe mark-up into your recipe posts to make them more findable by search engines. 
+**Bold and Asterisk Styling:** Add bold or italicized styling to words or phrases within the Ingredients, Instructions, Summary and Notes sections. 
+
+**Schema/Recipe Support:** Automatically integrate Schema.org's Recipe mark-up into your recipe posts to make them more findable by search engines. 
 
 **Notes Field:** Add notes to your recipes, such as optional ingredients, required kitchen tools and equipment and/or additional instructions (e.g., freezing, microwave, etc.)
 
@@ -89,6 +91,10 @@ You can email mailto:support@ziplist.com with your requests.
 11. Edited!  Easy as can be.
 
 == Changelog ==
+
+2.1 Bugfix Release
+
+* Fixes an issue with the recipe placeholder introduced in WordPress v3.5
 
 2.0 Features Release
 
