@@ -663,6 +663,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
             $fat = htmlentities($post_info["fat"], ENT_QUOTES);
             $ingredients = amd_zlrecipe_strip_chars( htmlentities($post_info["ingredients"], ENT_QUOTES) );
             $instructions = amd_zlrecipe_strip_chars( htmlentities($post_info["instructions"], ENT_QUOTES) );
+
             if ($recipe_title != null && $recipe_title != '' && $ingredients != null && $ingredients != '') {
                 $recipe_id = amd_zlrecipe_insert_db($post_info);
             }
@@ -897,12 +898,6 @@ function amd_zlrecipe_plugin_footer() {
     $dirname = dirname(plugin_basename(__FILE__));
 
     echo <<< HTML
-    <style type="text/css" media="screen">
-        #wp_editrecipebtns { position:absolute;display:block;z-index:999998; }
-        #wp_editrecipebtn { margin-right:20px; }
-        #wp_editrecipebtn,#wp_delrecipebtn { cursor:pointer; padding:12px;background:#010101; -moz-border-radius:8px;-khtml-border-radius:8px;-webkit-border-radius:8px;border-radius:8px; filter:alpha(opacity=80); -moz-opacity:0.8; -khtml-opacity: 0.8; opacity: 0.8; }
-        #wp_editrecipebtn:hover,#wp_delrecipebtn:hover { background:#000; filter:alpha(opacity=100); -moz-opacity:1; -khtml-opacity: 1; opacity: 1; }
-    </style>
     <script>//<![CDATA[
     var baseurl = '$url';
     var dirname = '$dirname';
@@ -975,7 +970,6 @@ function amd_zlrecipe_convert_to_recipe($post_text) {
 }
 
 add_filter('the_content', 'amd_zlrecipe_convert_to_recipe');
-//add_filter('the_content', 'amd_zlrecipe_convert_to_recipe', 8);
 
 // Pulls a recipe from the db
 function amd_zlrecipe_select_recipe_db($recipe_id) {
@@ -1331,4 +1325,3 @@ function amd_zlrecipe_format_recipe($recipe) {
 
     return $output;
 }
-

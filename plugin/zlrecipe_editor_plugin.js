@@ -31,7 +31,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
 (function() {
 
 	tinymce.create('tinymce.plugins.amdEditZLRecipe', {
-        
+
         init : function(ed, url) {
             var t = this;
 
@@ -110,7 +110,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
                             ed.selection.select(P);
 
                         tinymce.dom.Event.cancel(e);
-                        
+
                         return false;
                     }
                 }
@@ -132,7 +132,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
             ed.onSaveContent.add(function(ed, o) {
                 t._hideButtons();
             });
-            
+
             ed.onMouseDown.add(function(ed, e) {
                 if ( e.target.nodeName != 'IMG' )
                     t._hideButtons();
@@ -178,8 +178,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
         },
 
         _get_shcode : function(co) {
-            return co.replace(/\<img id="amd-zlrecipe-recipe-([0-9]+).*?\>/g, function(a, b){
-                
+            return co.replace(/\<img.*id="amd-zlrecipe-recipe-([0-9]+).*?\>/g, function(a, b){
                 return '[amd-zlrecipe-recipe:'+b+']';
             });
         },
@@ -207,7 +206,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
                 ed.windowManager.bookmark = ed.selection.getBookmark('simple');
                 ed.execCommand("WP_EditRecipe");
             });
-            
+
             deleteRecipeButton = DOM.add('wp_editrecipebtns', 'img', {
                 src : t.url+'/delete.png',
                 id : 'wp_delrecipebtn',
@@ -229,9 +228,9 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
                             ed.dom.remove(el);
 
                         ed.execCommand('mceRepaint');
-                    }                    
+                    }
                 }
-                
+
                 return false;
             });
         },
