@@ -11,8 +11,8 @@ Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
 Tested up to: 3.5
-Stable tag: 2.1
-Version: 2.1
+Stable tag: 2.2
+Version: 2.2
 
 Formats recipes so they are SEO-friendly. Now fully supports WordPress 3.5.
 
@@ -92,9 +92,9 @@ You can email mailto:support@ziplist.com with your requests.
 
 == Changelog ==
 
-2.1 Bugfix Release
+2.1/2.2 Bugfix Releases
 
-* Fixes an issue with the recipe placeholder introduced in WordPress v3.5
+* Fixes issues with the recipe placeholder introduced in WordPress v3.5
 
 2.0 Features Release
 

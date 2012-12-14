@@ -13,7 +13,7 @@ Formats recipes so they are SEO-friendly and more likely to appear in Google’s
  * License: GPLv3 or later
  * Requires at least: 3.1
  * Tested up to: 3.5
- * Version: 2.1
+ * Version: 2.2
 
 Description
 -----------
@@ -129,9 +129,9 @@ Screenshots
 Changelog
 =========
 
-2.1 Bugfix Release
+2.1/2.2 Bugfix Releases
 
-* Fixes an issue with the recipe placeholder introduced in WordPress v3.5
+* Fixes issues with the recipe placeholder introduced in WordPress v3.5
 
 2.0 Features Release
 
