@@ -14,7 +14,7 @@ Tested up to: 3.5
 Stable tag: 2.1
 Version: 2.1
 
-Formats recipes so they are SEO-friendly. New features include bold and italics capabilities, as well as schema.org/Recipe mark-up. 
+Formats recipes so they are SEO-friendly. Now fully supports WordPress 3.5.
 
 == Description ==
 
