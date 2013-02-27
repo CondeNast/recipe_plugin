@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 2.2
+Version: 2.0 + WebKitchen and CloudFlare
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv3 or later
@@ -40,7 +40,7 @@ if (!defined('AMD_ZLRECIPE_VERSION_KEY'))
     define('AMD_ZLRECIPE_VERSION_KEY', 'amd_zlrecipe_version');
 
 if (!defined('AMD_ZLRECIPE_VERSION_NUM'))
-    define('AMD_ZLRECIPE_VERSION_NUM', '2.2');
+    define('AMD_ZLRECIPE_VERSION_NUM', '2.0');
 
 if (!defined('AMD_ZLRECIPE_PLUGIN_DIRECTORY'))
     define('AMD_ZLRECIPE_PLUGIN_DIRECTORY', get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/');
@@ -1036,13 +1036,6 @@ function amd_zlrecipe_process_head() {
     $header_html='<script type="text/javascript" src="' . AMD_ZLRECIPE_PLUGIN_DIRECTORY . 'zlrecipe_print.js"></script>
 ';
 
-	// If the button is activated, include the button script and the button styles
-	if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
-    	$header_html .= '<script type="text/javascript" src="http://www.zlcdn.com/javascripts/pt_include.js"></script>
-	<link charset="utf-8" href="http://www.zlcdn.com/stylesheets/minibox/generic.css" rel="stylesheet" type="text/css" />
-';
-	}
-
 	// Recipe styling
 	$css = get_option('zlrecipe_stylesheet');
 	if (strcmp($css, '') != 0) {
@@ -1120,14 +1113,12 @@ function amd_zlrecipe_format_recipe($recipe) {
 		$output .= '<div class="zlrecipe-print-link fl-r"><a class="butn-link" title="Print this recipe" href="javascript:void(0);" onclick="zlrPrint(\'zlrecipe-container-' . $recipe->recipe_id . '\'); return false">Print</a></div>';
 	}
 
-    //!!mwp add the ZipList recipe button
+    //!!mwp add the ZipList recipe button, (KLM) Webkitchen and CloudFlare ignore
     if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
-		$ziplist_partner_key = get_option('ziplist_partner_key');
-		$output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r">
-		  <a class="butn-link" title="Add this recipe to your ZipList, where you can store all of your favorite web recipes in one place and easily add ingredients to your shopping list." onmouseup="getZRecipeArgs(this, {\'partner_key\':\''. $ziplist_partner_key . '\', \'url\':\'' . $permalink . '\', \'class\':\'zlrecipe\'}); return false;" href="javascript:void(0);"></a>
-		</div>';
-	}
-
+                $ziplist_partner_key = get_option('ziplist_partner_key');
+                $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script data-cfasyn="false" src=\'http://www.zlcdn.com/javascripts/wk.js\' type=\'text/javascript\'></script><a class=\'ziplist-button add-recipe small\' href=\'http://www.zlcdn.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '\'target=\'_blank\'><img src=\'http://asset1.ziplist.com/wk/add_recipe-large.png\'></a>
+                </div>';
+    }
 	//!!dc add the title and close the item class
 	$hide_tag = '';
 	if (strcmp(get_option('recipe_title_hide'), 'Hide') == 0)
