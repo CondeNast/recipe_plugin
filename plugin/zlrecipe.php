@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 2.0 + WebKitchen and CloudFlare
+Version: 2.0 + WebKitchen functionality
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv3 or later
@@ -1113,10 +1113,10 @@ function amd_zlrecipe_format_recipe($recipe) {
 		$output .= '<div class="zlrecipe-print-link fl-r"><a class="butn-link" title="Print this recipe" href="javascript:void(0);" onclick="zlrPrint(\'zlrecipe-container-' . $recipe->recipe_id . '\'); return false">Print</a></div>';
 	}
 
-    //!!mwp add the ZipList recipe button, (KLM) Webkitchen and CloudFlare ignore
+    //!!mwp add the ZipList recipe button, !!klm Webkitchen functionality
     if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
                 $ziplist_partner_key = get_option('ziplist_partner_key');
-                $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script data-cfasyn="false" src=\'http://www.zlcdn.com/javascripts/wk.js\' type=\'text/javascript\'></script><a class=\'ziplist-button add-recipe small\' href=\'http://www.zlcdn.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '\'target=\'_blank\'><img src=\'http://asset1.ziplist.com/wk/add_recipe-large.png\'></a>
+                $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script src=\'http://www.zlcdn.com/javascripts/wk.js\' type=\'text/javascript\'></script><a class=\'ziplist-button add-recipe small\' href=\'http://www.zlcdn.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '\'target=\'_blank\'><img src=\'http://asset1.ziplist.com/wk/add_recipe-large.png\'></a>
                 </div>';
     }
 	//!!dc add the title and close the item class
