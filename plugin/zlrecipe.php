@@ -4,7 +4,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 2.0 + WebKitchen functionality
+Version: 2.2
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv3 or later
@@ -40,7 +40,7 @@ if (!defined('AMD_ZLRECIPE_VERSION_KEY'))
     define('AMD_ZLRECIPE_VERSION_KEY', 'amd_zlrecipe_version');
 
 if (!defined('AMD_ZLRECIPE_VERSION_NUM'))
-    define('AMD_ZLRECIPE_VERSION_NUM', '2.0');
+    define('AMD_ZLRECIPE_VERSION_NUM', '2.2	');
 
 if (!defined('AMD_ZLRECIPE_PLUGIN_DIRECTORY'))
     define('AMD_ZLRECIPE_PLUGIN_DIRECTORY', get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/');
@@ -1113,20 +1113,20 @@ function amd_zlrecipe_format_recipe($recipe) {
 		$output .= '<div class="zlrecipe-print-link fl-r"><a class="butn-link" title="Print this recipe" href="javascript:void(0);" onclick="zlrPrint(\'zlrecipe-container-' . $recipe->recipe_id . '\'); return false">Print</a></div>';
 	}
 
-    //!!mwp add the ZipList recipe button, !!klm Webkitchen functionality
+    // add the ZipList recipe button
     if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
                 $ziplist_partner_key = get_option('ziplist_partner_key');
                 $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script src=\'http://www.zlcdn.com/javascripts/wk.js\' type=\'text/javascript\'></script><a class=\'ziplist-button add-recipe small\' href=\'http://www.zlcdn.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '\'target=\'_blank\'><img src=\'http://asset1.ziplist.com/wk/add_recipe-large.png\'></a>
                 </div>';
     }
-	//!!dc add the title and close the item class
+	// add the title and close the item class
 	$hide_tag = '';
 	if (strcmp(get_option('recipe_title_hide'), 'Hide') == 0)
         $hide_tag = ' texthide';
 	$output .= '<div id="zlrecipe-title" itemprop="name" class="b-b h-1 strong' . $hide_tag . '" >' . $recipe->recipe_title . '</div>
       </div>';
 
-	//!!dc open the zlmeta and fl-l container divs
+	// open the zlmeta and fl-l container divs
 	$output .= '<div class="zlmeta zlclear">
       <div class="fl-l width-50">';
 
@@ -1139,7 +1139,7 @@ function amd_zlrecipe_format_recipe($recipe) {
        </p>';
     }
 
-    //!! recipe timing
+    // recipe timing
     if ($recipe->prep_time != null) {
     	$prep_time = amd_zlrecipe_format_duration($recipe->prep_time);
 
