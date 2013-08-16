@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: ZipList Recipe Plugin
+Plugin Name: ZipList Recipe Plugin 
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 2.2
+Version: ???
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv3 or later
@@ -180,35 +180,35 @@ function amd_zlrecipe_settings() {
         $ziplist_recipe_button_hide = $_POST['ziplist-recipe-button-hide'];
         $ziplist_attribution_hide = $_POST['ziplist-attribution-hide'];
         $printed_permalink_hide = $_POST['printed-permalink-hide'];
-        $printed_copyright_statement = $_POST['printed-copyright-statement'];
+        $printed_copyright_statement = amd_zlrecipe_strip_chars($_POST['printed-copyright-statement']);
         $stylesheet = $_POST['stylesheet'];
         $recipe_title_hide = $_POST['recipe-title-hide'];
         $image_hide = $_POST['image-hide'];
         $image_hide_print = $_POST['image-hide-print'];
         $print_link_hide = $_POST['print-link-hide'];
-        $ingredient_label = $_POST['ingredient-label'];
-        $ingredient_label_hide = $_POST['ingredient-label-hide'];
+        $ingredient_label = amd_zlrecipe_strip_chars($_POST['ingredient-label']);
+        $ingredient_label_hide = amd_zlrecipe_strip_chars($_POST['ingredient-label-hide']);
         $ingredient_list_type = $_POST['ingredient-list-type'];
-        $instruction_label = $_POST['instruction-label'];
+        $instruction_label = amd_zlrecipe_strip_chars($_POST['instruction-label']);
         $instruction_label_hide = $_POST['instruction-label-hide'];
-        $instruction_list_type = $_POST['instruction-list-type'];
-        $notes_label = $_POST['notes-label'];
+        $instruction_list_type = amd_zlrecipe_strip_chars($_POST['instruction-list-type']);
+        $notes_label = amd_zlrecipe_strip_chars($_POST['notes-label']);
         $notes_label_hide = $_POST['notes-label-hide'];
-        $prep_time_label = $_POST['prep-time-label'];
+        $prep_time_label = amd_zlrecipe_strip_chars($_POST['prep-time-label']);
         $prep_time_label_hide = $_POST['prep-time-label-hide'];
-        $cook_time_label = $_POST['cook-time-label'];
+        $cook_time_label = amd_zlrecipe_strip_chars($_POST['cook-time-label']);
         $cook_time_label_hide = $_POST['cook-time-label-hide'];
-        $total_time_label = $_POST['total-time-label'];
+        $total_time_label = amd_zlrecipe_strip_chars($_POST['total-time-label']);
         $total_time_label_hide = $_POST['total-time-label-hide'];
-        $yield_label = $_POST['yield-label'];
+        $yield_label = amd_zlrecipe_strip_chars($_POST['yield-label']);
         $yield_label_hide = $_POST['yield-label-hide'];
-        $serving_size_label = $_POST['serving-size-label'];
+        $serving_size_label = amd_zlrecipe_strip_chars($_POST['serving-size-label']);
         $serving_size_label_hide = $_POST['serving-size-label-hide'];
-        $calories_label = $_POST['calories-label'];
+        $calories_label = amd_zlrecipe_strip_chars($_POST['calories-label']);
         $calories_label_hide = $_POST['calories-label-hide'];
-        $fat_label = $_POST['fat-label'];
+        $fat_label = amd_zlrecipe_strip_chars($_POST['fat-label']);
         $fat_label_hide = $_POST['fat-label-hide'];
-        $rating_label = $_POST['rating-label'];
+        $rating_label = amd_zlrecipe_strip_chars($_POST['rating-label']);
         $rating_label_hide = $_POST['rating-label-hide'];
         $image_width = $_POST['image-width'];
         $outer_border_style = $_POST['outer-border-style'];
@@ -374,7 +374,7 @@ function amd_zlrecipe_settings() {
                 </tr>
                 <tr valign="top">
                     <th scope="row">Printed Output: Copyright Statement</th>
-                    <td><input type="text" name="printed-copyright-statement" value="' . htmlentities(stripslashes_deep($printed_copyright_statement, ENT_NOQUOTES)) . '" class="regular-text" /></td>
+                    <td><input type="text" name="printed-copyright-statement" value="' . $printed_copyright_statement . '" class="regular-text" /></td>
                 </tr>
             </table>
 
@@ -1323,7 +1323,7 @@ function amd_zlrecipe_format_recipe($recipe) {
     // Add copyright statement for printed output (outside the dotted print line)
     $printed_copyright_statement = get_option('zlrecipe_printed_copyright_statement');
     if (strlen($printed_copyright_statement) > 0) {
-		$output .= '<div id="zl-printed-copyright-statement" itemprop="copyrightHolder">' . htmlentities(stripslashes_deep($printed_copyright_statement, ENT_NOQUOTES)) . '</div>';
+		$output .= '<div id="zl-printed-copyright-statement" itemprop="copyrightHolder">' . $printed_copyright_statement . '</div>';
 	}
 
     $output .= '</div>
