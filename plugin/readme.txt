@@ -10,9 +10,9 @@ Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipes, seo, hrecipe, Recipe View
 Requires at least: 3.1
-Tested up to: 3.5
-Stable tag: 2.2
-Version: 2.2
+Tested up to: 3.6
+Stable tag: 2.3
+Version: 2.3
 
 Formats recipes so they are SEO-friendly. Now fully supports WordPress 3.5.
 
@@ -24,7 +24,7 @@ As a bonus, the ZipList Recipe Plugin enables you to add a "Save Recipe" button 
 
 If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you will quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
 
-**NEW: Works with WordPress 3.5:** Updated for full compatibility with WordPress 3.5.
+**Works with WordPress 3.5:** Updated for full compatibility with WordPress 3.5.
 
 **Bold and Asterisk Styling:** Add bold or italicized styling to words or phrases within the Ingredients, Instructions, Summary and Notes sections. 
 
@@ -64,13 +64,27 @@ To use the plugin, click the little ZipList Recipe icon on the "Edit Post" pages
 
 == Frequently Asked Questions ==
 
+= When I use ZipList's plugin or button code, where are the recipes stored? =
+
+Whether you use the ZipList recipe plugin or you simply add the ZipList button script to your website, your recipes are always stored on your own website.
+
+Even with the ZipList Recipe Plugin, your recipes are stored safely in a separate DB table in your main WP database. The recipe table is named wp_amd_zlrecipe_recipes and you can take a look at it yourself using any WordPress database tools at your disposal.
+
+Much like Google, ZipList creates a simplified "index" entry of your recipes for use in presenting recipe search results, but this is not a full "copy" of the recipe and serves only to hold a representation of the partner website. For example, if you change a recipe on your website that you published months ago, ZipList will shortly "notice" this and update the recipe search and all of the information in user recipe boxes that link back to the original recipe.
+
+In short, your website keeps your recipes and ZipList refers all recipe "view" traffic back to the original partner content.
+
+= If the ZipList service were to go down, what would happen to my recipes? =
+
+The short answer is "nothing"! :) The display of your recipes on your site has nothing to do with the ZipList service and the only thing that would change is that the ZipList "Save Recipe" button would no longer function.
+
+The ZipList Recipe Plugin simply takes the recipe information from your own database and displays it with the SEO annotation and it does this without any connection or communication with the ZipList service itself as the two really are completely independent. The only time there is communication between ZipList and your website is when one of your customers clicks the Save Recipe button, at which time a reference to the recipe and your website is saved in the user's recipe box on ZipList.
+
+If ZipList ever does "go away", you can simply uncheck the option to show the ZipList button and you will continue to enjoy SEO-friendly display of your recipes without any connection to ZipList.
+
 = Why do you put a placeholder image into my Edit Post page, instead of my actual recipe? =
 
 Because of the way WordPress' text editor works, if you decide to add or remove something from your recipe using the text editor, it can very easily mess up the markup of the code - so the ZipList plugin prevents that from happening by not allowing you to edit the recipe in the text editor.
-
-= What if my site is in HTML5? =
-
-We will have a version that uses microdata (instead of microformats) for websites that use HTML5 very soon! But for now, the microformats that we use should work just fine for all HTML5 sites.
 
 = How can I request a feature to be added in future versions of the ZipList Recipe Plugin? =
 
