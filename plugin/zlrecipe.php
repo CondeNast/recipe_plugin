@@ -1327,6 +1327,7 @@ function amd_zlrecipe_format_recipe($recipe) {
 	}
 
     $output .= '</div>
+          <script type="text/javascript">wk_bootstrap()</script>
 		</div>';
 
     return $output;
