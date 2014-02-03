@@ -14,7 +14,7 @@ Tested up to: 3.6
 Stable tag: 2.3
 Version: 2.3
 
-Formats recipes so they are SEO-friendly. Now fully supports WordPress 3.5.
+Formats recipes so they are SEO-friendly. Now fully supports WordPress 3.6.
 
 == Description ==
 
@@ -24,7 +24,7 @@ As a bonus, the ZipList Recipe Plugin enables you to add a "Save Recipe" button 
 
 If you're familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you will quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
 
-**Works with WordPress 3.5:** Updated for full compatibility with WordPress 3.5.
+**Works with WordPress 3.6:** Updated for full compatibility with WordPress 3.6.
 
 **Bold and Asterisk Styling:** Add bold or italicized styling to words or phrases within the Ingredients, Instructions, Summary and Notes sections. 
 

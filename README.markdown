@@ -24,7 +24,7 @@ As a bonus, the ZipList Recipe Plugin enables you to add a “Save Recipe” but
 
 If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you’ll quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
 
-**Works with WordPress 3.5:** Updated for full compatibility with WordPress 3.5.
+**Works with WordPress 3.6:** Updated for full compatibility with WordPress 3.6.
 
 **Bold and Asterisk Styling:** Add bold or italicized styling to words or phrases within the Ingredients, Instructions, Summary and Notes sections.
 
