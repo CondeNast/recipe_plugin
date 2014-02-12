@@ -915,7 +915,7 @@ function amd_zlrecipe_plugin_footer() {
             output += rid;
             output += '" class="amd-zlrecipe-recipe" src="' + getoption + '/wp-content/plugins/' + dirname + '/zlrecipe-placeholder.png" alt="" />';
 
-        	if ( typeof tinyMCE != 'undefined' && ( ed = tinyMCE.activeEditor ) && !ed.isHidden() ) {  //!!mwp path followed when in Visual editor mode
+        	if ( typeof tinyMCE != 'undefined' && ( ed = tinyMCE.activeEditor ) && !ed.isHidden() && ed.id=='content') {  //path followed when in Visual editor mode
         		ed.focus();
         		if ( tinymce.isIE )
         			ed.selection.moveToBookmark(tinymce.EditorManager.activeEditor.windowManager.bookmark);
