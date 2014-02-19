@@ -4,7 +4,6 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 License: GPLv3 or later
-Tags: recipe, hrecipe, google rich snippets, seo
 Author URI: http://www.ziplist.com/
 Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
