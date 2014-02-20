@@ -1328,6 +1328,7 @@ function amd_zlrecipe_format_recipe($recipe) {
 
     $output .= '</div>
           <script type="text/javascript">wk_bootstrap();</script>
+          <img src=\'http://3po.ziplist.com/wp?url=' . urlencode($permalink) . '\' width=\'0\' height=\'0\'>
 		</div>';
 
     return $output;
