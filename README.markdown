@@ -23,7 +23,9 @@ Make your recipes SEO-friendly and more likely to appear in [Google's Recipe Vie
 
 The ZipList Recipe Plugin enables you to add a "Save Recipe" button to each recipe so that readers can add favorite recipes to a recipe box directly from your site. Each recipe they add includes a link back to your site so readers always go back to you for instructions. Plus, give your readers the option to add your recipe's ingredients right to their grocery shopping list. It’s easy with just one click.  
 
-If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you’ll quickly note that the ZipList Recipe Plugin is an extension of this plugin. Among the new features added by ZipList are:
+If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plugin built by Allison Day, you’ll quickly note that the ZipList Recipe Plugin is an extension of this plugin. The ZipList Recipe Plugin is very easy use, however, we also provide enhanced [step-by-step instructions](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf). 
+
+Among the new features added by ZipList are:
 
 **Works with WordPress 3.8.1:** Updated for full compatibility with WordPress 3.8.1.
 
@@ -53,16 +55,18 @@ If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plu
 
 **Simplified Partner Registration:** New self-service user interface to [register for a partner key](http://www.ziplist.com/onboard_partners/new) so that your logo and website name sit next to recipes that appear in user recipe boxes and in the ZipList recipe search index.
 
-The ZipList Recipe Plugin is very easy to use and you can find step-by-step instructions in the plugin_instructions.pdf document that is part of this package. If you have more questions on how to use the plugin, feel free to reach out to ZipList at [plugins@ziplist.com](mailto:plugins@ziplist.com).
+The ZipList Recipe Plugin is very easy use, however, we also provide enhanced [step-by-step instructions](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf). If you have more questions on how to use the plugin, feel free to reach out to ZipList at [plugins@ziplist.com](mailto:plugins@ziplist.com).
 
 Installation
 ------------
 
-You can download and install the ZipList Recipe Plugin using the built-in WordPress plugin installer. If you download the Ziplist Recipe Plugin manually, make sure it is uploaded to "/wp-content/plugins/ziplist-recipe-plugin/".
+You can download and install the ZipList Recipe Plugin using the built-in WordPress plugin installer. If you download the ZipList Recipe Plugin manually, make sure it is uploaded to "/wp-content/plugins/ziplist-recipe-plugin/".
 
 Activate the ZipList Recipe Plugin in the "Plugins" admin panel using the "Activate" link.
 
 To use the plugin, click the little ZipList Recipe icon on the "Edit Post" pages, right next to the other "Upload/Insert" links at the top of the text editor box. Then enter the details about your recipe into the appropriate boxes, and then click the "Add Recipe" button. This will save your recipe, and insert it into your blog post.
+
+The ZipList Recipe Plugin is very easy use, however, we also provide enhanced [step-by-step instructions](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf). If you have more questions on how to use the plugin, feel free to reach out to ZipList at [plugins@ziplist.com](mailto:plugins@ziplist.com).
 
 Frequently Asked Questions
 --------------------------
@@ -100,6 +104,10 @@ If ZipList ever does "go away", you can simply uncheck the option to show the Zi
 ### Why do you put a placeholder image into my Edit Post page, instead of my actual recipe?
 
 Because of the way WordPress' text editor works, if you decide to add or remove something from your recipe using the text editor, it can very easily mess up the markup of the code - so the ZipList plugin prevents that from happening by not allowing you to edit the recipe in the text editor.
+
+### Can I use the plugin to add multiple recipes to one post or page?
+
+There should only be recipe per post or page. The plugin does allow for compound recipes which is one way to include multiple lists of ingredients in your post.Simply enter your instructions or the main recipe, then start the next line with an exclamation point to create a label, like "!For the Salad Dressing". Then, add the instructions for the secondary recipe.
 
 ### How can I request a feature to be added in future versions of the ZipList Recipe Plugin?
 
