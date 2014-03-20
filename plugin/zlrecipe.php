@@ -84,6 +84,7 @@ add_option('zlrecipe_rating_label', 'Rating:');
 add_option('zlrecipe_rating_label_hide', '');
 add_option('zlrecipe_image_width', '');
 add_option('zlrecipe_outer_border_style', '');
+add_option('zlrecipe_custom_save_image', '');
 
 register_activation_hook(__FILE__, 'amd_zlrecipe_install');
 add_action('plugins_loaded', 'amd_zlrecipe_install');
@@ -114,6 +115,7 @@ $zlrecipe_db_version = "3.1";	// This must be changed when the DB structure is m
 //   1.5        3.1
 //   1.50       3.1
 //   2.0        3.1
+//   2.3        3.1
 function amd_zlrecipe_install() {
     global $wpdb;
     global $zlrecipe_db_version;
@@ -212,6 +214,7 @@ function amd_zlrecipe_settings() {
         $rating_label_hide = $_POST['rating-label-hide'];
         $image_width = $_POST['image-width'];
         $outer_border_style = $_POST['outer-border-style'];
+        $custom_save_image = $_POST['custom-save-image'];
 
 
         update_option('ziplist_partner_key', $ziplist_partner_key);
@@ -250,6 +253,7 @@ function amd_zlrecipe_settings() {
         update_option('zlrecipe_rating_label_hide', $rating_label_hide);
         update_option('zlrecipe_image_width', $image_width);
         update_option('zlrecipe_outer_border_style', $outer_border_style);
+        update_option('zlrecipe_custom_save_image', $custom_save_image);
     } else {
         $ziplist_partner_key = get_option('ziplist_partner_key');
         $ziplist_recipe_button_hide = get_option('ziplist_recipe_button_hide');
@@ -287,6 +291,7 @@ function amd_zlrecipe_settings() {
         $rating_label_hide = get_option('zlrecipe_rating_label_hide');
         $image_width = get_option('zlrecipe_image_width');
         $outer_border_style = get_option('zlrecipe_outer_border_style');
+        $custom_save_image = get_option('zlrecipe_custom_save_image');
     }
 
     $ziplist_recipe_button_hide = (strcmp($ziplist_recipe_button_hide, 'Hide') == 0 ? 'checked="checked"' : '');
@@ -363,6 +368,14 @@ function amd_zlrecipe_settings() {
                 <tr valign="top">
                     <th scope="row">ZipList Recipe Box and Shopping List</th>
                     <td><label><input type="checkbox" name="ziplist-recipe-button-hide" value="Hide" ' . $ziplist_recipe_button_hide . ' /> Don\'t enable these features</label></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Custom Save Recipe Button</th>
+                    <td>
+                        <input placeholder="URL to custom Save Recipe button image" type="text" name="custom-save-image" value="' . $custom_save_image . '" class="regular-text" />
+                        <br />
+                        <span>Some text here?</span>
+                    </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row">ZipList Recipe Plugin Link</th>
@@ -1116,7 +1129,14 @@ function amd_zlrecipe_format_recipe($recipe) {
     // add the ZipList recipe button
     if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
                 $ziplist_partner_key = get_option('ziplist_partner_key');
-                $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script id=\'wk_script\' src=\'http://www.zlcdn.com/javascripts/wk.js\' type=\'text/javascript\'></script><a class=\'ziplist-button add-recipe large\' href=\'http://www.zlcdn.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '\'target=\'_blank\'><img src=\'http://asset1.ziplist.com/wk/add_recipe-large.png\'></a>
+                $button_image = 'http://asset1.ziplist.com/wk/add_recipe-large.png';
+                $button_type = 'large';
+                $custom_save_image = get_option('zlrecipe_custom_save_image');
+                if (strlen($custom_save_image) > 0) {
+                	$button_type = 'custom';
+                	$button_image = $custom_save_image;
+                }
+                $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script id=\'wk_script\' src=\'http://www.zlcdn.com/javascripts/wk.js\' type=\'text/javascript\'></script><a class=\'ziplist-button add-recipe ' . $button_type . '\' href=\'http://www.zlcdn.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '\'target=\'_blank\'><img src=\'' . $button_image . '\'></a>
                 </div>';
     }
 	// add the title and close the item class
