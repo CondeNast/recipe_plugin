@@ -695,7 +695,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="$url/wp-content/plugins/$dirname/zlrecipe-dlog.css" type="text/css" media="all" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript">//<!CDATA[
 
         function amdZLRecipeSubmitForm() {
