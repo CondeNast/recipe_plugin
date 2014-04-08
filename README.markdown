@@ -166,7 +166,7 @@ Changelog
 2.3 Performance and Bugfix Release
 
 * Improved mobile compatibility with mobile-based Add Recipe popup
-* Simple, more-compatible button customization
+* Simple, more-compatible button customizations
 * Improved character encoding and handling
 * Improved blogger site performance with CDN cached assets
 

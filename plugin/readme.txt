@@ -9,7 +9,7 @@ Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipe, recipe card, recipe box, shopping list, grocery list, save recipe, print recipe, hrecipe, schema.org, google rich snippets, seo, recipe seo
 Requires at least: 3.1
-Tested up to: 3.8.1
+Tested up to: 3.8.2
 Stable tag: 2.3
 Version: 2.3
 
@@ -131,7 +131,7 @@ You can email mailto:support@ziplist.com with your requests.
 2.3 Performance and Bugfix Release
 
 * Improved mobile compatibility with mobile-based Add Recipe popup
-* Simple, more-compatible button customization
+* Simple, more-compatible button customizations
 * Improved character encoding and handling
 * Improved blogger site performance with CDN cached assets
 
