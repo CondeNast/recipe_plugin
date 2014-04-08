@@ -85,6 +85,7 @@ add_option('zlrecipe_rating_label_hide', '');
 add_option('zlrecipe_image_width', '');
 add_option('zlrecipe_outer_border_style', '');
 add_option('zlrecipe_custom_save_image', '');
+add_option('zlrecipe_custom_print_image', '');
 
 register_activation_hook(__FILE__, 'amd_zlrecipe_install');
 add_action('plugins_loaded', 'amd_zlrecipe_install');
@@ -215,6 +216,7 @@ function amd_zlrecipe_settings() {
         $image_width = $_POST['image-width'];
         $outer_border_style = $_POST['outer-border-style'];
         $custom_save_image = $_POST['custom-save-image'];
+        $custom_print_image = $_POST['custom-print-image'];
 
 
         update_option('ziplist_partner_key', $ziplist_partner_key);
@@ -254,6 +256,7 @@ function amd_zlrecipe_settings() {
         update_option('zlrecipe_image_width', $image_width);
         update_option('zlrecipe_outer_border_style', $outer_border_style);
         update_option('zlrecipe_custom_save_image', $custom_save_image);
+        update_option('zlrecipe_custom_print_image', $custom_print_image);
     } else {
         $ziplist_partner_key = get_option('ziplist_partner_key');
         $ziplist_recipe_button_hide = get_option('ziplist_recipe_button_hide');
@@ -292,6 +295,7 @@ function amd_zlrecipe_settings() {
         $image_width = get_option('zlrecipe_image_width');
         $outer_border_style = get_option('zlrecipe_outer_border_style');
         $custom_save_image = get_option('zlrecipe_custom_save_image');
+        $custom_print_image = get_option('zlrecipe_custom_print_image');
     }
 
     $ziplist_recipe_button_hide = (strcmp($ziplist_recipe_button_hide, 'Hide') == 0 ? 'checked="checked"' : '');
@@ -373,6 +377,14 @@ function amd_zlrecipe_settings() {
                     <th scope="row">Custom Save Recipe Button</th>
                     <td>
                         <input placeholder="URL to custom Save Recipe button image" type="text" name="custom-save-image" value="' . $custom_save_image . '" class="regular-text" />
+                        <br />
+                        <span>Some text here?</span>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Custom Print Button</th>
+                    <td>
+                        <input placeholder="URL to custom Print button image" type="text" name="custom-print-image" value="' . $custom_print_image . '" class="regular-text" />
                         <br />
                         <span>Some text here?</span>
                     </td>
@@ -1123,7 +1135,14 @@ function amd_zlrecipe_format_recipe($recipe) {
 
     // Add the print button
     if (strcmp(get_option('zlrecipe_print_link_hide'), 'Hide') != 0) {
-		$output .= '<div class="zlrecipe-print-link fl-r"><a class="butn-link" title="Print this recipe" href="javascript:void(0);" onclick="zlrPrint(\'zlrecipe-container-' . $recipe->recipe_id . '\'); return false">Print</a></div>';
+    	$custom_print_image = get_option('zlrecipe_custom_print_image');
+    	$button_type = 'butn-link';
+    	$button_image = 'Print'; // NOT a button image in this case, but this is the legacy version
+		if (strlen($custom_print_image) > 0) {
+			$button_type = 'print-link';
+			$button_image = '<img src=\'' . $custom_print_image . '\'>';
+		}
+		$output .= '<div class="zlrecipe-print-link fl-r"><a class="' . $button_type . '" title="Print this recipe" href="javascript:void(0);" onclick="zlrPrint(\'zlrecipe-container-' . $recipe->recipe_id . '\'); return false">' . $button_image . '</a></div>';
 	}
 
     // add the ZipList recipe button
