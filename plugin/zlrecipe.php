@@ -374,19 +374,27 @@ function amd_zlrecipe_settings() {
                     <td><label><input type="checkbox" name="ziplist-recipe-button-hide" value="Hide" ' . $ziplist_recipe_button_hide . ' /> Don\'t enable these features</label></td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Custom Save Recipe Button</th>
+                    <th scope="row">
+                    	Custom Save Recipe Button
+                    	<br />
+                    	(Optional)
+                    </th>
                     <td>
                         <input placeholder="URL to custom Save Recipe button image" type="text" name="custom-save-image" value="' . $custom_save_image . '" class="regular-text" />
                         <br />
-                        <span>Some text here?</span>
+                        <span>For help with image URLs, <a href="blog.ziplist.com">click here</a>.</span>
                     </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Custom Print Button</th>
+                    <th scope="row">
+                    	Custom Print Button
+                    	<br />
+                    	(Optional)
+                    </th>
                     <td>
                         <input placeholder="URL to custom Print button image" type="text" name="custom-print-image" value="' . $custom_print_image . '" class="regular-text" />
-                        <br />
-                        <span>Some text here?</span>
+						<br />
+						<span>For help with image URLs, <a href="blog.ziplist.com">click here</a>.</span>
                     </td>
                 </tr>
                 <tr valign="top">
