@@ -1354,10 +1354,8 @@ function amd_zlrecipe_format_recipe($recipe) {
 	}
 
 	//!!mwp add ZipList attribution and version
-	$hide_tag = '';
-    if (strcmp(get_option('ziplist_attribution_hide'), 'Hide') == 0)
-        $hide_tag = 'style="display: none;"';
-    $output .= '<div class="zl-linkback" ' . $hide_tag . '>Schema/Recipe SEO Data Markup by <a title="ZipList Recipe Plugin" alt="ZipList Recipe Plugin" href="http://www.ziplist.com/recipe_plugin" target="_blank">ZipList Recipe Plugin</a></div>';
+    if (strcmp(get_option('ziplist_attribution_hide'), 'Hide') != 0)
+	    $output .= '<div class="zl-linkback">Schema/Recipe SEO Data Markup by <a title="ZipList Recipe Plugin" alt="ZipList Recipe Plugin" href="http://www.ziplist.com/recipe_plugin" target="_blank">ZipList Recipe Plugin</a></div>';
     $output .= '<div class="ziplist-recipe-plugin" style="display: none;">' . AMD_ZLRECIPE_VERSION_NUM . '</div>';
 
     //!!mwp add permalink for printed output before closing the innerdiv
