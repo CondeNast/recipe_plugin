@@ -179,11 +179,14 @@ function amd_zlrecipe_settings() {
     $zlrecipe_icon = AMD_ZLRECIPE_PLUGIN_DIRECTORY . "zlrecipe.gif";
 
     if ($_POST['ingredient-list-type']) {
+		foreach ($_POST as $key=>$val) {
+			$_POST[$key] = stripslashes($val);
+		}
     	$ziplist_partner_key = $_POST['ziplist-partner-key'];
         $ziplist_recipe_button_hide = $_POST['ziplist-recipe-button-hide'];
         $ziplist_attribution_hide = $_POST['ziplist-attribution-hide'];
         $printed_permalink_hide = $_POST['printed-permalink-hide'];
-        $printed_copyright_statement = amd_zlrecipe_strip_chars($_POST['printed-copyright-statement']);
+        $printed_copyright_statement = $_POST['printed-copyright-statement'];
         $stylesheet = $_POST['stylesheet'];
         $recipe_title_hide = $_POST['recipe-title-hide'];
         $image_hide = $_POST['image-hide'];
@@ -217,7 +220,6 @@ function amd_zlrecipe_settings() {
         $outer_border_style = $_POST['outer-border-style'];
         $custom_save_image = $_POST['custom-save-image'];
         $custom_print_image = $_POST['custom-print-image'];
-
 
         update_option('ziplist_partner_key', $ziplist_partner_key);
         update_option('ziplist_recipe_button_hide', $ziplist_recipe_button_hide);
@@ -297,6 +299,25 @@ function amd_zlrecipe_settings() {
         $custom_save_image = get_option('zlrecipe_custom_save_image');
         $custom_print_image = get_option('zlrecipe_custom_print_image');
     }
+
+    $ziplist_partner_key = esc_attr($ziplist_partner_key);
+    $printed_copyright_statement = esc_attr($printed_copyright_statement);
+    $ingredient_label = esc_attr($ingredient_label);
+    $instruction_label = esc_attr($instruction_label);
+    $notes_label = esc_attr($notes_label);
+    $prep_time_label = esc_attr($prep_time_label);
+    $prep_time_label = esc_attr($prep_time_label);
+    $cook_time_label = esc_attr($cook_time_label);
+    $total_time_label = esc_attr($total_time_label);
+    $total_time_label = esc_attr($total_time_label);
+    $yield_label = esc_attr($yield_label);
+    $serving_size_label = esc_attr($serving_size_label);
+    $calories_label = esc_attr($calories_label);
+    $fat_label = esc_attr($fat_label);
+    $rating_label = esc_attr($rating_label);
+    $image_width = esc_attr($image_width);
+	$custom_save_image = esc_attr($custom_save_image);
+	$custom_print_image = esc_attr($custom_print_image);
 
     $ziplist_recipe_button_hide = (strcmp($ziplist_recipe_button_hide, 'Hide') == 0 ? 'checked="checked"' : '');
     $ziplist_attribution_hide = (strcmp($ziplist_attribution_hide, 'Hide') == 0 ? 'checked="checked"' : '');
@@ -660,47 +681,68 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
             $ingredients = $recipe->ingredients;
             $instructions = $recipe->instructions;
         } else {
-            $recipe_id = htmlentities($post_info["recipe_id"], ENT_QUOTES);
+        	foreach ($post_info as $key=>$val) {
+        		$post_info[$key] = stripslashes($val);
+        	}
+
+            $recipe_id = $post_info["recipe_id"];
             if( !$get_info["add-recipe-button"] ) //!!mwp
                  $recipe_title = get_the_title( $get_info["post_id"] );
             else
-                 $recipe_title = amd_zlrecipe_strip_chars( htmlentities($post_info["recipe_title"], ENT_QUOTES) );
-            $recipe_image = htmlentities($post_info["recipe_image"], ENT_QUOTES);
-            $summary = amd_zlrecipe_strip_chars( htmlentities($post_info["summary"], ENT_QUOTES) );
-            $notes = amd_zlrecipe_strip_chars( htmlentities($post_info["notes"], ENT_QUOTES) );
-            $rating = htmlentities($post_info["rating"], ENT_QUOTES);
-            $prep_time_seconds = htmlentities($post_info["prep_time_seconds"], ENT_QUOTES);
-            $prep_time_minutes = htmlentities($post_info["prep_time_minutes"], ENT_QUOTES);
-            $prep_time_hours = htmlentities($post_info["prep_time_hours"], ENT_QUOTES);
-            $prep_time_days = htmlentities($post_info["prep_time_days"], ENT_QUOTES);
-            $prep_time_weeks = htmlentities($post_info["prep_time_weeks"], ENT_QUOTES);
-            $prep_time_months = htmlentities($post_info["prep_time_months"], ENT_QUOTES);
-            $prep_time_years = htmlentities($post_info["prep_time_years"], ENT_QUOTES);
-            $cook_time_seconds = htmlentities($post_info["cook_time_seconds"], ENT_QUOTES);
-            $cook_time_minutes = htmlentities($post_info["cook_time_minutes"], ENT_QUOTES);
-            $cook_time_hours = htmlentities($post_info["cook_time_hours"], ENT_QUOTES);
-            $cook_time_days = htmlentities($post_info["cook_time_days"], ENT_QUOTES);
-            $cook_time_weeks = htmlentities($post_info["cook_time_weeks"], ENT_QUOTES);
-            $cook_time_months = htmlentities($post_info["cook_time_months"], ENT_QUOTES);
-            $cook_time_years = htmlentities($post_info["cook_time_years"], ENT_QUOTES);
-            $total_time_seconds = htmlentities($post_info["total_time_seconds"], ENT_QUOTES);
-            $total_time_minutes = htmlentities($post_info["total_time_minutes"], ENT_QUOTES);
-            $total_time_hours = htmlentities($post_info["total_time_hours"], ENT_QUOTES);
-            $total_time_days = htmlentities($post_info["total_time_days"], ENT_QUOTES);
-            $total_time_weeks = htmlentities($post_info["total_time_weeks"], ENT_QUOTES);
-            $total_time_months = htmlentities($post_info["total_time_months"], ENT_QUOTES);
-            $total_time_years = htmlentities($post_info["total_time_years"], ENT_QUOTES);
-            $yield = htmlentities($post_info["yield"], ENT_QUOTES);
-            $serving_size = htmlentities($post_info["serving_size"], ENT_QUOTES);
-            $calories = htmlentities($post_info["calories"], ENT_QUOTES);
-            $fat = htmlentities($post_info["fat"], ENT_QUOTES);
-            $ingredients = amd_zlrecipe_strip_chars( htmlentities($post_info["ingredients"], ENT_QUOTES) );
-            $instructions = amd_zlrecipe_strip_chars( htmlentities($post_info["instructions"], ENT_QUOTES) );
+                 $recipe_title = $post_info["recipe_title"];
+            $recipe_image = $post_info["recipe_image"];
+            $summary = $post_info["summary"];
+            $notes = $post_info["notes"];
+            $rating = $post_info["rating"];
+            $prep_time_seconds = $post_info["prep_time_seconds"];
+            $prep_time_minutes = $post_info["prep_time_minutes"];
+            $prep_time_hours = $post_info["prep_time_hours"];
+            $prep_time_days = $post_info["prep_time_days"];
+            $prep_time_weeks = $post_info["prep_time_weeks"];
+            $prep_time_months = $post_info["prep_time_months"];
+            $prep_time_years = $post_info["prep_time_years"];
+            $cook_time_seconds = $post_info["cook_time_seconds"];
+            $cook_time_minutes = $post_info["cook_time_minutes"];
+            $cook_time_hours = $post_info["cook_time_hours"];
+            $cook_time_days = $post_info["cook_time_days"];
+            $cook_time_weeks = $post_info["cook_time_weeks"];
+            $cook_time_months = $post_info["cook_time_months"];
+            $cook_time_years = $post_info["cook_time_years"];
+            $total_time_seconds = $post_info["total_time_seconds"];
+            $total_time_minutes = $post_info["total_time_minutes"];
+            $total_time_hours = $post_info["total_time_hours"];
+            $total_time_days = $post_info["total_time_days"];
+            $total_time_weeks = $post_info["total_time_weeks"];
+            $total_time_months = $post_info["total_time_months"];
+            $total_time_years = $post_info["total_time_years"];
+            $yield = $post_info["yield"];
+            $serving_size = $post_info["serving_size"];
+            $calories = $post_info["calories"];
+            $fat = $post_info["fat"];
+            $ingredients = $post_info["ingredients"];
+            $instructions = $post_info["instructions"];
             if ($recipe_title != null && $recipe_title != '' && $ingredients != null && $ingredients != '') {
                 $recipe_id = amd_zlrecipe_insert_db($post_info);
             }
         }
     }
+
+	$recipe_title = esc_attr($recipe_title);
+	$recipe_image = esc_attr($recipe_image);
+	$prep_time_hours = esc_attr($prep_time_hours);
+	$prep_time_minutes = esc_attr($prep_time_minutes);
+	$cook_time_hours = esc_attr($cook_time_hours);
+	$cook_time_minutes = esc_attr($cook_time_minutes);
+	$total_time_hours = esc_attr($total_time_hours);
+	$total_time_minutes = esc_attr($total_time_minutes);
+	$yield = esc_attr($yield);
+	$serving_size = esc_attr($serving_size);
+	$calories = esc_attr($calories);
+	$fat = esc_attr($fat);
+	$ingredients = esc_textarea($ingredients);
+	$instructions = esc_textarea($instructions);
+	$summary = esc_textarea($summary);
+	$notes = esc_textarea($notes);
 
     $id = (int) $_REQUEST["post_id"];
     $url = get_option('siteurl');
@@ -897,20 +939,20 @@ function amd_zlrecipe_insert_db($post_info) {
     }
 
     $recipe = array (
-        "recipe_title" => amd_zlrecipe_strip_chars( $post_info["recipe_title"] ),
+        "recipe_title" =>  $post_info["recipe_title"],
         "recipe_image" => $post_info["recipe_image"],
-        "summary" => amd_zlrecipe_strip_chars( $post_info["summary"] ),
+        "summary" =>  $post_info["summary"],
         "rating" => $post_info["rating"],
         "prep_time" => $prep_time,
         "cook_time" => $cook_time,
         "total_time" => $total_time,
-        "yield" => $post_info["yield"],
-        "serving_size" => $post_info["serving_size"],
+        "yield" =>  $post_info["yield"],
+        "serving_size" =>  $post_info["serving_size"],
         "calories" => $post_info["calories"],
         "fat" => $post_info["fat"],
-        "ingredients" => amd_zlrecipe_strip_chars( $post_info["ingredients"] ),
-        "instructions" => amd_zlrecipe_strip_chars( $post_info["instructions"] ),
-        "notes" => amd_zlrecipe_strip_chars( $post_info["notes"] ),
+        "ingredients" => $post_info["ingredients"],
+        "instructions" => $post_info["instructions"],
+        "notes" => $post_info["notes"],
     );
 
     if (amd_zlrecipe_select_recipe_db($recipe_id) == null) {
