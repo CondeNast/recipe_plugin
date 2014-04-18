@@ -90,13 +90,40 @@ add_option('zlrecipe_custom_print_image', '');
 register_activation_hook(__FILE__, 'amd_zlrecipe_install');
 add_action('plugins_loaded', 'amd_zlrecipe_install');
 
-add_action('media_buttons', 'amd_zlrecipe_add_recipe_button', 30);
-add_action('init', 'amd_zlrecipe_enhance_mce');
+//add_action('media_buttons', 'amd_zlrecipe_add_recipe_button', 30);
+//add_action('init', 'amd_zlrecipe_enhance_mce');
+
+add_action('admin_head', 'amd_zlrecipe_add_recipe_button');
+add_action('admin_head','amd_zlrecipe_js_vars');
+
+function amd_zlrecipe_js_vars() {
+
+    global $current_screen;
+    $type = $current_screen->post_type;
+
+    if (is_admin() && $type == 'post' || $type == 'page') {
+        ?>
+        <script type="text/javascript">
+        var post_id = '<?php global $post; echo $post->ID; ?>';
+        </script>
+        <?php
+    }
+}
 
 if (strpos($_SERVER['REQUEST_URI'], 'media-upload.php') && strpos($_SERVER['REQUEST_URI'], '&type=amd_zlrecipe') && !strpos($_SERVER['REQUEST_URI'], '&wrt='))
 {
 	amd_zlrecipe_iframe_content($_POST, $_REQUEST);
 	exit;
+}
+
+/* Send debug code to the Javascript console */
+function debug_to_console($data) {
+	if(is_array($data) || is_object($data))
+	{
+		echo("<script>console.log('PHP: ".json_encode($data)."');</script>");
+	} else {
+		echo("<script>console.log('PHP: ".$data."');</script>");
+	}
 }
 
 global $zlrecipe_db_version;
@@ -513,32 +540,58 @@ function amd_zlrecipe_settings() {
     </div>';
 }
 
-function amd_zlrecipe_enhance_mce() {
-    if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )
-        return;
-    if ( get_user_option('rich_editing') == 'true') {
-        add_filter('mce_external_plugins', 'amd_zlrecipe_tinymce_plugin');
-    }
-}
+// function amd_zlrecipe_enhance_mce() {
+//     if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )
+//         return;
+//     if ( get_user_option('rich_editing') == 'true') {
+//         add_filter('mce_external_plugins', 'amd_zlrecipe_tinymce_plugin');
+//     }
+// }
+
+// function amd_zlrecipe_tinymce_plugin($plugin_array) {
+//
+//    $plugin_array['amdzlrecipe'] =  get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/zlrecipe_editor_plugin.js';
+//
+//    return $plugin_array;
+// }
 
 function amd_zlrecipe_tinymce_plugin($plugin_array) {
+	$plugin_array['amdzlrecipe'] = plugins_url( '/zlrecipe_editor_plugin.js', __FILE__ );
+	return $plugin_array;
+}
 
-   $plugin_array['amdzlrecipe'] =  get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/zlrecipe_editor_plugin.js';
-
-   return $plugin_array;
+function amd_zlrecipe_register_tinymce_button($buttons) {
+   array_push($buttons, "amdzlrecipe");
+   return $buttons;
 }
 
 // Adds  the recipe button to the editor in the media row
+// function amd_zlrecipe_add_recipe_button() {
+//     global $post_ID, $temp_ID;
+// 	$uploading_iframe_ID = (int) (0 == $post_ID ? $temp_ID : $post_ID);
+//
+// 	$media_upload_iframe_src = get_option('siteurl').'/wp-admin/media-upload.php?post_id='.$uploading_iframe_ID;
+//
+// 	$media_amd_zlrecipe_iframe_src = apply_filters('media_amd_zlrecipe_iframe_src', "$media_upload_iframe_src&amp;type=amd_zlrecipe&amp;tab=amd_zlrecipe");
+// 	$media_amd_zlrecipe_title = __('Add a Recipe', 'wp-media-amd_zlrecipe');
+//
+// 	echo "<a class=\"thickbox\" href=\"{$media_amd_zlrecipe_iframe_src}&amp;TB_iframe=true&amp;height=500&amp;width=640\" title=\"$media_amd_zlrecipe_title\"><img src='" . get_option('siteurl').'/wp-content/plugins/'.dirname(plugin_basename(__FILE__)) . "/zlrecipe.gif?ver=1.0' alt='ZLRecipe Icon' /></a>";
+// }
+
 function amd_zlrecipe_add_recipe_button() {
-    global $post_ID, $temp_ID;
-	$uploading_iframe_ID = (int) (0 == $post_ID ? $temp_ID : $post_ID);
-
-	$media_upload_iframe_src = get_option('siteurl').'/wp-admin/media-upload.php?post_id='.$uploading_iframe_ID;
-
-	$media_amd_zlrecipe_iframe_src = apply_filters('media_amd_zlrecipe_iframe_src', "$media_upload_iframe_src&amp;type=amd_zlrecipe&amp;tab=amd_zlrecipe");
-	$media_amd_zlrecipe_title = __('Add a Recipe', 'wp-media-amd_zlrecipe');
-
-	echo "<a class=\"thickbox\" href=\"{$media_amd_zlrecipe_iframe_src}&amp;TB_iframe=true&amp;height=500&amp;width=640\" title=\"$media_amd_zlrecipe_title\"><img src='" . get_option('siteurl').'/wp-content/plugins/'.dirname(plugin_basename(__FILE__)) . "/zlrecipe.gif?ver=1.0' alt='ZLRecipe Icon' /></a>";
+    global $typenow;
+    // check user permissions
+    if ( !current_user_can('edit_posts') && !current_user_can('edit_pages') ) {
+   	return;
+    }
+    // verify the post type
+    if( ! in_array( $typenow, array( 'post', 'page' ) ) )
+        return;
+	// check if WYSIWYG is enabled
+	if ( get_user_option('rich_editing') == 'true') {
+		add_filter('mce_external_plugins', 'amd_zlrecipe_tinymce_plugin');
+		add_filter('mce_buttons', 'amd_zlrecipe_register_tinymce_button');
+	}
 }
 
 function amd_zlrecipe_strip_chars( $val )
@@ -550,6 +603,9 @@ function amd_zlrecipe_strip_chars( $val )
 function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
     $recipe_id = 0;
     if ($post_info || $get_info) {
+
+    	debug_to_console($post_info);
+		debug_to_console($get_info);
 
     	//!!mwp debug titling for error handled dialog
     	if( $get_info["add-recipe-button"] || strpos($get_info["post_id"], '-') !== false ) {
@@ -779,6 +835,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
                 return false;
             }
             window.parent.amdZLRecipeInsertIntoPostEditor('$recipe_id','$url','$dirname');
+            top.tinymce.activeEditor.windowManager.close();
         }
 
         $(document).ready(function() {
