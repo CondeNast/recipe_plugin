@@ -9,11 +9,11 @@ Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipe, recipe card, recipe box, shopping list, grocery list, save recipe, print recipe, hrecipe, schema.org, google rich snippets, seo, recipe seo
 Requires at least: 3.1
-Tested up to: 3.8.2
-Stable tag: 2.3
-Version: 2.3
+Tested up to: 3.9
+Stable tag: 2.4
+Version: 2.4
 
-Formats recipes so they are SEO-friendly. Now fully supports WordPress 3.8.1.
+Formats recipes so they are SEO-friendly. Now fully supports WordPress 3.9.
 
 == Description ==
 
@@ -27,7 +27,7 @@ If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plu
 
 Among the new features added by ZipList are:
 
-**Works with WordPress 3.8.1:** Updated for full compatibility with WordPress 3.8.1.
+**Works with WordPress 3.9:** Updated for full compatibility with WordPress 3.9.
 
 **Schema/Recipe Support:** Automatically integrate Schema.org's Recipe mark-up into your recipe posts to make them more findable by search engines. 
 
@@ -128,12 +128,17 @@ You can email mailto:support@ziplist.com with your requests.
 
 == Changelog ==
 
-2.3 Performance and Bugfix Release
+2.4 Editor Upgrade, Performance and Bugfix Release
 
+* Simpler, single-button recipe add/edit button
 * Improved mobile compatibility with mobile-based Add Recipe popup
-* Simple, more-compatible button customizations
-* Improved character encoding and handling
+* Simpler recipe button customizations
+* Improved character encoding and handling - thanks [smerriman!](http://github.com/smerriman)
 * Improved blogger site performance with CDN cached assets
+
+2.3 Emergency Fix for WordPress 3.9 upgrade to TinyMCE v4
+* Editor disabled, view recipes only
+* Early introductions of v2.4 features
 
 2.1/2.2 Bugfix Releases
 
