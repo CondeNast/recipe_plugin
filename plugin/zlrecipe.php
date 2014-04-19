@@ -90,9 +90,6 @@ add_option('zlrecipe_custom_print_image', '');
 register_activation_hook(__FILE__, 'amd_zlrecipe_install');
 add_action('plugins_loaded', 'amd_zlrecipe_install');
 
-//add_action('media_buttons', 'amd_zlrecipe_add_recipe_button', 30);
-//add_action('init', 'amd_zlrecipe_enhance_mce');
-
 add_action('admin_head', 'amd_zlrecipe_add_recipe_button');
 add_action('admin_head','amd_zlrecipe_js_vars');
 
@@ -540,21 +537,6 @@ function amd_zlrecipe_settings() {
     </div>';
 }
 
-// function amd_zlrecipe_enhance_mce() {
-//     if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )
-//         return;
-//     if ( get_user_option('rich_editing') == 'true') {
-//         add_filter('mce_external_plugins', 'amd_zlrecipe_tinymce_plugin');
-//     }
-// }
-
-// function amd_zlrecipe_tinymce_plugin($plugin_array) {
-//
-//    $plugin_array['amdzlrecipe'] =  get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/zlrecipe_editor_plugin.js';
-//
-//    return $plugin_array;
-// }
-
 function amd_zlrecipe_tinymce_plugin($plugin_array) {
 	$plugin_array['amdzlrecipe'] = plugins_url( '/zlrecipe_editor_plugin.js', __FILE__ );
 	return $plugin_array;
@@ -564,19 +546,6 @@ function amd_zlrecipe_register_tinymce_button($buttons) {
    array_push($buttons, "amdzlrecipe");
    return $buttons;
 }
-
-// Adds  the recipe button to the editor in the media row
-// function amd_zlrecipe_add_recipe_button() {
-//     global $post_ID, $temp_ID;
-// 	$uploading_iframe_ID = (int) (0 == $post_ID ? $temp_ID : $post_ID);
-//
-// 	$media_upload_iframe_src = get_option('siteurl').'/wp-admin/media-upload.php?post_id='.$uploading_iframe_ID;
-//
-// 	$media_amd_zlrecipe_iframe_src = apply_filters('media_amd_zlrecipe_iframe_src', "$media_upload_iframe_src&amp;type=amd_zlrecipe&amp;tab=amd_zlrecipe");
-// 	$media_amd_zlrecipe_title = __('Add a Recipe', 'wp-media-amd_zlrecipe');
-//
-// 	echo "<a class=\"thickbox\" href=\"{$media_amd_zlrecipe_iframe_src}&amp;TB_iframe=true&amp;height=500&amp;width=640\" title=\"$media_amd_zlrecipe_title\"><img src='" . get_option('siteurl').'/wp-content/plugins/'.dirname(plugin_basename(__FILE__)) . "/zlrecipe.gif?ver=1.0' alt='ZLRecipe Icon' /></a>";
-// }
 
 function amd_zlrecipe_add_recipe_button() {
     global $typenow;
@@ -604,10 +573,6 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
     $recipe_id = 0;
     if ($post_info || $get_info) {
 
-    	debug_to_console($post_info);
-		debug_to_console($get_info);
-
-    	//!!mwp debug titling for error handled dialog
     	if( $get_info["add-recipe-button"] || strpos($get_info["post_id"], '-') !== false ) {
         	$iframe_title = "Update Your Recipe";
         	$submit = "Update Recipe";
@@ -742,7 +707,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
         	}
 
             $recipe_id = $post_info["recipe_id"];
-            if( !$get_info["add-recipe-button"] ) //!!mwp
+            if( !$get_info["add-recipe-button"] )
                  $recipe_title = get_the_title( $get_info["post_id"] );
             else
                  $recipe_title = $post_info["recipe_title"];
@@ -818,24 +783,22 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
 
         function amdZLRecipeSubmitForm() {
             var title = document.forms['recipe_form']['recipe_title'].value;
-            //!!mwp var ingredient0 = $('#ingredient-0 input.name').val();
+
             if (title==null || title=='') {
                 $('#recipe-title input').addClass('input-error');
                 $('#recipe-title').append('<p class="error-message">You must enter a title for your recipe.</p>');
 
                 return false;
             }
-            var ingredients = $('#amd_zlrecipe_ingredients textarea').val(); //!!mwp
-            if (ingredients==null || ingredients=='' || ingredients==undefined) { //!!mwp
-                //!!mwp $('#ingredient-0 input').addClass('input-error');
-                $('#amd_zlrecipe_ingredients textarea').addClass('input-error'); //!!mwp
-                //!!mwp old append line deleted
-                $('#amd_zlrecipe_ingredients').append('<p class="error-message">You must enter at least one ingredient.</p>'); //!!mwp
+            var ingredients = $('#amd_zlrecipe_ingredients textarea').val();
+            if (ingredients==null || ingredients=='' || ingredients==undefined) {
+                $('#amd_zlrecipe_ingredients textarea').addClass('input-error');
+                $('#amd_zlrecipe_ingredients').append('<p class="error-message">You must enter at least one ingredient.</p>');
 
                 return false;
             }
             window.parent.amdZLRecipeInsertIntoPostEditor('$recipe_id','$url','$dirname');
-            top.tinymce.activeEditor.windowManager.close();
+            top.tinymce.activeEditor.windowManager.close(); // FIXME for earlier WP versions
         }
 
         $(document).ready(function() {
@@ -1054,13 +1017,13 @@ function amd_zlrecipe_plugin_footer() {
 
         		ed.execCommand('mceInsertContent', false, output);
 
-        	} else if ( typeof edInsertContent == 'function' ) {  //!!mwp path followed when in HTML editor mode
-                output = '[amd-zlrecipe-recipe:'; //!!mwp
+        	} else if ( typeof edInsertContent == 'function' ) {  // path followed when in HTML editor mode
+                output = '[amd-zlrecipe-recipe:';
                 output += rid;
                 output += ']';
                 edInsertContent(edCanvas, output);
         	} else {
-                output = '[amd-zlrecipe-recipe:'; //!!mwp
+                output = '[amd-zlrecipe-recipe:';
                 output += rid;
                 output += ']';
         		jQuery( edCanvas ).val( jQuery( edCanvas ).val() + output );
@@ -1098,7 +1061,7 @@ function amd_zlrecipe_convert_to_recipe($post_text) {
             $recipe_id = str_replace('[amd-zlrecipe-recipe:', '', $match);
             $recipe_id = str_replace(']', '', $recipe_id);
             $recipe = amd_zlrecipe_select_recipe_db($recipe_id);
-            $formatted_recipe = amd_zlrecipe_format_recipe($recipe); //!!mwp
+            $formatted_recipe = amd_zlrecipe_format_recipe($recipe);
             $output = str_replace('[amd-zlrecipe-recipe:' . $recipe_id . ']', $formatted_recipe, $output);
         }
     }
@@ -1403,7 +1366,7 @@ function amd_zlrecipe_format_recipe($recipe) {
 
     $output .= '<' . $ingredient_type . ' id="zlrecipe-ingredients-list">';
     $i = 0;
-    $ingredients = explode("\n", $recipe->ingredients); //!!mwp
+    $ingredients = explode("\n", $recipe->ingredients);
     foreach ($ingredients as $ingredient) {
 		$output .= amd_zlrecipe_format_item($ingredient, $ingredient_tag, 'ingredient', 'ingredients', 'zlrecipe-ingredient-', $i);
         $i++;
@@ -1452,17 +1415,17 @@ function amd_zlrecipe_format_recipe($recipe) {
 
 	}
 
-	//!!mwp add ZipList attribution and version
+	// ZipList attribution and version
     if (strcmp(get_option('ziplist_attribution_hide'), 'Hide') != 0)
 	    $output .= '<div class="zl-linkback">Schema/Recipe SEO Data Markup by <a title="ZipList Recipe Plugin" alt="ZipList Recipe Plugin" href="http://www.ziplist.com/recipe_plugin" target="_blank">ZipList Recipe Plugin</a></div>';
     $output .= '<div class="ziplist-recipe-plugin" style="display: none;">' . AMD_ZLRECIPE_VERSION_NUM . '</div>';
 
-    //!!mwp add permalink for printed output before closing the innerdiv
+    // Add permalink for printed output before closing the innerdiv
     if (strcmp(get_option('zlrecipe_printed_permalink_hide'), 'Hide') != 0) {
 		$output .= '<a id="zl-printed-permalink" href="' . $permalink . '"title="Permalink to Recipe">' . $permalink . '</a>';
 	}
 
-    $output .= '</div>'; //!!dc
+    $output .= '</div>';
 
     // Add copyright statement for printed output (outside the dotted print line)
     $printed_copyright_statement = get_option('zlrecipe_printed_copyright_statement');
@@ -1477,4 +1440,3 @@ function amd_zlrecipe_format_recipe($recipe) {
 
     return $output;
 }
-
