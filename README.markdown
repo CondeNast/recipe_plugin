@@ -165,9 +165,9 @@ Changelog
 
 2.4 Editor Upgrade, Performance and Bugfix Release
 
-* Simpler, single-button recipe add/edit button
+* Simpler, single-button recipe add/edit button in post edit
 * Improved mobile compatibility with mobile-based Add Recipe popup
-* Simpler recipe button customizations
+* Easier recipe/print button customizations for web output
 * Improved character encoding and handling - thanks [smerriman!](http://github.com/smerriman)
 * Improved blogger site performance with CDN cached assets
 
