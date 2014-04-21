@@ -56,7 +56,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
 
 			editor.addButton( 'amdzlrecipe', {
 				title: 'ZipList Recipe',
-				image: url + '/zlrecipe.gif',
+				image: url + '/zlrecipe.png',
 				onclick: function() {
 					var recipe_id = null;
 					if (recipe = editor.dom.select('img.amd-zlrecipe-recipe')[0]) {
