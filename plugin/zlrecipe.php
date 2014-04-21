@@ -799,7 +799,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
                 return false;
             }
             window.parent.amdZLRecipeInsertIntoPostEditor('$recipe_id','$url','$dirname');
-            top.tinymce.activeEditor.windowManager.close(); // FIXME for earlier WP versions
+            top.tinymce.activeEditor.windowManager.close(window);
         }
 
         $(document).ready(function() {
