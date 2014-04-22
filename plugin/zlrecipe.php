@@ -427,8 +427,6 @@ function amd_zlrecipe_settings() {
                     </th>
                     <td>
                         <input placeholder="URL to custom Save Recipe button image" type="text" name="custom-save-image" value="' . $custom_save_image . '" class="regular-text" />
-                        <br />
-                        <span>For help with image URLs, <a href="blog.ziplist.com">click here</a>.</span>
                     </td>
                 </tr>
                 <tr valign="top">
@@ -439,8 +437,6 @@ function amd_zlrecipe_settings() {
                     </th>
                     <td>
                         <input placeholder="URL to custom Print button image" type="text" name="custom-print-image" value="' . $custom_print_image . '" class="regular-text" />
-						<br />
-						<span>For help with image URLs, <a href="blog.ziplist.com">click here</a>.</span>
                     </td>
                 </tr>
                 <tr valign="top">
