@@ -64,7 +64,7 @@ You can download and install the ZipList Recipe Plugin using the built-in WordPr
 
 Activate the ZipList Recipe Plugin in the "Plugins" admin panel using the "Activate" link.
 
-To use the plugin, click the little ZipList Recipe icon on the "Edit Post" pages, right next to the other "Upload/Insert" links at the top of the text editor box. Then enter the details about your recipe into the appropriate boxes, and then click the "Add Recipe" button. This will save your recipe, and insert it into your blog post.
+To use the plugin, click the little ZipList Recipe icon on the "Edit Post" pages, right next to the other editor toolbar buttons at the top of the text editor box. Then enter the details about your recipe into the appropriate boxes, and then click the "Add Recipe" button. This will save your recipe, and insert it into your blog post.
 
 The ZipList Recipe Plugin is very easy use, however, we also provide enhanced [step-by-step instructions](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf). If you have more questions on how to use the plugin, feel free to reach out to ZipList at [plugins@ziplist.com](mailto:plugins@ziplist.com).
 
@@ -116,7 +116,7 @@ You can email [ZipList](mailto:support@ziplist.com) with your requests.
 Screenshots
 -----------
 
-### The ZipList Recipe Plugin icon is located next to the other "Upload/Insert" media icons.
+### The ZipList Recipe Plugin icon appears as a fork and spoon on the visual editor toolbar.
 
 ![Screen Shot 1](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-1.png)
 
@@ -124,7 +124,7 @@ Screenshots
 
 ![Screen Shot 2](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-2.png)
 
-### There is no limit on the number of ingredients you can add.
+### There is no limit to the number of ingredients you can add.
 
 ![Screen Shot 3](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-3.png)
 
@@ -136,7 +136,7 @@ Screenshots
 
 ![Screen Shot 5](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-5.png)
 
-### Once you click the "Add Recipe" button, a placeholder image will be inserted into your post where your recipe will go.
+### Once you click the "Add Recipe" button, a placeholder image will be inserted into your post where your recipe will go. If you need to edit your recipe, simply click on the spoon and fork icon in the visual editor toolbar (you do not need to click on the recipe placeholder as you did in previous releases of the plugin).
 
 ![Screen Shot 6](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-6.png)
 
@@ -148,17 +148,13 @@ Screenshots
 
 ![Screen Shot 8](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-8.png)
 
-### But what if you want to make changes to the recipe you just entered?  All you have to do is click on the placeholder image, and then click on the big fat edit image (the left-hand one).
+### Make your changes and click the "Update Recipe" button...
 
 ![Screen Shot 9](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-9.png)
 
-### Make your changes and click the "Update Recipe" button...
-
-![Screen Shot 10](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-10.png)
-
 ### Edited!  Easy as can be.
 
-![Screen Shot 11](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-11.png)
+![Screen Shot 10](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-10.png)
 
 Changelog
 =========
