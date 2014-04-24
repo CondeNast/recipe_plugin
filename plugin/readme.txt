@@ -69,6 +69,18 @@ The ZipList Recipe Plugin is very easy use, however, we also provide enhanced [s
 
 == Frequently Asked Questions ==
 
+= How do I edit a recipe with the ZipList Recipe Plugin? =
+
+Starting with version 2.4, you'll want to click the spoon and fork icon on the visual editor toolbar to both create and edit a recipe. You no longer need to click on the image placeholder within the blog post to edit a recipe.
+
+= Can I use the plugin to add multiple recipes to one post or page? =
+
+There should only be one recipe per post or page. The plugin does allow for compound recipes which is one way to include multiple lists of ingredients in your post (e.g., for a salad and a salad dressing).Simply enter your instructions for the main recipe, then start the next line with an exclamation point to create a label, like "!For the Salad Dressing". Then, add the instructions for the secondary recipe. Starting with version 2.4, we no longer support multiple ZipList-formatted recipes within a single post.
+
+= I created a specially-designed Save Recipe button to match my website, but when I upgraded the plugin, my customizations disappeared. How can I get them back? =
+
+Starting with version 2.4, we no longer support using custom CSS to integrate a designer Save Recipe button. However, we added a new feature to make it easier for you to add in a custom Save Recipe button. Simply go into the plugin settings and toward the top of the page you'll see fields to enter custom image URLs for your Save Recipe and Print buttons, should you choose to do so.
+
 = Where can my readers view the recipes that have been added to their recipe box or shopping list? =
 
 When your recipes are saved to a reader's recipe box or shopping list, they are accessible anytime, anywhere on ZipList's free website or mobile apps. We permit, and even encourage, linking to the standard recipe box and shopping list on your site to help users find your saved recipes even faster.
@@ -102,10 +114,6 @@ If ZipList ever does "go away", you can simply uncheck the option to show the Zi
 = Why do you put a placeholder image into my Edit Post page, instead of my actual recipe? =
 
 Because of the way WordPress' text editor works, if you decide to add or remove something from your recipe using the text editor, it can very easily mess up the markup of the code - so the ZipList plugin prevents that from happening by not allowing you to edit the recipe in the text editor.
-
-= Can I use the plugin to add multiple recipes to one post or page?
-
-There should only be recipe per post or page. The plugin does allow for compound recipes which is one way to include multiple lists of ingredients in your post.Simply enter your instructions or the main recipe, then start the next line with an exclamation point to create a label, like "!For the Salad Dressing". Then, add the instructions for the secondary recipe.
 
 = How can I request a feature to be added in future versions of the ZipList Recipe Plugin? =
 
