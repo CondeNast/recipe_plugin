@@ -130,8 +130,6 @@ You can email mailto:support@ziplist.com with your requests.
 6. Once you click the "Add Recipe" button, a placeholder image will be inserted into your post where your recipe will go. If you need to edit your recipe, simply click on the spoon and fork icon in the visual editor toolbar (you do not need to click on the recipe placeholder as you did in previous releases of the plugin).
 7. Once you preview or publish the post, your recipe will be there with all your microformats... without any extra work from you!
 8. Voila! Your new recipe can easily be styled with CSS, to look however you would like.
-9. Make your changes and click the "Update Recipe" button...
-10. Edited!  Easy as can be.
 
 == Changelog ==
 

@@ -156,14 +156,6 @@ Screenshots
 
 ![Screen Shot 8](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-8.png)
 
-### Make your changes and click the "Update Recipe" button...
-
-![Screen Shot 9](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-9.png)
-
-### Edited!  Easy as can be.
-
-![Screen Shot 10](https://github.com/Ziplist/recipe_plugin/raw/master/plugin/screenshot-10.png)
-
 Changelog
 =========
 
