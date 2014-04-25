@@ -536,7 +536,7 @@ function amd_zlrecipe_settings() {
 }
 
 function amd_zlrecipe_tinymce_plugin($plugin_array) {
-	$plugin_array['amdzlrecipe'] = plugins_url( '/zlrecipe_editor_plugin.js', __FILE__ );
+	$plugin_array['amdzlrecipe'] = plugins_url( '/zlrecipe_editor_plugin.js?sver=' . AMD_ZLRECIPE_VERSION_NUM, __FILE__ );
 	return $plugin_array;
 }
 
