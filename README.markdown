@@ -13,7 +13,7 @@ Formats recipes so they are SEO-friendly and more likely to appear in Google’s
  * License: GPLv3 or later
  * Requires at least: 3.1
  * Tested up to: 3.9
- * Version: 2.4
+ * Version: 2.5
 
 Description
 -----------

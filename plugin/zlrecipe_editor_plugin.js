@@ -97,7 +97,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
                 author : 'ZipList, Inc.',
                 authorurl : 'http://www.ziplist.com/',
                 infourl : 'http://www.ziplist.com/recipe_plugin',
-                version : "2.4"
+                version : "2.5"
             };
         }
 	});
