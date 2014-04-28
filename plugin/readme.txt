@@ -132,6 +132,10 @@ You can email mailto:support@ziplist.com with your requests.
 8. Voila! Your new recipe can easily be styled with CSS, to look however you would like.
 
 == Changelog ==
+2.5 Bugfix Release
+
+* Fixes problem of not properly opening recipe dialog in separate window on some sites
+* Documentation updates for new editing method
 
 2.4 Editor Upgrade, Performance and Bugfix Release
 
@@ -142,6 +146,7 @@ You can email mailto:support@ziplist.com with your requests.
 * Improved blogger site performance with CDN cached assets
 
 2.3 Emergency Fix for WordPress 3.9 upgrade to TinyMCE v4
+
 * Editor disabled, view recipes only
 * Early introductions of v2.4 features
 
@@ -152,7 +157,7 @@ You can email mailto:support@ziplist.com with your requests.
 2.0 Features Release
 
 * Move to Schema.org/Recipe from hrecipe microformat
-* Bold and Italic formatting of ingredients, instructions, summary and note
+* Bold and Italic formatting of ingredients, instructions, summary and notes
 * Confirm stability on WP 3.3.1
 
 1.41 Bugfix Release
