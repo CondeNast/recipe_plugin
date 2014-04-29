@@ -98,7 +98,7 @@ function amd_zlrecipe_js_vars() {
     global $current_screen;
     $type = $current_screen->post_type;
 
-    if (is_admin() && $type == 'post' || $type == 'page') {
+    if (is_admin()) {
         ?>
         <script type="text/javascript">
         var post_id = '<?php global $post; echo $post->ID; ?>';
@@ -551,9 +551,7 @@ function amd_zlrecipe_add_recipe_button() {
     if ( !current_user_can('edit_posts') && !current_user_can('edit_pages') ) {
    	return;
     }
-    // verify the post type
-    if( ! in_array( $typenow, array( 'post', 'page' ) ) )
-        return;
+
 	// check if WYSIWYG is enabled
 	if ( get_user_option('rich_editing') == 'true') {
 		add_filter('mce_external_plugins', 'amd_zlrecipe_tinymce_plugin');
