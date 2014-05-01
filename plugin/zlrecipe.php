@@ -1124,7 +1124,7 @@ function amd_zlrecipe_format_duration($duration) {
 function amd_zlrecipe_process_head() {
 
 	// Always add the print script
-    $header_html='<script type="text/javascript" src="' . AMD_ZLRECIPE_PLUGIN_DIRECTORY . 'zlrecipe_print.js"></script>
+    $header_html='<script type="text/javascript" async="" src="' . AMD_ZLRECIPE_PLUGIN_DIRECTORY . 'zlrecipe_print.js"></script>
 ';
 
 	// Recipe styling
