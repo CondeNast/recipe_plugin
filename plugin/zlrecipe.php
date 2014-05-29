@@ -43,7 +43,7 @@ if (!defined('AMD_ZLRECIPE_VERSION_NUM'))
     define('AMD_ZLRECIPE_VERSION_NUM', '2.5');
 
 if (!defined('AMD_ZLRECIPE_PLUGIN_DIRECTORY'))
-    define('AMD_ZLRECIPE_PLUGIN_DIRECTORY', get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/');
+    define('AMD_ZLRECIPE_PLUGIN_DIRECTORY', site_url() . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/');
 
 add_option(AMD_ZLRECIPE_VERSION_KEY, AMD_ZLRECIPE_VERSION_NUM);  // sort of useless as is never updated
 add_option("amd_zlrecipe_db_version"); // used to store DB version
@@ -984,7 +984,7 @@ function amd_zlrecipe_insert_db($post_info) {
 
 // Inserts the recipe into the post editor
 function amd_zlrecipe_plugin_footer() {
-    $url = get_option('siteurl');
+    $url = site_url();
     $dirname = dirname(plugin_basename(__FILE__));
 
     echo <<< HTML
@@ -1047,7 +1047,7 @@ function amd_zlrecipe_convert_to_recipe($post_text) {
             $recipe_id = str_replace('"', '', $recipe_id);
             $recipe = amd_zlrecipe_select_recipe_db($recipe_id);
             $formatted_recipe = amd_zlrecipe_format_recipe($recipe);
-            $output = str_replace('<img id="amd-zlrecipe-recipe-' . $recipe_id . '" class="amd-zlrecipe-recipe" src="' . get_option('siteurl') . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/zlrecipe-placeholder.png?ver=1.0" alt="" />', $formatted_recipe, $output);
+            $output = str_replace('<img id="amd-zlrecipe-recipe-' . $recipe_id . '" class="amd-zlrecipe-recipe" src="' . site_url() . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/zlrecipe-placeholder.png?ver=1.0" alt="" />', $formatted_recipe, $output);
         }
     }
 
