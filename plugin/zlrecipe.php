@@ -762,7 +762,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
 	$notes = esc_textarea($notes);
 
     $id = (int) $_REQUEST["post_id"];
-    $url = get_option('siteurl');
+    $url = site_url();
     $dirname = dirname(plugin_basename(__FILE__));
     $submitform = '';
     if ($post_info != null) {
