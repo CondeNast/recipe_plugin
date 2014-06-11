@@ -43,8 +43,10 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
 
 			//replace shortcode as its inserted into editor (which uses the exec command)
 			editor.onExecCommand.add(function(ed, cmd) {
-				if (cmd ==='mceInsertContent'){
+				if (cmd ==='mceInsertContent') {
+					var bm = tinyMCE.activeEditor.selection.getBookmark();
 					tinyMCE.activeEditor.setContent( t._convert_codes_to_imgs(tinyMCE.activeEditor.getContent()) );
+					tinyMCE.activeEditor.selection.moveToBookmark(bm);
 				}
 			});
 
