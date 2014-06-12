@@ -202,7 +202,7 @@ function amd_zlrecipe_settings() {
         wp_die('You do not have sufficient permissions to access this page.');
     }
 
-    $zlrecipe_icon = AMD_ZLRECIPE_PLUGIN_DIRECTORY . "zlrecipe.gif";
+    $zlrecipe_icon = AMD_ZLRECIPE_PLUGIN_DIRECTORY . "zlrecipe.png";
 
     if ($_POST['ingredient-list-type']) {
 		foreach ($_POST as $key=>$val) {
@@ -1206,7 +1206,7 @@ function amd_zlrecipe_format_recipe($recipe) {
     	$button_image = 'Print'; // NOT a button image in this case, but this is the legacy version
 		if (strlen($custom_print_image) > 0) {
 			$button_type = 'print-link';
-			$button_image = '<img src=\'' . $custom_print_image . '\'>';
+			$button_image = '<img src="' . $custom_print_image . '">';
 		}
 		$output .= '<div class="zlrecipe-print-link fl-r"><a class="' . $button_type . '" title="Print this recipe" href="javascript:void(0);" onclick="zlrPrint(\'zlrecipe-container-' . $recipe->recipe_id . '\'); return false">' . $button_image . '</a></div>';
 	}
