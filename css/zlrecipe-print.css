@@ -26,6 +26,9 @@ Copyright 2011, 2012 ZipList, Inc.
 /* SPECIFIC PRINT ELEMENT STYLES */
 #zlrecipe-container .hide-print { display: none; } /* used to hide things in the recipe print view */
 
+#zlrecipe-print-container .pinit-overlay {display: none !important} /* used to hide the pinit plugin overlay */
+/* this requires an important statement because the style is inline */
+
 #zlrecipe-print-container {
   font-family: 'helvetica neue', helvetica, arial, verdana, sans-serif;
   margin: 0px;
