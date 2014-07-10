@@ -83,7 +83,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
 
 		_convert_codes_to_imgs : function(co) {
             return co.replace(/\[amd-zlrecipe-recipe:([0-9]+)\]/g, function(a, b) {
-                return '<img id="amd-zlrecipe-recipe-'+b+'" class="amd-zlrecipe-recipe" src="' + baseurl + '/wp-content/plugins/' + dirname + '/zlrecipe-placeholder.png" alt="" />';
+								return '<img id="amd-zlrecipe-recipe-'+b+'" class="amd-zlrecipe-recipe" src="' + pluginsurl + '/' + dirname + '/zlrecipe-placeholder.png" alt="" />';
             });
 		},
 
