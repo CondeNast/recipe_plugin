@@ -43,7 +43,7 @@ if (!defined('AMD_ZLRECIPE_VERSION_NUM'))
     define('AMD_ZLRECIPE_VERSION_NUM', '2.5');
 
 if (!defined('AMD_ZLRECIPE_PLUGIN_DIRECTORY'))
-    define('AMD_ZLRECIPE_PLUGIN_DIRECTORY', site_url() . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/');
+		define('AMD_ZLRECIPE_PLUGIN_DIRECTORY', plugins_url() . '/' . dirname(plugin_basename(__FILE__)) . '/');
 
 add_option(AMD_ZLRECIPE_VERSION_KEY, AMD_ZLRECIPE_VERSION_NUM);  // sort of useless as is never updated
 add_option("amd_zlrecipe_db_version"); // used to store DB version
@@ -763,6 +763,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
 
     $id = (int) $_REQUEST["post_id"];
     $url = site_url();
+		$pluginsurl = plugins_url();
     $dirname = dirname(plugin_basename(__FILE__));
     $submitform = '';
     if ($post_info != null) {
@@ -773,7 +774,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
 
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="$url/wp-content/plugins/$dirname/zlrecipe-dlog.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="$pluginsurl/$dirname/zlrecipe-dlog.css" type="text/css" media="all" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript">//<!CDATA[
 
@@ -985,6 +986,7 @@ function amd_zlrecipe_insert_db($post_info) {
 // Inserts the recipe into the post editor
 function amd_zlrecipe_plugin_footer() {
     $url = site_url();
+		$pluginsurl = plugins_url();
     $dirname = dirname(plugin_basename(__FILE__));
 
     echo <<< HTML
@@ -996,6 +998,7 @@ function amd_zlrecipe_plugin_footer() {
     </style>
     <script>//<![CDATA[
     var baseurl = '$url';
+		var pluginsurl = '$pluginsurl';
     var dirname = '$dirname';
         function amdZLRecipeInsertIntoPostEditor(rid,getoption,dirname) {
             tb_remove();
@@ -1004,7 +1007,7 @@ function amd_zlrecipe_plugin_footer() {
 
             var output = '<img id="amd-zlrecipe-recipe-';
             output += rid;
-            output += '" class="amd-zlrecipe-recipe" src="' + getoption + '/wp-content/plugins/' + dirname + '/zlrecipe-placeholder.png" alt="" />';
+						output += '" class="amd-zlrecipe-recipe" src="' + pluginsurl + '/' + dirname + '/zlrecipe-placeholder.png" alt="" />';
 
         	if ( typeof tinyMCE != 'undefined' && ( ed = tinyMCE.activeEditor ) && !ed.isHidden() && ed.id=='content') {  //path followed when in Visual editor mode
         		ed.focus();
@@ -1047,7 +1050,7 @@ function amd_zlrecipe_convert_to_recipe($post_text) {
             $recipe_id = str_replace('"', '', $recipe_id);
             $recipe = amd_zlrecipe_select_recipe_db($recipe_id);
             $formatted_recipe = amd_zlrecipe_format_recipe($recipe);
-            $output = str_replace('<img id="amd-zlrecipe-recipe-' . $recipe_id . '" class="amd-zlrecipe-recipe" src="' . site_url() . '/wp-content/plugins/' . dirname(plugin_basename(__FILE__)) . '/zlrecipe-placeholder.png?ver=1.0" alt="" />', $formatted_recipe, $output);
+						$output = str_replace('<img id="amd-zlrecipe-recipe-' . $recipe_id . '" class="amd-zlrecipe-recipe" src="' . plugins_url() . '/' . dirname(plugin_basename(__FILE__)) . '/zlrecipe-placeholder.png?ver=1.0" alt="" />', $formatted_recipe, $output);
         }
     }
 
