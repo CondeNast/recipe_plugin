@@ -3,7 +3,7 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 2.4
+Version: 2.5
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv3 or later
@@ -41,6 +41,14 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
 				o.content = t._convert_codes_to_imgs(o.content);
 			});
 
+			/* FIXME
+			editor.on('BeforeSetcontent', function(event){
+				//console.log(event);
+				event.content = t._convert_codes_to_imgs(event.content);
+				//console.log('post');
+			});
+			*/
+
 			//replace shortcode as its inserted into editor (which uses the exec command)
 			editor.onExecCommand.add(function(ed, cmd) {
 				if (cmd ==='mceInsertContent') {
@@ -49,6 +57,13 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
 					tinyMCE.activeEditor.selection.moveToBookmark(bm);
 				}
 			});
+
+			/* FIXME
+			editor.on('ExecCommand', function(e) {
+				console.log('ExecCommand event', e);
+				something happens
+			});
+			*/
 
 			//replace the image back to shortcode on save
 			editor.onPostProcess.add(function(ed, o) {
