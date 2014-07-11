@@ -132,6 +132,11 @@ You can email mailto:support@ziplist.com with your requests.
 8. Voila! Your new recipe can easily be styled with CSS, to look however you would like.
 
 == Changelog ==
+2.6 Maintenance Release
+
+* other stuff
+* Support custom content directories - thanks [derekhubbard!](https://github.com/derekhubbard)
+
 2.5 Bugfix Release
 
 * Fixes problem of not properly opening recipe dialog in separate window on some sites
