@@ -762,9 +762,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
 	$notes = esc_textarea($notes);
 
     $id = (int) $_REQUEST["post_id"];
-    $url = site_url();
-		$pluginsurl = plugins_url();
-    $dirname = dirname(plugin_basename(__FILE__));
+    $plugindir = AMD_ZLRECIPE_PLUGIN_DIRECTORY;
     $submitform = '';
     if ($post_info != null) {
         $submitform .= "<script>window.onload = amdZLRecipeSubmitForm;</script>";
@@ -774,7 +772,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
 
 <!DOCTYPE html>
 <head>
-		<link rel="stylesheet" href="$pluginsurl/$dirname/zlrecipe-dlog.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="$plugindir/zlrecipe-dlog.css" type="text/css" media="all" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript">//<!CDATA[
 
@@ -794,7 +792,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
 
                 return false;
             }
-            window.parent.amdZLRecipeInsertIntoPostEditor('$recipe_id','$url','$dirname');
+            window.parent.amdZLRecipeInsertIntoPostEditor('$recipe_id');
             top.tinymce.activeEditor.windowManager.close(window);
         }
 
@@ -985,9 +983,8 @@ function amd_zlrecipe_insert_db($post_info) {
 
 // Inserts the recipe into the post editor
 function amd_zlrecipe_plugin_footer() {
-    $url = site_url();
-		$pluginsurl = plugins_url();
-    $dirname = dirname(plugin_basename(__FILE__));
+	$url = site_url();
+	$plugindir = AMD_ZLRECIPE_PLUGIN_DIRECTORY;
 
     echo <<< HTML
     <style type="text/css" media="screen">
@@ -997,17 +994,17 @@ function amd_zlrecipe_plugin_footer() {
         #wp_editrecipebtn:hover,#wp_delrecipebtn:hover { background:#000; filter:alpha(opacity=100); -moz-opacity:1; -khtml-opacity: 1; opacity: 1; }
     </style>
     <script>//<![CDATA[
-    var baseurl = '$url';
-		var pluginsurl = '$pluginsurl';
-    var dirname = '$dirname';
-        function amdZLRecipeInsertIntoPostEditor(rid,getoption,dirname) {
+    var baseurl = '$url';          // This variable is used by the editor plugin
+    var plugindir = '$plugindir';  // This variable is used by the editor plugin
+
+        function amdZLRecipeInsertIntoPostEditor(rid) {
             tb_remove();
 
             var ed;
 
             var output = '<img id="amd-zlrecipe-recipe-';
             output += rid;
-						output += '" class="amd-zlrecipe-recipe" src="' + pluginsurl + '/' + dirname + '/zlrecipe-placeholder.png" alt="" />';
+						output += '" class="amd-zlrecipe-recipe" src="' + plugindir + '/zlrecipe-placeholder.png" alt="" />';
 
         	if ( typeof tinyMCE != 'undefined' && ( ed = tinyMCE.activeEditor ) && !ed.isHidden() && ed.id=='content') {  //path followed when in Visual editor mode
         		ed.focus();
