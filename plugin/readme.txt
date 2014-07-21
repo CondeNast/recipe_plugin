@@ -9,7 +9,7 @@ Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipe, recipe card, recipe box, shopping list, grocery list, save recipe, print recipe, hrecipe, schema.org, google rich snippets, seo, recipe seo
 Requires at least: 3.1
-Tested up to: 3.9
+Tested up to: 3.9.1
 Stable tag: 2.5
 Version: 2.5
 
