@@ -12,8 +12,8 @@ Formats recipes so they are SEO-friendly and more likely to appear in Google’s
  * Tags: recipe, recipe card, recipe box, shopping list, grocery list, save recipe, print recipe, hrecipe, schema.org, google rich snippets, seo, recipe seo
  * License: GPLv3 or later
  * Requires at least: 3.1
- * Tested up to: 3.9
- * Version: 2.5
+ * Tested up to: 3.9.1
+ * Version: 2.6
 
 Description
 -----------
@@ -160,8 +160,10 @@ Changelog
 =========
 2.6 Maintenance Release
 
-* other stuff
-* Support custom content directories - thanks [derekhubbard!](https://github.com/derekhubbard)
+* Fix for blank Print page in some browsers
+* Support for custom post types
+* Support for SSL - thanks [jspuij!](https://github.com/jspuij)
+* Support for custom content directories - thanks [derekhubbard!](https://github.com/derekhubbard)
 
 2.5 Bugfix Release
 

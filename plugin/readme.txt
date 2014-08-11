@@ -10,8 +10,8 @@ Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: recipe, recipe card, recipe box, shopping list, grocery list, save recipe, print recipe, hrecipe, schema.org, google rich snippets, seo, recipe seo
 Requires at least: 3.1
 Tested up to: 3.9.1
-Stable tag: 2.5
-Version: 2.5
+Stable tag: 2.6
+Version: 2.6
 
 Formats recipes so they are SEO-friendly. Now fully supports WordPress 3.9.
 
@@ -134,8 +134,10 @@ You can email mailto:support@ziplist.com with your requests.
 == Changelog ==
 2.6 Maintenance Release
 
-* other stuff
-* Support custom content directories - thanks [derekhubbard!](https://github.com/derekhubbard)
+* Fix for blank Print page in some browsers
+* Support for custom post types
+* Support for SSL - thanks [jspuij!](https://github.com/jspuij)
+* Support for custom content directories - thanks [derekhubbard!](https://github.com/derekhubbard)
 
 2.5 Bugfix Release
 
