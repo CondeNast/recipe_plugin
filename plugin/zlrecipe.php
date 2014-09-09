@@ -90,7 +90,7 @@ add_option('zlrecipe_custom_print_image', '');
 register_activation_hook(__FILE__, 'amd_zlrecipe_install');
 add_action('plugins_loaded', 'amd_zlrecipe_install');
 
-add_action('admin_head', 'amd_zlrecipe_add_recipe_button');
+add_action('admin_init', 'amd_zlrecipe_add_recipe_button');
 add_action('admin_head','amd_zlrecipe_js_vars');
 
 function amd_zlrecipe_js_vars() {
@@ -101,7 +101,7 @@ function amd_zlrecipe_js_vars() {
     if (is_admin()) {
         ?>
         <script type="text/javascript">
-        var post_id = '<?php global $post; echo $post->ID; ?>';
+        var zl_post_id = '<?php global $post; echo $post->ID; ?>';
         </script>
         <?php
     }
@@ -527,6 +527,7 @@ function amd_zlrecipe_settings() {
     </div>';
 }
 
+
 function amd_zlrecipe_tinymce_plugin($plugin_array) {
 	$plugin_array['amdzlrecipe'] = plugins_url( '/zlrecipe_editor_plugin.js?sver=' . AMD_ZLRECIPE_VERSION_NUM, __FILE__ );
 	return $plugin_array;
@@ -538,7 +539,7 @@ function amd_zlrecipe_register_tinymce_button($buttons) {
 }
 
 function amd_zlrecipe_add_recipe_button() {
-    global $typenow;
+
     // check user permissions
     if ( !current_user_can('edit_posts') && !current_user_can('edit_pages') ) {
    	return;

@@ -80,7 +80,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
 						editor.selection.select(recipe);
 						recipe_id = /amd-zlrecipe-recipe-([0-9]+)/i.exec(editor.selection.getNode().id);
 					}
-					var iframe_url = baseurl + '/wp-admin/media-upload.php?post_id=' + ((recipe_id) ? '1-' + recipe_id[1] : post_id) + '&type=amd_zlrecipe&tab=amd_zlrecipe&TB_iframe=true&width=640&height=523';
+					var iframe_url = baseurl + '/wp-admin/media-upload.php?post_id=' + ((recipe_id) ? '1-' + recipe_id[1] : zl_post_id) + '&type=amd_zlrecipe&tab=amd_zlrecipe&TB_iframe=true&width=640&height=523';
 					editor.windowManager.open( {
 						title: 'Edit Recipe',
 						url: iframe_url,
