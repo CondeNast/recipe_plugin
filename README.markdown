@@ -12,7 +12,7 @@ Formats recipes so they are SEO-friendly and more likely to appear in Google’s
  * Tags: recipe, recipe card, recipe box, shopping list, grocery list, save recipe, print recipe, hrecipe, schema.org, google rich snippets, seo, recipe seo
  * License: GPLv3 or later
  * Requires at least: 3.1
- * Tested up to: 3.9.1
+ * Tested up to: 4.0
  * Version: 2.6
 
 Description
@@ -27,7 +27,7 @@ If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plu
 
 Among the new features added by ZipList are:
 
-**Works with WordPress 3.9:** Updated for full compatibility with WordPress 3.9.
+**Works with WordPress 3.9:** Updated for full compatibility with WordPress 4.0.
 
 **Schema/Recipe Support:** Automatically integrate Schema.org's Recipe mark-up into your recipe posts to make them more findable by search engines.
 
