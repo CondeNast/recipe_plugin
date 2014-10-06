@@ -1215,7 +1215,7 @@ function amd_zlrecipe_format_recipe($recipe) {
 			$button_type = 'custom';
 			$button_image = $custom_save_image;
 		}
-        $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script id="wk_script" src="http://www.zlcdn.com/javascripts/wk.js" type="text/javascript"></script><a class="ziplist-button add-recipe ' . $button_type . '" href="http://www.ziplist.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '" target="_blank"><img src="' . $button_image . '"></a>
+        $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script id="wk_script" src="http://www.zlcdn.com/javascripts/wk.js" type="text/javascript"></script><a class="ziplist-button add-recipe ' . $button_type . '" href="http://www.ziplist.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '" target="_blank"><img class="nopin" src="' . $button_image . '"></a>
                 </div>';
 		$bootstrapcall = '<script type="text/javascript">wk_bootstrap();</script>';	// used at end of recipe div
     }
