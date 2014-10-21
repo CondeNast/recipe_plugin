@@ -5,7 +5,7 @@ ZipList Recipe Plugin
 
 This code is derived from the 1.3.1 build of [RecipeSEO](http://sushiday.com/recipe-seo-plugin/) released by codeswan.
 
-Formats recipes so they are SEO-friendly and more likely to appear in Google’s Recipe View search. Plus, allows your readers quickly add your recipes to a simple shopping list.
+Formats recipes so they are SEO-friendly and more likely to appear in Google’s Recipe View search.
 
  * Contributors: ZipList Inc., codeswan
  * Donate: http://sushiday.com/recipe-seo-plugin/
