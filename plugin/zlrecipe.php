@@ -842,7 +842,7 @@ function amd_zlrecipe_iframe_content($post_info = null, $get_info = null) {
                 <p class="cls"><label>Total Time</label>
                     $total_time_input
                     <span class="time">
-                        <span><input type='number' min="0" max="24" name='total_time_hours' value='$total_time_hours' /><label>hours</label></span>
+                        <span><input type='number' min="0" max="240" name='total_time_hours' value='$total_time_hours' /><label>hours</label></span>
                         <span><input type='number' min="0" max="60" name='total_time_minutes' value='$total_time_minutes' /><label>minutes</label></span>
                     </span>
                 </p>
