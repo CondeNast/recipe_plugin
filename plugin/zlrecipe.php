@@ -1205,20 +1205,9 @@ function amd_zlrecipe_format_recipe($recipe) {
 	}
 
     // add the ZipList recipe button
-    $bootstrapcall = '';
     if (strcmp(get_option('ziplist_recipe_button_hide'), 'Hide') != 0) {
-		$ziplist_partner_key = get_option('ziplist_partner_key');
-		$button_image = 'http://asset1.ziplist.com/wk/add_recipe-large.png';
-		$button_type = 'large';
-		$custom_save_image = get_option('zlrecipe_custom_save_image');
-		if (strlen($custom_save_image) > 0) {
-			$button_type = 'custom';
-			$button_image = $custom_save_image;
-		}
-        $output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r"> <script id="wk_script" src="http://www.zlcdn.com/javascripts/wk.js" type="text/javascript"></script><a class="ziplist-button add-recipe ' . $button_type . '" href="http://www.ziplist.com/webkitchen/button/add_recipe?as_partner=' . $ziplist_partner_key . '&amp;url=' . urlencode($permalink) . '" target="_blank"><img class="nopin" src="' . $button_image . '"></a>
-                </div>';
-		$bootstrapcall = '<script type="text/javascript">wk_bootstrap();</script>';	// used at end of recipe div
-    }
+		$output .= '<div id="zl-recipe-link-' . $recipe->recipe_id . '" class="zl-recipe-link fl-r zl-rmvd"></div>';
+	}
 
 	// add the title and close the item class
 	$hide_tag = '';
@@ -1407,9 +1396,7 @@ function amd_zlrecipe_format_recipe($recipe) {
 
 	}
 
-	// ZipList attribution and version
-    if (strcmp(get_option('ziplist_attribution_hide'), 'Hide') != 0)
-	    $output .= '<div class="zl-linkback">Schema/Recipe SEO Data Markup by <a title="ZipList Recipe Plugin" alt="ZipList Recipe Plugin" href="http://www.ziplist.com/recipe_plugin" target="_blank">ZipList Recipe Plugin</a></div>';
+	// ZipList version
     $output .= '<div class="ziplist-recipe-plugin" style="display: none;">' . AMD_ZLRECIPE_VERSION_NUM . '</div>';
 
     // Add permalink for printed output before closing the innerdiv
@@ -1425,9 +1412,7 @@ function amd_zlrecipe_format_recipe($recipe) {
 		$output .= '<div id="zl-printed-copyright-statement" itemprop="copyrightHolder">' . $printed_copyright_statement . '</div>';
 	}
 
-	$output .= '</div>' . $bootstrapcall .
-			'<img id="zlrecipe-beacon" src="http://3po.ziplist.com/wp?url=' . urlencode($permalink) . '" width="0" height="0">
-		</div>';
+	$output .= '</div></div>';
 
     return $output;
 }
