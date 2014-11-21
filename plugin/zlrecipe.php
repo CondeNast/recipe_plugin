@@ -395,63 +395,16 @@ function amd_zlrecipe_settings() {
     <div class="wrap">
         <form enctype="multipart/form-data" method="post" action="" name="zlrecipe_settings_form">
             <h2><img src="' . $zlrecipe_icon . '" /> ZipList Recipe Plugin Settings</h2>
-            For full customization options, see the <a href="http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf" target="_blank">Instructions document</a>.
-            <table class="form-table">
-                <tr valign="top">
-                    <th scope="row">Partner Key</th>
-                    <td>
-                        <input placeholder="Please contact Ziplist to get your partner key" type="text" name="ziplist-partner-key" value="' . $ziplist_partner_key . '" class="regular-text" />
-                        <br />
-                        <span style="font-weight: bold;">Enhance recipe search and add your blog name and logo to your recipes.</span>
-                        <a href="http://www.ziplist.com/partner_signup" target="_blank">
-                            Request a free partner key now
-                        </a>
-                    </td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row">ZipList Recipe Box and Shopping List</th>
-                    <td><label><input type="checkbox" name="ziplist-recipe-button-hide" value="Hide" ' . $ziplist_recipe_button_hide . ' /> Don\'t enable these features</label></td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row">
-                    	Custom Save Recipe Button
-                    	<br />
-                    	(Optional)
-                    </th>
-                    <td>
-                        <input placeholder="URL to custom Save Recipe button image" type="text" name="custom-save-image" value="' . $custom_save_image . '" class="regular-text" />
-                    </td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row">
-                    	Custom Print Button
-                    	<br />
-                    	(Optional)
-                    </th>
-                    <td>
-                        <input placeholder="URL to custom Print button image" type="text" name="custom-print-image" value="' . $custom_print_image . '" class="regular-text" />
-                    </td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row">ZipList Recipe Plugin Link</th>
-                    <td><label><input type="checkbox" name="ziplist-attribution-hide" value="Hide" ' . $ziplist_attribution_hide . ' /> Don\'t show plugin link</label></td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row">Printed Output: Recipe Permalink</th>
-                    <td><label><input type="checkbox" name="printed-permalink-hide" value="Hide" ' . $printed_permalink_hide . ' /> Don\'t show permalink in printed output</label></td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row">Printed Output: Copyright Statement</th>
-                    <td><input type="text" name="printed-copyright-statement" value="' . $printed_copyright_statement . '" class="regular-text" /></td>
-                </tr>
-            </table>
-
+            <br />
+            This is the legacy ZipList recipe plugin. It will continue to function without the ZipList service. <br />
+            Everything can be styled with the included stylesheets. <br />
+            For full customization options, see the <a href="http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf" target="_blank">Customization and Instructions document</a>.
             <hr />
 			<h3>General</h3>
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row">Stylesheet</th>
-                    <td><label><input type="checkbox" name="stylesheet" value="zlrecipe-std" ' . $stylesheet . ' /> Use ZipList recipe style</label></td>
+                    <td><label><input type="checkbox" name="stylesheet" value="zlrecipe-std" ' . $stylesheet . ' /> Use legacy ZipList recipe style (included)</label></td>
                 </tr>
                 <tr valign="top">
                     <th scope="row">Recipe Title</th>
@@ -479,6 +432,28 @@ function amd_zlrecipe_settings() {
 						<select name="outer-border-style">' . $obs . '</select>
 					</td>
 				</tr>
+            </table>
+            <hr />
+			<h3>Printing</h3>
+            <table class="form-table">
+                <tr valign="top">
+                    <th scope="row">
+                    	Custom Print Button
+                    	<br />
+                    	(Optional)
+                    </th>
+                    <td>
+                        <input placeholder="URL to custom Print button image" type="text" name="custom-print-image" value="' . $custom_print_image . '" class="regular-text" />
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Printed Output: Recipe Permalink</th>
+                    <td><label><input type="checkbox" name="printed-permalink-hide" value="Hide" ' . $printed_permalink_hide . ' /> Don\'t show permalink in printed output</label></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Printed Output: Copyright Statement</th>
+                    <td><input type="text" name="printed-copyright-statement" value="' . $printed_copyright_statement . '" class="regular-text" /></td>
+                </tr>
             </table>
             <hr />
             <h3>Ingredients</h3>

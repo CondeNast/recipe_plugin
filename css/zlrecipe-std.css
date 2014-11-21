@@ -194,5 +194,7 @@ footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-contai
 #zlrecipe-container #zl-printed-permalink { display:none; font-size: 0.7em; }
 #zlrecipe-container #zl-printed-copyright-statement { display:none; font-size: 0.9em; }
 
+.zlrecipe-container-border #zlrecipe-beacon { display:none; }
+
 /* END SPECIFIC ELEMENT STYLES */
 
