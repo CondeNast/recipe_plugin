@@ -9,11 +9,11 @@ Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: google rich snippets, hrecipe, print recipe, recipe, recipe card, recipe seo, schema.org, seo
 Requires at least: 3.1
-Tested up to: 4.0
+Tested up to: 4.0.1
 Stable tag: 3.0
 Version: 3.0
 
-Formats recipes so they are SEO-friendly. Now fully supports WordPress 4.0.
+Formats recipes so they are SEO-friendly. Now fully supports WordPress 4.0.1.
 
 == Description ==
 
@@ -25,7 +25,7 @@ If you’re familiar with the open-source [RecipeSEO](http://recipeseo.com/) plu
 
 Among the new features added by ZipList are:
 
-**Works with WordPress 4.0:** Updated for full compatibility with WordPress 4.0.
+**Works with WordPress 4.0.1:** Updated for full compatibility with WordPress 4.0.1.
 
 **Schema/Recipe Support:** Automatically integrate Schema.org's Recipe mark-up into your recipe posts to make them more findable by search engines. 
 
