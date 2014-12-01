@@ -395,10 +395,9 @@ function amd_zlrecipe_settings() {
     <div class="wrap">
         <form enctype="multipart/form-data" method="post" action="" name="zlrecipe_settings_form">
             <h2><img src="' . $zlrecipe_icon . '" /> ZipList Recipe Plugin Settings</h2>
-            <br />
-            This is the legacy ZipList recipe plugin. It will continue to function without the ZipList service. <br />
-            Everything can be styled with the included stylesheets. <br />
-            For full customization options, see the <a href="http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf" target="_blank">Customization and Instructions document</a>.
+            <p>This is the legacy ZipList recipe plugin. It will continue to function without the ZipList service.</p>
+            <p>Everything can now be styled with the included stylesheets.</p>
+            <p>For full legacy customization options, see the <a href="http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf" target="_blank">Customization and Instructions document</a>.</p>
             <hr />
 			<h3>General</h3>
             <table class="form-table">
@@ -1098,7 +1097,7 @@ function amd_zlrecipe_process_head() {
 	// Recipe styling
 	$css = get_option('zlrecipe_stylesheet');
 	if (strcmp($css, '') != 0) {
-		$header_html .= '<link charset="utf-8" href="http://www.zlcdn.com/stylesheets/minibox/' . $css . '.css" rel="stylesheet" type="text/css" />
+		$header_html .= '<link charset="utf-8" href="' . AMD_ZLRECIPE_PLUGIN_DIRECTORY .  $css . '.css" rel="stylesheet" type="text/css" />
 ';
 	/* Dev Testing	$header_html .= '<link charset="utf-8" href="http://dev.ziplist.com.s3.amazonaws.com/' . $css . '.css" rel="stylesheet" type="text/css" />
 '; */
@@ -1176,7 +1175,7 @@ function amd_zlrecipe_format_recipe($recipe) {
 			$button_type = 'print-link';
 			$button_image = '<img src="' . $custom_print_image . '">';
 		}
-		$output .= '<div class="zlrecipe-print-link fl-r"><a class="' . $button_type . '" title="Print this recipe" href="javascript:void(0);" onclick="zlrPrint(\'zlrecipe-container-' . $recipe->recipe_id . '\'); return false">' . $button_image . '</a></div>';
+		$output .= '<div class="zlrecipe-print-link fl-r"><a class="' . $button_type . '" title="Print this recipe" href="javascript:void(0);" onclick="zlrPrint(\'zlrecipe-container-' . $recipe->recipe_id . '\', \'' . AMD_ZLRECIPE_PLUGIN_DIRECTORY . '\'); return false">' . $button_image . '</a></div>';
 	}
 
     // add the ZipList recipe button

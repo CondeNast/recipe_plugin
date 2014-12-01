@@ -198,3 +198,10 @@ footer, #zlrecipe-container header, #zlrecipe-container hgroup, #zlrecipe-contai
 
 /* END SPECIFIC ELEMENT STYLES */
 
+.zl-rmvd {
+	height: 27px;
+	width: 105px;
+	visibility: hidden;
+	pointer-events: none;
+	cursor: default;
+}
