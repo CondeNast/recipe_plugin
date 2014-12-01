@@ -10,8 +10,8 @@ Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: google rich snippets, hrecipe, print recipe, recipe, recipe card, recipe seo, schema.org, seo
 Requires at least: 3.1
 Tested up to: 4.0
-Stable tag: 2.6
-Version: 2.6
+Stable tag: 3.0
+Version: 3.0
 
 Formats recipes so they are SEO-friendly. Now fully supports WordPress 4.0.
 

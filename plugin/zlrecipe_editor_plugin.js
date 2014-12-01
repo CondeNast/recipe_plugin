@@ -3,12 +3,12 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 2.6
+Version: 3.0
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
 License: GPLv3 or later
 
-Copyright 2011, 2012 ZipList, Inc.
+Copyright 2011, 2012, 2013, 2014 ZipList, Inc.
 This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: http://sushiday.com/recipe-seo-plugin/
 */
 
@@ -114,7 +114,7 @@ This code is derived from the 1.3.1 build of RecipeSEO released by codeswan: htt
                 author : 'ZipList, Inc.',
                 authorurl : 'http://www.ziplist.com/',
                 infourl : 'http://www.ziplist.com/recipe_plugin',
-                version : "2.6"
+                version : "3.0"
             };
         }
 	});
