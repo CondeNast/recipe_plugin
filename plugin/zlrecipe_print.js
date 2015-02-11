@@ -3,10 +3,10 @@ Plugin Name: ZipList Recipe Plugin
 Plugin URI: http://www.ziplist.com/recipe_plugin
 Plugin GitHub: https://github.com/Ziplist/recipe_plugin
 Description: A plugin that adds all the necessary microdata to your recipes, so they will show up in Google's Recipe Search
-Version: 3.0
+Version: 3.1
 Author: ZipList.com
 Author URI: http://www.ziplist.com/
-License: CC 3.0 http://creativecommons.org/licenses/by/3.0/
+License: Direct license by original author - http://www.808.dk/?code-javascript-print 
 
 Copyright 2011, 2012, 2013, 2014 ZipList, Inc.
 This code is derived from an example provided by Ulrik D. Hansen and licensed under the Creative Commons Attribution License.

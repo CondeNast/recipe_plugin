@@ -9,9 +9,9 @@ Author: ZipList, Inc.
 Donate link: http://sushiday.com/recipe-seo-plugin/
 Tags: google rich snippets, hrecipe, print recipe, recipe, recipe card, recipe seo, schema.org, seo
 Requires at least: 3.1
-Tested up to: 4.0.1
-Stable tag: 3.0
-Version: 3.0
+Tested up to: 4.1
+Stable tag: 3.1
+Version: 3.1
 
 Formats recipes so they are SEO-friendly. Now fully supports WordPress 4.0.1.
 
@@ -49,8 +49,7 @@ Among the new features added by ZipList are:
 
 **Multiple Paragraph Support in Summary Section:** Users can now add multiple paragraphs to the Summary field within the plugin.
 
-The ZipList Recipe Plugin is very easy use, however, we also provide enhanced [step-by-step instructions](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf).
-
+The ZipList Recipe Plugin is very easy use, however we also provide enhanced [step-by-step instructions](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf). Please note that the ZipList Recipe Plugin is no longer actively maintained and may not be updated in the future.
 == Installation ==
 
 You can download and install the ZipList Recipe Plugin using the built-in WordPress plugin installer. If you download the ZipList Recipe Plugin manually, make sure it is uploaded to "/wp-content/plugins/ziplist-recipe-plugin/".
@@ -59,7 +58,7 @@ Activate the ZipList Recipe Plugin in the "Plugins" admin panel using the "Activ
 
 To use the plugin, click the little ZipList Recipe icon on the "Edit Post" pages, right next to the other editor toolbar buttons at the top of the text editor box. Then enter the details about your recipe into the appropriate boxes, and then click the "Add Recipe" button. This will save your recipe, and insert it into your blog post.
 
-The ZipList Recipe Plugin is very easy use, however, we also provide enhanced [step-by-step instructions.](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf)
+The ZipList Recipe Plugin is very easy use, however we also provide enhanced [step-by-step instructions](http://marketing.ziplist.com.s3.amazonaws.com/plugin_instructions.pdf). Please note that the ZipList Recipe Plugin is no longer actively maintained and may not be updated in the future.
 
 == Frequently Asked Questions ==
 
@@ -81,7 +80,7 @@ With the ZipList Recipe Plugin, your recipes are stored safely in a separate DB 
 
 = What happens to my recipes now that ZipList has gone away =
 
-The short answer is "nothing"! :) The ZipList Recipe Plugin simply takes the recipe information from your own database and displays it with SEO annotation. It does this without any connection or communication with the ZipList service and is completely independent. You will continue to enjoy SEO-friendly display of your recipes without any connection to ZipList.
+The short answer is "nothing"! :) The ZipList Recipe Plugin simply takes the recipe information from your own database and displays it with SEO annotation. It does this without any connection or communication with the ZipList service and is completely independent. You will continue to enjoy SEO-friendly display of your recipes without any connection to ZipList. Please note that the ZipList Recipe Plugin is no longer actively maintained and may not be updated in the future.
 
 = Why do you put a placeholder image into my Edit Post page, instead of my actual recipe? =
 
@@ -98,6 +97,10 @@ Because of the way the WordPress text editor works, if you decide to add or remo
 7. Once you preview or publish the post, your recipe will be there with all your microformats... without any extra work from you!
 
 == Changelog ==
+3.1 Documentation Update
+* Update readme to advise users of the end of maintenance support
+* Incorporated direct license for print support - thanks [Ulrik](http://www.808.dk/)
+
 3.0 Final Release
 
 * Remove Save Recipe button connection to ZipList service
